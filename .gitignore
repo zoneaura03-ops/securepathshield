@@ -1,0 +1,32 @@
+# Dependencies and Next.js build
+node_modules
+build
+.next
+tsconfig.tsbuildinfo
+tmp/*
+!tmp/.gitkeep
+
+# Secrets
+.env*
+!.env.example
+!.env.test
+
+# Frontend assets compiled code
+public/assets
+public/uploads/avatars/*
+
+# Build tools specific
+npm-debug.log
+yarn-error.log
+
+# Editors specific
+.fleet
+.idea
+.vscode
+
+# Platform specific
+.DS_Store
+
+storage/
+
+public/uploads/deposit-wallets/*

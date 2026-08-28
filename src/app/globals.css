@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #176b43;
+  --brand-dark: #0d4b31;
+  --brand-soft: #edf6f0;
+  --gold: #dda936;
+  --ink: #17211b;
+  --muted: #647069;
+  --surface: #f7f9f7;
+  --line: #e3e9e5;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--surface);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: var(--brand-dark);
+  padding: 0.75rem 1rem;
+  color: white;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+:focus-visible {
+  outline: 3px solid #dda936;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+h1,
+h2,
+h3,
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+button,
+a,
+input,
+select,
+textarea {
+  transition: 0.2s ease;
+}
+input,
+select,
+textarea {
+  outline: none;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(23, 107, 67, 0.1);
+}
+.card {
+  @apply border border-[#e3e9e5] bg-white shadow-[0_10px_30px_rgba(17,64,42,.06)];
+}
+.field {
+  @apply w-full rounded-md border border-[#d9e1dc] bg-white px-3 py-3 text-sm;
+}
+.btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-bank-600 px-5 py-3 text-sm font-semibold text-white hover:bg-bank-700 disabled:cursor-not-allowed disabled:opacity-50;
+}
+.label {
+  @apply mb-2 block text-xs font-semibold uppercase tracking-wide text-gray-600;
+}
+button[aria-label="Refresh dashboard"] svg,
+button[aria-label="Refresh transfers"] svg { display: none; }
+button[aria-label="Refresh dashboard"]::before,
+button[aria-label="Refresh transfers"]::before {
+  content: "\\21bb";
+  color: #176b43;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+}
+button[aria-label="Refresh dashboard"]:disabled::before { animation: spin 1s linear infinite; }
+@media print {
+  body * { visibility: hidden !important; }
+  .receipt-page, .receipt-page * { visibility: visible !important; }
+  .receipt-page { position: fixed; inset: 0; max-width: none !important; padding: 18mm; background: white; }
+  .receipt-paper { width: 100%; max-width: 175mm; margin: 0 auto; box-shadow: none !important; }
+  .receipt-print-button { display: none !important; }
+}

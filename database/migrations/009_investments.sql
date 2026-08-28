@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS investments (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id BIGINT UNSIGNED NOT NULL,
+  account_id BIGINT UNSIGNED NOT NULL,
+  reference VARCHAR(32) NOT NULL,
+  product ENUM('treasury','fixed_income','real_estate') NOT NULL,
+  principal DECIMAL(19,4) NOT NULL,
+  current_value DECIMAL(19,4) NOT NULL,
+  currency CHAR(3) NOT NULL,
+  target_rate DECIMAL(6,3) NOT NULL,
+  term_months SMALLINT UNSIGNED NOT NULL,
+  status ENUM('active','matured','closed') NOT NULL DEFAULT 'active',
+  started_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  maturity_date DATE NOT NULL,
+  closed_at DATETIME NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY investments_reference_unique (reference),
+  KEY investments_user_status_index (user_id, status, started_at),
+  CONSTRAINT investments_user_fk FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  CONSTRAINT investments_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

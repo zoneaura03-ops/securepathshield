@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS login_challenges (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT, user_id BIGINT UNSIGNED NOT NULL,
+  token_hash CHAR(64) NOT NULL, remember_me BOOLEAN NOT NULL DEFAULT FALSE,
+  expires_at DATETIME NOT NULL, created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(id), UNIQUE KEY login_challenge_token_unique(token_hash),
+  CONSTRAINT login_challenge_user_fk FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
