@@ -150,7 +150,7 @@ export default function AdminUserFunding() {
       )}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[.72fr_1.28fr]">
-        <section className="rounded-3xl border border-[#dfe7e2] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)]">
+        <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)]">
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
               <UserRound size={20} />
@@ -249,7 +249,7 @@ export default function AdminUserFunding() {
 
         <form
           onSubmit={fund}
-          className="rounded-3xl border border-[#dfe7e2] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)] sm:p-7"
+          className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)] sm:p-7"
         >
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
@@ -279,7 +279,7 @@ export default function AdminUserFunding() {
               {fundingOptions.map(([value, label, kind]) => (
                 <label
                   key={value}
-                  className={`flex cursor-pointer items-center gap-2 rounded-xl border px-3 py-3 text-xs font-semibold ${fundingType === value ? "border-bank-400 bg-bank-50 text-bank-800" : "border-[#e3e9e5] text-neutral-500"}`}
+                  className={`flex cursor-pointer items-center gap-2 rounded-xl border px-3 py-3 text-xs font-semibold ${fundingType === value ? "border-bank-400 bg-bank-50 text-bank-800" : "border-[#e2e7f0] text-neutral-500"}`}
                 >
                   <input
                     type="radio"

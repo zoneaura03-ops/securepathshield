@@ -205,7 +205,7 @@ export function DashboardShell({
   );
   return (
     <div className="min-h-screen bg-[#f5f8f6] lg:grid lg:grid-cols-[270px_1fr]">
-      <aside className="hidden min-h-screen border-r border-[#e3e9e5] bg-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
+      <aside className="hidden min-h-screen border-r border-[#e2e7f0] bg-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="border-b border-[#edf0ee] px-6 py-5">
           <Logo href="/dashboard" />
         </div>
@@ -231,7 +231,7 @@ export function DashboardShell({
         </div>
       </aside>
       <div className="min-w-0 pb-20 lg:pb-0">
-        <header className="sticky top-0 z-30 border-b border-[#e3e9e5] bg-white/95 backdrop-blur">
+        <header className="sticky top-0 z-30 border-b border-[#e2e7f0] bg-white/95 backdrop-blur">
           <div className="relative flex h-16 items-center justify-between px-4 sm:px-6 lg:h-[73px] lg:px-8">
             <button
               onClick={() => setDrawer(true)}
@@ -261,7 +261,7 @@ export function DashboardShell({
                   }}
                   aria-label={`Notifications${unreadCount ? `, ${unreadCount} unread` : ""}`}
                   aria-expanded={notificationOpen}
-                  className="relative grid size-10 place-items-center rounded-full border border-[#e3e9e5] text-neutral-600 hover:bg-neutral-50"
+                  className="relative grid size-10 place-items-center rounded-full border border-[#e2e7f0] text-neutral-600 hover:bg-neutral-50"
                 >
                   <Bell size={18} />
                   {unreadCount > 0 && (
@@ -271,7 +271,7 @@ export function DashboardShell({
                   )}
                 </button>
                 {notificationOpen && (
-                  <div className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-[min(25rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white shadow-[0_20px_55px_rgba(17,64,42,.18)]">
+                  <div className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-[min(25rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(23,35,63,.18)]">
                     <div className="border-b border-[#edf0ee] p-4">
                       <div className="flex items-center justify-between">
                         <div><p className="font-semibold">Notifications</p><p className="mt-0.5 text-[11px] text-neutral-500">{unreadCount ? `${unreadCount} unread` : "You're all caught up"}</p></div>
@@ -362,7 +362,7 @@ export function DashboardShell({
                 {profileOpen && (
                   <div
                     role="menu"
-                    className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-64 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white shadow-[0_20px_55px_rgba(17,64,42,.18)]"
+                    className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-64 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(23,35,63,.18)]"
                   >
                     <div className="flex items-center gap-3 border-b border-[#edf0ee] p-4">
                       <Image
@@ -416,7 +416,7 @@ export function DashboardShell({
               className="fixed inset-0 z-40 bg-[#071b12]/55 backdrop-blur-sm lg:hidden"
             />
             <aside className="fixed inset-y-0 left-0 z-50 flex w-[78%] min-w-[286px] max-w-[430px] flex-col bg-white shadow-2xl lg:hidden">
-              <div className="border-b border-[#e3e9e5] p-5">
+              <div className="border-b border-[#e2e7f0] p-5">
                 <div className="flex items-start gap-3">
                   <Image
                     src={avatarSrc}
@@ -465,7 +465,7 @@ export function DashboardShell({
                     <Link
                       href="/dashboard/support"
                       onClick={() => setDrawer(false)}
-                      className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#d9e1dc] bg-[#edf2ef] text-sm font-semibold"
+                      className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#d8dfeb] bg-[#f1f4f9] text-sm font-semibold"
                     >
                       Loan
                     </Link>
@@ -493,7 +493,7 @@ export function DashboardShell({
         <DashboardLiveChat />
         <nav
           aria-label="Mobile navigation"
-          className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-[#dfe6e1] bg-white/95 px-1 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_30px_rgba(17,64,42,.08)] backdrop-blur lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-[#dfe5ef] bg-white/95 px-1 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_30px_rgba(23,35,63,.08)] backdrop-blur lg:hidden"
         >
           {bottom.map(([name, href, Icon]) => {
             const active = path === href;

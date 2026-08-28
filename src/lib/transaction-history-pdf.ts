@@ -29,12 +29,12 @@ export async function buildTransactionHistoryPdf({
     .save()
     .opacity(0.045)
     .fontSize(64)
-    .fillColor("#176b43")
+    .fillColor("#17233f")
     .rotate(-32, { origin: [306, 396] })
     .text("SECUREPATH SHIELD", 95, 350, { width: 430, align: "center" })
     .restore();
   doc
-    .fillColor("#176b43")
+    .fillColor("#17233f")
     .fontSize(12)
     .text("SECUREPATH SHIELD", { characterSpacing: 3 });
   doc
@@ -58,7 +58,7 @@ export async function buildTransactionHistoryPdf({
         { continued: true },
       );
     doc
-      .fillColor(entry.type === "debit" ? "#a12a2a" : "#176b43")
+      .fillColor(entry.type === "debit" ? "#a12a2a" : "#17233f")
       .text(
         `  ${direction === "Debit" ? "-" : "+"}${entry.amount.toFixed(2)} ${currency}`,
         { align: "right" },
@@ -71,7 +71,7 @@ export async function buildTransactionHistoryPdf({
       );
     doc
       .moveDown(0.7)
-      .strokeColor("#dfe7e2")
+      .strokeColor("#dfe5ef")
       .moveTo(42, doc.y)
       .lineTo(570, doc.y)
       .stroke()

@@ -9,7 +9,7 @@ export function LogoLoader({
 }) {
   return (
     <div
-      className={`grid place-items-center ${transparent ? "bg-transparent" : "bg-[#f7f9f7]"} ${fullScreen ? "min-h-screen" : "min-h-[55vh]"}`}
+      className={`grid place-items-center ${transparent ? "bg-transparent" : "bg-[#f7f9fc]"} ${fullScreen ? "min-h-screen" : "min-h-[55vh]"}`}
       role="status"
       aria-live="polite"
       aria-label="Loading SecurePath Shield"

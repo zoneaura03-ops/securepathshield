@@ -31,7 +31,7 @@ const benefitIcons = [Smartphone, Globe2, Headphones, LockKeyhole];
 export default function FeaturesPage() {
   const { products, benefits, features } = publicContent;
   return (
-    <main className="min-h-screen bg-[#f7f9f7]">
+    <main className="min-h-screen bg-[#f7f9fc]">
       <PublicHeader />
       <section className="relative overflow-hidden bg-bank-900 px-5 py-24 text-center text-white sm:px-8 sm:py-32">
         <div className="absolute -right-24 -top-32 size-[430px] rounded-full bg-bank-600/20 blur-3xl" />
@@ -95,7 +95,7 @@ export default function FeaturesPage() {
                   <p className="mt-7 text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
                     {benefit}
                   </p>
-                  <h3 className="mt-2 text-2xl text-[#17211b]">{title}</h3>
+                  <h3 className="mt-2 text-2xl text-[#17233f]">{title}</h3>
                   <p className="mt-4 text-sm leading-7 text-neutral-500">
                     {copy}
                   </p>

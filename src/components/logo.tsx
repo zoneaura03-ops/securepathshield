@@ -1,11 +1,16 @@
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-export function BrandMark({ className = "h-8 w-8" }: { className?: string }) {
+export function BrandMark({ className = "h-9 w-9" }: { className?: string }) {
   return (
-    <ShieldCheck
+    <Image
+      src="/images/securepathshield-premium-mark.png"
+      alt=""
       aria-hidden
-      className={`${className} fill-bank-100 text-bank-700`}
+      width={557}
+      height={557}
+      className={`${className} object-contain`}
+      priority
     />
   );
 }
@@ -18,13 +23,19 @@ export default function Logo({
   href?: string;
 }) {
   return (
-    <Link href={href} className="inline-flex items-center gap-2 text-bank-700">
-      <BrandMark />
-      {!compact && (
-        <span className="text-xs font-bold tracking-[.22em]">SECUREPATH SHIELD</span>
+    <Link href={href} aria-label="SecurePath Shield home" className="inline-flex items-center">
+      {compact ? (
+        <BrandMark />
+      ) : (
+        <Image
+          src="/images/securepathshield-premium-logo.png"
+          alt="SecurePath Shield"
+          width={1645}
+          height={557}
+          className="h-12 w-auto object-contain sm:h-14"
+          priority
+        />
       )}
     </Link>
   );
 }
-
-// Hostinger source snapshot sync.

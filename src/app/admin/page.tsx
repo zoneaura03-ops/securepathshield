@@ -53,7 +53,7 @@ export default function Page() {
         <div className="absolute bottom-0 right-[26%] size-36 rounded-full bg-[#d9aa3c]/10 blur-2xl" />
         <div className="relative flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
           <div><div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-emerald-300"><Sparkles size={14} /> SecurePath Shield control center</div><h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Good day, Administrator.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-white/55">Monitor customer activity, resolve operational queues, and make accountable decisions from one secure workspace.</p></div>
-          <div className="flex items-center gap-3"><div className="rounded-2xl border border-white/10 bg-white/[.07] px-5 py-3 backdrop-blur"><p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-white/40"><Activity size={12} className="text-emerald-300"/>Open actions</p><p className="mt-1 text-2xl font-semibold">{stats ? pendingActions : "—"}</p></div><button type="button" onClick={load} disabled={refreshing} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg disabled:opacity-60" aria-label="Refresh dashboard"><RefreshCw size={20} strokeWidth={2.5} color="#176b43" className={refreshing ? "animate-spin" : ""} /></button></div>
+          <div className="flex items-center gap-3"><div className="rounded-2xl border border-white/10 bg-white/[.07] px-5 py-3 backdrop-blur"><p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-white/40"><Activity size={12} className="text-emerald-300"/>Open actions</p><p className="mt-1 text-2xl font-semibold">{stats ? pendingActions : "—"}</p></div><button type="button" onClick={load} disabled={refreshing} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg disabled:opacity-60" aria-label="Refresh dashboard"><RefreshCw size={20} strokeWidth={2.5} color="#17233f" className={refreshing ? "animate-spin" : ""} /></button></div>
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function Page() {
 
       <section className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         {cards.map(([Icon, label, key, href, gradient], index) => (
-          <Link href={href} key={key} className="group relative overflow-hidden rounded-2xl border border-[#dfe7e2] bg-white p-5 shadow-[0_12px_35px_rgba(21,57,41,.055)] transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(21,57,41,.11)]">
+          <Link href={href} key={key} className="group relative overflow-hidden rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_12px_35px_rgba(21,57,41,.055)] transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(21,57,41,.11)]">
             <div className="flex items-start justify-between"><span className={`grid size-11 place-items-center rounded-xl bg-gradient-to-br ${gradient} text-white shadow-md`}><Icon size={19} /></span><ArrowUpRight size={17} className="text-neutral-300 transition group-hover:text-bank-600" /></div>
             <p className="mt-6 text-xs font-semibold text-neutral-500">{label}</p><div className="mt-1 flex items-end justify-between"><p className="text-3xl font-semibold tracking-tight text-neutral-900">{stats ? stats[key] : "—"}</p>{index > 0 && stats && stats[key] > 0 && <span className="rounded-full bg-red-50 px-2 py-1 text-[9px] font-bold uppercase text-red-600">Action needed</span>}</div>
           </Link>
@@ -69,7 +69,7 @@ export default function Page() {
       </section>
 
       <section className="mt-7 grid gap-6 xl:grid-cols-[1.35fr_.65fr]">
-        <div className="rounded-3xl border border-[#dfe7e2] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)] sm:p-7">
+        <div className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)] sm:p-7">
           <div className="flex items-center justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.18em] text-bank-600">Priority queues</p><h2 className="mt-2 text-2xl">Operations requiring review</h2></div><span className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">{stats ? pendingActions : "—"} open</span></div>
           <div className="mt-6 divide-y divide-[#edf1ee]">
             {cards.slice(1).map(([Icon, label, key, href]) => (

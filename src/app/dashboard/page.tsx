@@ -93,10 +93,10 @@ export default async function Page() {
             <Link
               key={route}
               href={`/dashboard/${route}`}
-              className={`group rounded-2xl border p-4 shadow-[0_8px_24px_rgba(17,64,42,.05)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(17,64,42,.1)] sm:p-5 ${tileTone}`}
+              className={`group rounded-2xl border p-4 shadow-[0_8px_24px_rgba(23,35,63,.05)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(23,35,63,.1)] sm:p-5 ${tileTone}`}
             >
               <span
-                className={`grid size-12 place-items-center rounded-xl border border-[#dfe6e1] shadow-sm ${tone}`}
+                className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}
               >
                 <Icon size={22} />
               </span>
@@ -116,9 +116,9 @@ export default async function Page() {
             <Link
               key={provider}
               href={`/dashboard/wallet-payment?provider=${provider}`}
-              className="group rounded-2xl border border-[#e1e6e3] bg-white p-4 shadow-[0_8px_24px_rgba(17,64,42,.05)] transition hover:-translate-y-0.5 hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(17,64,42,.1)] sm:p-5"
+              className="group rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_8px_24px_rgba(23,35,63,.05)] transition hover:-translate-y-0.5 hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(23,35,63,.1)] sm:p-5"
             >
-              <span className={`grid size-12 place-items-center rounded-xl border border-[#dfe6e1] shadow-sm ${tone}`}>
+              <span className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}>
                 <Icon size={22} />
               </span>
               <h2 className="mt-4 text-sm font-bold sm:text-base">{title}</h2>
@@ -135,7 +135,7 @@ export default async function Page() {
             <Link
               key={title}
               href="/dashboard/deposit"
-              className="min-w-0 rounded-2xl border border-[#e1e6e3] bg-white p-3 shadow-[0_8px_24px_rgba(17,64,42,.045)] sm:p-4"
+              className="min-w-0 rounded-2xl border border-[#e1e6ef] bg-white p-3 shadow-[0_8px_24px_rgba(23,35,63,.045)] sm:p-4"
             >
               <span className={`text-xl ${tone}`}>
                 <Icon />
@@ -196,7 +196,7 @@ export default async function Page() {
               .slice(0, 5)
               .map((item) => <TransactionCard key={item.id} item={item} />)
           ) : (
-            <div className="rounded-2xl border border-[#e3e9e5] bg-white px-6 py-12 text-center shadow-sm">
+            <div className="rounded-2xl border border-[#e2e7f0] bg-white px-6 py-12 text-center shadow-sm">
               <span className="mx-auto grid size-12 place-items-center rounded-full bg-bank-50 text-bank-600">
                 <TrendingUp size={21} />
               </span>
@@ -254,7 +254,7 @@ function DashboardCard({
     <Link
       href="/dashboard/cards"
       aria-label={`Open ${card.name}`}
-      className="group flex min-w-0 items-center gap-4 rounded-2xl border border-[#e1e6e3] bg-white p-4 shadow-[0_7px_22px_rgba(17,64,42,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(17,64,42,.1)] sm:p-5"
+      className="group flex min-w-0 items-center gap-4 rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(23,35,63,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(23,35,63,.1)] sm:p-5"
     >
       <span className="block h-[76px] w-[116px] shrink-0 overflow-hidden rounded-xl shadow-md">
         <VirtualCardArt

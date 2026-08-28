@@ -47,7 +47,7 @@ export default function AboutPage() {
           </article>
         ))}
       </section>
-      <section className="bg-[#f7f9f7] px-5 py-20 text-center">
+      <section className="bg-[#f7f9fc] px-5 py-20 text-center">
         <h2 className="text-4xl">Ready to bank differently?</h2>
         <AuthTransitionLink href="/register" className="btn mt-7">
           Open an account <ArrowRight size={16} />

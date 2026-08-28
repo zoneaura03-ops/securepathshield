@@ -47,7 +47,7 @@ function Field({
     <label className="block">
       <span className="label">{label}</span>
       <span className="relative block">
-        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e3e9e5] text-neutral-400">
+        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
           {icon}
         </span>
         <input
@@ -81,7 +81,7 @@ function Select({
     <label className="block">
       <span className="label">{label}</span>
       <span className="relative block">
-        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e3e9e5] text-neutral-400">
+        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
           {icon}
         </span>
         <select
@@ -108,7 +108,7 @@ function Frame({
   return (
     <div className={`mx-auto w-full ${wide ? "max-w-xl" : "max-w-md"}`}>
       <div className="rounded-lg border border-white/70 bg-white p-7 shadow-[0_24px_70px_rgba(0,20,12,.3)] sm:p-9">
-        <div className="mb-7 flex justify-center border-b border-[#e3e9e5] pb-6">
+        <div className="mb-7 flex justify-center border-b border-[#e2e7f0] pb-6">
           <AuthTransitionLink
             href="/"
             className="inline-flex items-center gap-2 text-bank-700"
@@ -194,7 +194,7 @@ function Login({ notice }: { notice?: string }) {
           <label>
             <span className="label">Password</span>
             <span className="relative block">
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e3e9e5] text-neutral-400">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
                 <Lock size={16} />
               </span>
               <input
@@ -482,7 +482,7 @@ function Registration() {
               <label>
                 <span className="label">Create password</span>
                 <span className="relative block">
-                  <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e3e9e5] text-neutral-400">
+                  <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
                     <Lock size={16} />
                   </span>
                   <input
@@ -503,7 +503,7 @@ function Registration() {
                   </button>
                 </span>
               </label>
-              <div aria-live="polite" className="rounded-md border border-[#e3e9e5] bg-neutral-50 p-4">
+              <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
                   <span className={passwordStrong ? "text-emerald-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
@@ -558,7 +558,7 @@ function Registration() {
                   }
                 />
               </div>
-              <label className="flex items-start gap-3 rounded-md border border-[#e3e9e5] bg-neutral-50 p-4 text-xs leading-5 text-neutral-600">
+              <label className="flex items-start gap-3 rounded-md border border-[#e2e7f0] bg-neutral-50 p-4 text-xs leading-5 text-neutral-600">
                 <input
                   required
                   type="checkbox"
@@ -584,7 +584,7 @@ function Registration() {
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-[#d9e1dc] px-5 text-sm font-semibold"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-[#d8dfeb] px-5 text-sm font-semibold"
               >
                 <ArrowLeft size={16} />
                 Back

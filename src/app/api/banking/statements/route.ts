@@ -4,10 +4,10 @@ import { currentUser } from "../../../../lib/auth";
 import { bank } from "../../../../lib/config";
 import { db, type DatabaseRow } from "../../../../lib/db";
 
-const GREEN = "#176b43";
+const GREEN = "#17233f";
 const DARK = "#14231c";
 const MUTED = "#66756d";
-const LINE = "#dfe7e2";
+const LINE = "#dfe5ef";
 const PAGE_WIDTH = 612;
 const MARGIN = 45;
 
@@ -285,7 +285,7 @@ function drawTableHeader(doc: PDFKit.PDFDocument, y: number) {
 
 function drawTransactionRow(doc: PDFKit.PDFDocument, row: DatabaseRow, y: number) {
   const height = 31;
-  doc.rect(MARGIN, y, PAGE_WIDTH - MARGIN * 2, height).fill(y % 2 ? "#ffffff" : "#f8faf9");
+  doc.rect(MARGIN, y, PAGE_WIDTH - MARGIN * 2, height).fill(y % 2 ? "#ffffff" : "#f8f9fc");
   doc.moveTo(MARGIN, y + height).lineTo(PAGE_WIDTH - MARGIN, y + height).strokeColor(LINE).lineWidth(0.4).stroke();
   const amount = `${row.type === "debit" ? "-" : "+"}${formatAmount(Number(row.amount), row.currency)}`;
   const cells: Array<[string, number, number, "left" | "right", string]> = [

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --brand: #176b43;
-  --brand-dark: #0d4b31;
-  --brand-soft: #edf6f0;
-  --gold: #dda936;
-  --ink: #17211b;
-  --muted: #647069;
-  --surface: #f7f9f7;
-  --line: #e3e9e5;
+  --brand: #17233f;
+  --brand-dark: #0e172b;
+  --brand-soft: #f1f4f9;
+  --gold: #31466f;
+  --ink: #17233f;
+  --muted: #667085;
+  --surface: #f7f9fc;
+  --line: #e2e7f0;
 }
 * {
   box-sizing: border-box;
@@ -38,7 +38,7 @@ body {
   top: 1rem;
 }
 :focus-visible {
-  outline: 3px solid #dda936;
+  outline: 3px solid #31466f;
   outline-offset: 3px;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -73,13 +73,13 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(23, 107, 67, 0.1);
+  box-shadow: 0 0 0 3px rgba(23, 35, 63, 0.1);
 }
 .card {
-  @apply border border-[#e3e9e5] bg-white shadow-[0_10px_30px_rgba(17,64,42,.06)];
+  @apply border border-[#e2e7f0] bg-white shadow-[0_10px_30px_rgba(23,35,63,.06)];
 }
 .field {
-  @apply w-full rounded-md border border-[#d9e1dc] bg-white px-3 py-3 text-sm;
+  @apply w-full rounded-md border border-[#d8dfeb] bg-white px-3 py-3 text-sm;
 }
 .btn {
   @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-bank-600 px-5 py-3 text-sm font-semibold text-white hover:bg-bank-700 disabled:cursor-not-allowed disabled:opacity-50;
@@ -92,7 +92,7 @@ button[aria-label="Refresh transfers"] svg { display: none; }
 button[aria-label="Refresh dashboard"]::before,
 button[aria-label="Refresh transfers"]::before {
   content: "\\21bb";
-  color: #176b43;
+  color: #17233f;
   font-size: 25px;
   font-weight: 700;
   line-height: 1;

@@ -578,14 +578,14 @@ function CryptoSwap() {
               {assets.map((asset) => <div key={asset} className="flex items-center justify-between border-b border-white/10 pb-4 last:border-0 last:pb-0"><span className="font-bold">{asset}</span><span>{formatAsset(asset === data?.account.currency ? data.account.availableBalance : data?.balances[asset] || 0, asset, false)}</span></div>)}
             </div>
           </div>
-          <div className="rounded-2xl border border-[#e1e6e3] bg-white p-5"><div className="flex gap-3"><ShieldCheck className="shrink-0 text-bank-600" /><div><b className="text-sm">Protected exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Every swap requires your transaction PIN and is settled atomicallyâ€”both balances update together or neither does.</p></div></div></div>
+          <div className="rounded-2xl border border-[#e1e6ef] bg-white p-5"><div className="flex gap-3"><ShieldCheck className="shrink-0 text-bank-600" /><div><b className="text-sm">Protected exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Every swap requires your transaction PIN and is settled atomicallyâ€”both balances update together or neither does.</p></div></div></div>
         </aside>
       </div>
 
       <section className="mt-9">
         <p className="text-[11px] font-bold uppercase tracking-[.18em] text-neutral-500">Swap history</p>
         <h2 className="mt-2 text-2xl font-bold">Recent exchanges</h2>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white">
+        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {!data ? <RowsLoading /> : data.swaps.length ? data.swaps.map((swap) => (
             <article key={swap.reference} className="flex flex-col gap-3 border-b p-5 last:border-0 sm:flex-row sm:items-center sm:justify-between">
               <div><div className="flex items-center gap-2"><b>{swap.from_asset} â†’ {swap.to_asset}</b><span className="rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold uppercase text-emerald-700">{swap.status}</span></div><p className="mt-1 text-xs text-neutral-500">{swap.reference} Â· {new Date(swap.created_at).toLocaleString("en-GB")}</p></div>
@@ -656,7 +656,7 @@ function Deposit() {
             <button
               key={value}
               onClick={() => create(value)}
-              className={`rounded-xl border bg-white p-4 text-left ${method === value && details ? "border-bank-600 ring-2 ring-bank-100" : "border-[#e3e9e5]"}`}
+              className={`rounded-xl border bg-white p-4 text-left ${method === value && details ? "border-bank-600 ring-2 ring-bank-100" : "border-[#e2e7f0]"}`}
             >
               <Icon className={tone} size={22} />
               <b className="mt-3 block uppercase">{value}</b>
@@ -958,7 +958,7 @@ function PremiumCards() {
         copy="Apply for a Visa, Mastercard, or SecurePath Shield Credit Card, then manage it securely."
       />
 
-      <section className="mt-6 rounded-2xl border border-[#e1e6e3] bg-white p-5 shadow-[0_8px_24px_rgba(17,64,42,.05)] sm:p-6">
+      <section className="mt-6 rounded-2xl border border-[#e1e6ef] bg-white p-5 shadow-[0_8px_24px_rgba(23,35,63,.05)] sm:p-6">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-xl font-bold text-[#17221c]">Apply for a new card</h2>
@@ -998,7 +998,7 @@ function PremiumCards() {
                 onClick={() => { if (!unavailable) setSelectedBrand(brand); }}
                 disabled={saving || unavailable}
                 aria-label={owned ? `${title} owned` : pendingApplication ? `${title} under review` : defaultCopy}
-                className={`group relative overflow-hidden rounded-2xl border bg-white p-3 text-left transition ${owned ? "border-emerald-300 bg-emerald-50/30" : pendingApplication ? "border-amber-200 bg-amber-50/30" : "border-[#dfe6e1] hover:-translate-y-0.5 hover:border-bank-300 hover:shadow-[0_12px_30px_rgba(17,64,42,.1)]"}`}
+                className={`group relative overflow-hidden rounded-2xl border bg-white p-3 text-left transition ${owned ? "border-emerald-300 bg-emerald-50/30" : pendingApplication ? "border-amber-200 bg-amber-50/30" : "border-[#dfe5ef] hover:-translate-y-0.5 hover:border-bank-300 hover:shadow-[0_12px_30px_rgba(23,35,63,.1)]"}`}
               >
                 <CardArtwork brand={brand} holder={accountHolder} />
                 <span className="flex items-center gap-3 px-1 pb-1 pt-4">
@@ -1052,7 +1052,7 @@ function PremiumCards() {
               return (
                 <article
                   key={card.id}
-                  className="rounded-2xl border border-[#e1e6e3] bg-white p-4 shadow-[0_7px_22px_rgba(17,64,42,.055)] sm:p-5"
+                  className="rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(23,35,63,.055)] sm:p-5"
                 >
                   <div className="grid min-w-0 gap-5 sm:grid-cols-[260px_1fr] sm:items-center lg:grid-cols-[260px_1fr_auto]">
                     <VirtualCardThumb card={card} />
@@ -1095,7 +1095,7 @@ function PremiumCards() {
                           <button
                             type="button"
                             onClick={() => setOperation({ cardId: card.id, action: "withdraw" })}
-                            className="rounded-lg border border-[#d9e1dc] px-4 py-2 text-xs font-bold hover:bg-neutral-50"
+                            className="rounded-lg border border-[#d8dfeb] px-4 py-2 text-xs font-bold hover:bg-neutral-50"
                           >
                             Withdraw
                           </button>                          <button
@@ -1541,7 +1541,7 @@ function GrantApplications() {
       {error && <ErrorMessage text={error} />}
 
       {applying && (
-        <section className="mt-7 overflow-hidden rounded-3xl border border-[#dfe6e1] bg-white shadow-[0_14px_40px_rgba(17,64,42,.07)]">
+        <section className="mt-7 overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-[0_14px_40px_rgba(23,35,63,.07)]">
           <div className="border-b bg-[#f7faf8] px-5 py-5 sm:px-7">
             <div className="flex items-center justify-between gap-2">
               {steps.map((label, index) => {
@@ -1710,7 +1710,7 @@ function GrantApplications() {
       <section className="mt-9">
         <p className="text-[11px] font-bold uppercase tracking-[.18em] text-neutral-500">Application history</p>
         <h2 className="mt-2 text-2xl font-bold">Your submissions and drafts</h2>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white">
+        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {applications === null ? <RowsLoading /> : applications.length ? applications.map((application) => {
             const tone = application.status === "approved" ? "bg-emerald-50 text-emerald-700" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-blue-50 text-blue-700" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
             return (
@@ -1834,14 +1834,14 @@ function CustomerSupport() {
 
         <aside className="space-y-4">
           <div className="rounded-3xl bg-[#0b3b2b] p-6 text-white"><ShieldCheck className="text-emerald-300" /><h3 className="mt-4 text-xl font-bold">Your security matters</h3><p className="mt-2 text-sm leading-6 text-emerald-50/75">SecurePath Shield support will never ask for your password, full card number, CVV, or transaction PIN.</p></div>
-          <div className="rounded-2xl border border-[#e1e6e3] bg-white p-5"><b className="text-sm">Expected response</b><p className="mt-2 text-xs leading-5 text-neutral-500">Urgent security issues are prioritized. Other requests are handled according to their category and submission time.</p></div>
+          <div className="rounded-2xl border border-[#e1e6ef] bg-white p-5"><b className="text-sm">Expected response</b><p className="mt-2 text-xs leading-5 text-neutral-500">Urgent security issues are prioritized. Other requests are handled according to their category and submission time.</p></div>
         </aside>
       </div>
 
       <section className="mt-9">
         <p className="text-[11px] font-bold uppercase tracking-[.18em] text-neutral-500">Support history</p>
         <h2 className="mt-2 text-2xl font-bold">Your requests</h2>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white">
+        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {tickets === null ? <RowsLoading /> : tickets.length ? tickets.map((ticket) => {
             const statusTone = ticket.status === "resolved" || ticket.status === "closed" ? "bg-emerald-50 text-emerald-700" : ticket.status === "in_progress" ? "bg-blue-50 text-blue-700" : "bg-amber-50 text-amber-700";
             const priorityTone = ticket.priority === "urgent" ? "text-red-600" : ticket.priority === "high" ? "text-amber-600" : "text-neutral-500";
@@ -1989,7 +1989,7 @@ function Investments() {
                     ? "bg-amber-50 text-amber-700"
                     : "bg-violet-50 text-violet-700";
               return (
-                <article key={product.id} className="flex flex-col rounded-2xl border border-[#dfe6e1] bg-white p-5 shadow-[0_8px_24px_rgba(17,64,42,.05)]">
+                <article key={product.id} className="flex flex-col rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_8px_24px_rgba(23,35,63,.05)]">
                   <div className="flex items-start justify-between gap-3">
                     <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700"><Icon size={20} /></span>
                     <span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${riskTone}`}>{product.risk} risk</span>
@@ -2027,7 +2027,7 @@ function Investments() {
           </div>
           <TrendingUp className="text-bank-600" />
         </div>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white">
+        <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {data === null ? (
             <RowsLoading />
           ) : data.holdings.length ? (
@@ -2247,7 +2247,7 @@ function ProfileSettings() {
         title="Account overview"
         copy="Manage your identity, contact preferences, profile picture, and account security."
       />
-      <section className="mt-6 overflow-hidden rounded-2xl border border-[#e1e6e3] bg-white shadow-sm">
+      <section className="mt-6 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-sm">
         <div className="flex flex-col items-center gap-5 border-b border-[#edf0ee] p-6 text-center sm:flex-row sm:text-left">
           {profile ? (
             <Image
@@ -2318,7 +2318,7 @@ function ProfileSettings() {
       {profile && (
         <form
           onSubmit={saveProfile}
-          className="mt-6 space-y-5 rounded-2xl border border-[#e1e6e3] bg-white p-6 shadow-sm"
+          className="mt-6 space-y-5 rounded-2xl border border-[#e1e6ef] bg-white p-6 shadow-sm"
         >
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
@@ -2399,7 +2399,7 @@ function ProfileSettings() {
             </label>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex items-start gap-3 rounded-xl border border-[#e3e9e5] p-4 text-sm">
+            <label className="flex items-start gap-3 rounded-xl border border-[#e2e7f0] p-4 text-sm">
               <input
                 type="checkbox"
                 checked={profile.transactionAlerts}
@@ -2418,7 +2418,7 @@ function ProfileSettings() {
                 </span>
               </span>
             </label>
-            <label className="flex items-start gap-3 rounded-xl border border-[#e3e9e5] p-4 text-sm">
+            <label className="flex items-start gap-3 rounded-xl border border-[#e2e7f0] p-4 text-sm">
               <input
                 type="checkbox"
                 checked={profile.marketingEmails}
@@ -2445,7 +2445,7 @@ function ProfileSettings() {
       )}
       <form
         onSubmit={changePassword}
-        className="mt-6 space-y-5 rounded-2xl border border-[#e1e6e3] bg-white p-6 shadow-sm"
+        className="mt-6 space-y-5 rounded-2xl border border-[#e1e6ef] bg-white p-6 shadow-sm"
       >
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
@@ -2489,7 +2489,7 @@ function ReadOnlyDetail({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="label">{label}</p>
-      <p className="rounded-lg border border-[#e3e9e5] bg-neutral-50 px-4 py-3 text-sm font-medium">
+      <p className="rounded-lg border border-[#e2e7f0] bg-neutral-50 px-4 py-3 text-sm font-medium">
         {value}
       </p>
     </div>

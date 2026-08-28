@@ -34,7 +34,7 @@ export default function CorporateBankingPage() {
     ],
   ] as const;
   return (
-    <main className="min-h-screen bg-[#f7f9f7]">
+    <main className="min-h-screen bg-[#f7f9fc]">
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-32">
         <div className="mx-auto max-w-[1100px]">
@@ -50,7 +50,7 @@ export default function CorporateBankingPage() {
           </p>
           <AuthTransitionLink
             href="/register"
-            className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#dda936] px-6 text-sm font-bold text-[#17211b]"
+            className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#31466f] px-6 text-sm font-bold text-[#17233f]"
           >
             Open a business account <ArrowRight size={16} />
           </AuthTransitionLink>

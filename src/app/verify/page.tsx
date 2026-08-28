@@ -73,7 +73,7 @@ export default function Page() {
 
   return (
     <main className="relative grid min-h-screen place-items-center bg-white px-5 py-20">
-      <BrowserBackButton className="absolute left-4 top-4 !border-[#d9e1dc] !bg-white !text-bank-800 shadow-sm hover:!bg-bank-50 sm:left-8 sm:top-8" />
+      <BrowserBackButton className="absolute left-4 top-4 !border-[#d8dfeb] !bg-white !text-bank-800 shadow-sm hover:!bg-bank-50 sm:left-8 sm:top-8" />
       <div className="w-full max-w-md text-center">
         <ShieldCheck className="mx-auto h-16 w-16 rounded-full bg-bank-50 p-4 text-bank-600" />
         <h1 className="mt-6 text-3xl">Verify Your Email</h1>

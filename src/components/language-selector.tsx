@@ -43,7 +43,7 @@ export function LanguageSelector() {
       className="fixed bottom-4 left-4 z-40 sm:bottom-6 sm:left-6"
     >
       {open && (
-        <div className="absolute bottom-[calc(100%+10px)] left-0 w-44 overflow-hidden rounded-lg border border-[#e3e9e5] bg-white py-1 shadow-[0_18px_45px_rgba(10,45,29,.18)]">
+        <div className="absolute bottom-[calc(100%+10px)] left-0 w-44 overflow-hidden rounded-lg border border-[#e2e7f0] bg-white py-1 shadow-[0_18px_45px_rgba(23,35,63,.18)]">
           {languages.map((language) => (
             <button
               type="button"
@@ -65,7 +65,7 @@ export function LanguageSelector() {
         aria-label="Choose language"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="flex h-11 items-center gap-2 rounded-full border border-[#dce4df] bg-white px-3.5 text-xs font-semibold text-neutral-700 shadow-[0_8px_24px_rgba(10,45,29,.14)] hover:bg-bank-50"
+        className="flex h-11 items-center gap-2 rounded-full border border-[#dce4df] bg-white px-3.5 text-xs font-semibold text-neutral-700 shadow-[0_8px_24px_rgba(23,35,63,.14)] hover:bg-bank-50"
       >
         <Globe2 size={16} className="text-bank-600" />
         <span className="text-sm">{selected.flag}</span>

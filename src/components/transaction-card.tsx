@@ -8,7 +8,7 @@ export function TransactionCard({ item }: { item: TransactionSummary }) {
   return (
     <Link
       href={`/dashboard/receipt?reference=${encodeURIComponent(item.id)}`}
-      className="flex items-center gap-3 rounded-2xl border border-[#e1e6e3] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(17,64,42,.045)] hover:border-bank-200 hover:bg-bank-50/30 sm:px-5"
+      className="flex items-center gap-3 rounded-2xl border border-[#e1e6ef] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(23,35,63,.045)] hover:border-bank-200 hover:bg-bank-50/30 sm:px-5"
     >
       <span
         className={`grid size-11 shrink-0 place-items-center rounded-xl ${credit ? "bg-emerald-50 text-emerald-600" : "bg-rose-50 text-rose-600"}`}

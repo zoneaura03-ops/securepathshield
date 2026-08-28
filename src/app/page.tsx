@@ -85,7 +85,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#dda936] px-7 text-sm font-bold text-[#17211b]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#31466f] px-7 text-sm font-bold text-[#17233f]"
               >
                 {hero.primaryAction}
                 <ArrowRight size={16} />
@@ -119,7 +119,7 @@ export default function Home() {
       </section>
 
       <section className="border-b" aria-label="Trust and social proof">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-px bg-[#e3e9e5] sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-px bg-[#e2e7f0] sm:grid-cols-3 lg:grid-cols-5">
           {proof.map(([mark, copy], i) => (
             <div
               key={mark}
@@ -136,7 +136,7 @@ export default function Home() {
 
       <section
         id="features"
-        className="bg-[#f7f9f7] px-5 py-24 sm:px-8 sm:py-28"
+        className="bg-[#f7f9fc] px-5 py-24 sm:px-8 sm:py-28"
       >
         <div className="mx-auto max-w-[1100px]">
           <Heading
@@ -145,7 +145,7 @@ export default function Home() {
             title="Banking for real life and real business."
             copy="Four essential products, one secure relationship."
           />
-          <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e3e9e5] bg-white lg:grid-cols-2">
+          <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e2e7f0] bg-white lg:grid-cols-2">
             <div className="relative min-h-[360px] lg:min-h-full">
               <Image
                 src="/images/securepathshield-business-banking.webp"
@@ -164,7 +164,7 @@ export default function Home() {
                 const Icon = productIcons[i];
                 return (
                   <article
-                    className="border-b border-[#e3e9e5] p-6 odd:sm:border-r"
+                    className="border-b border-[#e2e7f0] p-6 odd:sm:border-r"
                     key={title}
                   >
                     <Icon className="text-bank-600" size={22} />
@@ -202,7 +202,7 @@ export default function Home() {
               const Icon = benefitIcons[i];
               return (
                 <article
-                  className="rounded-lg border border-[#e3e9e5] p-6"
+                  className="rounded-lg border border-[#e2e7f0] p-6"
                   key={title}
                 >
                   <span className="grid h-11 w-11 place-items-center rounded-md bg-bank-50 text-bank-600">
@@ -250,13 +250,13 @@ export default function Home() {
             </ol>
             <AuthTransitionLink
               href="/register"
-              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#dda936] px-6 text-sm font-bold text-[#17211b]"
+              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#31466f] px-6 text-sm font-bold text-[#17233f]"
             >
               Get started <ArrowRight size={15} />
             </AuthTransitionLink>
           </div>
           <div className="rounded-[24px] bg-white/10 p-4">
-            <div className="rounded-xl bg-white p-5 text-[#17211b]">
+            <div className="rounded-xl bg-white p-5 text-[#17233f]">
               <div className="flex justify-between border-b pb-4">
                 <div>
                   <p className="text-xs text-neutral-400">Available balance</p>
@@ -269,7 +269,7 @@ export default function Home() {
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {["Transfer", "Deposit", "Cards"].map((x) => (
                   <div
-                    className="rounded-md bg-[#f7f9f7] p-4 text-center text-xs font-semibold"
+                    className="rounded-md bg-[#f7f9fc] p-4 text-center text-xs font-semibold"
                     key={x}
                   >
                     {x}
@@ -279,7 +279,7 @@ export default function Home() {
               {["Salary payment", "Online transfer", "Savings goal"].map(
                 (x, i) => (
                   <div
-                    className="mt-3 flex justify-between rounded-md border border-[#e3e9e5] p-3 text-xs"
+                    className="mt-3 flex justify-between rounded-md border border-[#e2e7f0] p-3 text-xs"
                     key={x}
                   >
                     <span>{x}</span>
@@ -338,7 +338,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7f9f7] px-5 py-20 text-center sm:px-8">
+      <section className="bg-[#f7f9fc] px-5 py-20 text-center sm:px-8">
         <Heading
           center
           eyebrow="Start today"
