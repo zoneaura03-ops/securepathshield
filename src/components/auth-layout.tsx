@@ -12,7 +12,7 @@ export function AuthLayout({
   return (
     <main className="relative isolate min-h-screen overflow-x-hidden bg-[#10233f]">
       <Image
-        src="/images/securepathbank-auth-towers.webp"
+        src="/images/securepathbank-auth-towers-v2.png"
         alt="Modern financial district skyscrapers"
         fill
         priority
@@ -20,7 +20,7 @@ export function AuthLayout({
         className="absolute inset-0 -z-40 object-cover object-center"
       />
 
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(3,31,20,.9),rgba(8,58,38,.74))]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(7,17,32,.92),rgba(16,35,63,.78))]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#071120]/70 to-transparent" />
 
       <div className="relative mx-auto min-h-screen w-full max-w-[1380px] px-4 sm:px-8 lg:px-12">
@@ -29,11 +29,11 @@ export function AuthLayout({
         )}
         <div className="absolute inset-x-4 top-6 flex items-center justify-center gap-5 text-center text-white/70 sm:inset-x-8 sm:justify-between sm:text-left lg:inset-x-12">
           <div className="hidden items-center gap-2 text-[11px] font-semibold uppercase tracking-[.16em] sm:flex">
-            <ShieldCheck size={16} className="text-[#e6bd55]" />
+            <ShieldCheck size={16} className="text-blue-300" />
             Bank-grade protection
           </div>
           <div className="flex items-center gap-2 text-[11px] text-white/60">
-            <LockKeyhole size={14} className="text-[#e6bd55]" />
+            <LockKeyhole size={14} className="text-blue-300" />
             256-bit encrypted session
           </div>
         </div>
@@ -43,7 +43,7 @@ export function AuthLayout({
         </section>
 
         <p className="absolute inset-x-4 bottom-6 text-center text-[11px] text-white/45">
-          SecurePath Bank Bank · Secure digital banking · Privacy protected
+          SecurePath Bank · Secure digital banking · Privacy protected
         </p>
       </div>
     </main>

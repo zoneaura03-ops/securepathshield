@@ -62,18 +62,18 @@ export default function Home() {
       <PublicHeader />
       <section className="relative isolate min-h-[700px] overflow-hidden text-white lg:min-h-[calc(100svh-78px)]">
         <Image
-          src="/images/securepathbank-corporate-hero.webp"
+          src="/images/securepathbank-corporate-hero-v2.png"
           alt="SecurePath Bank banking professional"
           fill
           priority
           sizes="100vw"
           className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
         />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(5,38,25,.97),rgba(10,67,43,.88)_44%,rgba(5,38,25,.35))]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#082f20]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(16,35,63,.88)_44%,rgba(37,99,235,.28))]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#071120]/78 via-transparent to-transparent" />
         <div className="mx-auto flex min-h-[700px] max-w-[1180px] items-center px-5 py-16 sm:px-8 lg:min-h-[calc(100svh-78px)]">
           <div className="max-w-[650px] text-center lg:text-left">
-            <p className="inline-flex rounded-full border border-[#efc55d]/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-[#efc55d]">
+            <p className="inline-flex rounded-full border border-blue-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-blue-200">
               🏆 {hero.eyebrow}
             </p>
             <h1 className="mt-7 text-[44px] font-normal leading-[1.07] tracking-[-.035em] sm:text-[62px] lg:text-[68px]">
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#2563eb] px-7 text-sm font-bold text-[#10233f]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#2563eb] px-7 text-sm font-bold text-white"
               >
                 {hero.primaryAction}
                 <ArrowRight size={16} />
@@ -250,13 +250,13 @@ export default function Home() {
             </ol>
             <AuthTransitionLink
               href="/register"
-              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#2563eb] px-6 text-sm font-bold text-[#10233f]"
+              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#2563eb] px-6 text-sm font-bold text-white"
             >
               Get started <ArrowRight size={15} />
             </AuthTransitionLink>
           </div>
           <div className="rounded-[24px] bg-white/10 p-4">
-            <div className="rounded-xl bg-white p-5 text-[#10233f]">
+            <div className="rounded-xl bg-white p-5 text-white">
               <div className="flex justify-between border-b pb-4">
                 <div>
                   <p className="text-xs text-neutral-400">Available balance</p>
