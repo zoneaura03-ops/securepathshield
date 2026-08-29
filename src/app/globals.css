@@ -105,3 +105,4 @@ button[aria-label="Refresh dashboard"]:disabled::before { animation: spin 1s lin
   .receipt-paper { width: 100%; max-width: 175mm; margin: 0 auto; box-shadow: none !important; }
   .receipt-print-button { display: none !important; }
 }
+

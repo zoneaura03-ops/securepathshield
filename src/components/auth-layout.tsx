@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LockKeyhole, ShieldCheck } from "lucide-react";
+import { Fingerprint, LockKeyhole } from "lucide-react";
 import { BrowserBackButton } from "./browser-back-button";
 
 export function AuthLayout({
@@ -29,7 +29,7 @@ export function AuthLayout({
         )}
         <div className="absolute inset-x-4 top-6 flex items-center justify-center gap-5 text-center text-white/70 sm:inset-x-8 sm:justify-between sm:text-left lg:inset-x-12">
           <div className="hidden items-center gap-2 text-[11px] font-semibold uppercase tracking-[.16em] sm:flex">
-            <ShieldCheck size={16} className="text-blue-300" />
+            <Fingerprint size={17} className="text-blue-300" />
             Bank-grade protection
           </div>
           <div className="flex items-center gap-2 text-[11px] text-white/60">
