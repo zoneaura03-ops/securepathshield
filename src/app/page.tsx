@@ -255,12 +255,14 @@ export default function Home() {
               Get started <ArrowRight size={15} />
             </AuthTransitionLink>
           </div>
-          <div className="rounded-[24px] bg-white/10 p-4">
-            <div className="rounded-xl bg-white p-5 text-white">
-              <div className="flex justify-between border-b pb-4">
+          <div className="rounded-[30px] border border-white/10 bg-white/[.08] p-3 shadow-[0_28px_80px_rgba(4,13,28,.28)]">
+            <div className="rounded-[24px] bg-white p-6 text-[#10233f] shadow-[0_18px_55px_rgba(7,17,32,.16)]">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-5">
                 <div>
                   <p className="text-xs text-neutral-400">Available balance</p>
-                  <p className="mt-1 font-serif text-3xl">£9,844.65</p>
+                  <p className="mt-1 font-serif text-3xl font-semibold tracking-tight text-[#10233f]">
+                    {"\u00a39,844.65"}
+                  </p>
                 </div>
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-bank-50 text-bank-600">
                   <ScanFace size={20} />
@@ -269,7 +271,7 @@ export default function Home() {
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {["Transfer", "Deposit", "Cards"].map((x) => (
                   <div
-                    className="rounded-md bg-[#f7f9fc] p-4 text-center text-xs font-semibold"
+                    className="rounded-xl border border-blue-100 bg-blue-50/70 p-4 text-center text-xs font-semibold text-[#10233f]"
                     key={x}
                   >
                     {x}
@@ -279,12 +281,14 @@ export default function Home() {
               {["Salary payment", "Online transfer", "Savings goal"].map(
                 (x, i) => (
                   <div
-                    className="mt-3 flex justify-between rounded-md border border-[#e2e7f0] p-3 text-xs"
+                    className="mt-3 flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-xs shadow-sm"
                     key={x}
                   >
                     <span>{x}</span>
                     <b className={i === 1 ? "text-rose-600" : "text-bank-600"}>
-                      {i === 1 ? "−£100.00" : "+£" + [2500, 0, 300][i] + ".00"}
+                      {i === 1
+                        ? "\u2212\u00a3100.00"
+                        : `+\u00a3${[2500, 0, 300][i]}.00`}
                     </b>
                   </div>
                 ),
