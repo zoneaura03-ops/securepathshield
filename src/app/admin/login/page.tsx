@@ -34,13 +34,13 @@ export default function Page() {
     <main
       className="relative grid min-h-screen overflow-hidden bg-[#071120] px-4 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_28rem] lg:place-items-center lg:gap-12 lg:px-16"
       style={{
-        backgroundImage: "url('/images/admin-office-skyscraper.png')",
+        backgroundImage: "url('/images/securepathbank-admin-login-v2.png')",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,13,9,.91)_0%,rgba(4,21,15,.72)_46%,rgba(3,12,15,.54)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_25%,rgba(33,135,89,.16),transparent_38%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,32,.94)_0%,rgba(16,35,63,.76)_46%,rgba(7,17,32,.58)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_25%,rgba(37,99,235,.18),transparent_38%)]" />
 
       <section className="relative z-10 hidden max-w-xl justify-self-start text-white lg:block">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold tracking-wide backdrop-blur-md">

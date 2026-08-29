@@ -148,7 +148,7 @@ export default function Home() {
           <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e2e7f0] bg-white lg:grid-cols-2">
             <div className="relative min-h-[360px] lg:min-h-full">
               <Image
-                src="/images/securepathbank-business-banking.webp"
+                src="/images/securepathbank-business-services-v2.png"
                 alt="Business owner using SecurePath Bank digital banking"
                 fill
                 sizes="(min-width:1024px) 50vw,100vw"
@@ -298,7 +298,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative min-h-[420px] overflow-hidden rounded-lg">
             <Image
-              src="/images/securepathbank-secure-mobile.webp"
+              src="/images/securepathbank-security-trust-v2.png"
               alt="Secure mobile banking authentication"
               fill
               sizes="(min-width:1024px) 50vw,100vw"
