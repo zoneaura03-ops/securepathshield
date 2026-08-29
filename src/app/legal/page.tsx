@@ -3,7 +3,7 @@ import { PublicFooter } from "../../components/public-footer";
 const sections = [
   [
     "Demonstration notice",
-    "SecurePath Shield is currently a demonstration banking interface. It is not represented as a licensed bank, deposit-taking institution, broker, or money transmitter. Do not send real funds to demonstration wallet addresses.",
+    "SecurePath Bank is currently a demonstration banking interface. It is not represented as a licensed bank, deposit-taking institution, broker, or money transmitter. Do not send real funds to demonstration wallet addresses.",
   ],
   [
     "Privacy",
@@ -28,7 +28,7 @@ export default function Page() {
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-20 text-white sm:px-8">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#31466f]">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#2563eb]">
             Legal and regulatory
           </p>
           <h1 className="mt-4 text-5xl">Clear disclosures build trust.</h1>

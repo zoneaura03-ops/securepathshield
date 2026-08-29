@@ -228,7 +228,7 @@ function Status({ status, reason }: { status: string; reason: string | null }) {
     Icon = approved ? CheckCircle2 : rejected ? XCircle : Clock3;
   return (
     <div
-      className={`rounded-2xl border p-5 ${approved ? "border-emerald-200 bg-emerald-50 text-emerald-800" : rejected ? "border-red-200 bg-red-50 text-red-800" : "border-amber-200 bg-amber-50 text-amber-800"}`}
+      className={`rounded-2xl border p-5 ${approved ? "border-blue-200 bg-blue-50 text-blue-800" : rejected ? "border-red-200 bg-red-50 text-red-800" : "border-amber-200 bg-amber-50 text-amber-800"}`}
     >
       <div className="flex items-center gap-3">
         <Icon />

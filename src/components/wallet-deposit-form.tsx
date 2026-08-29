@@ -62,8 +62,8 @@ export function WalletDepositForm({ provider }: { provider: Provider }) {
   if (result) {
     return (
       <div className="mx-auto max-w-2xl">
-        <section className="rounded-3xl border border-emerald-200 bg-white p-7 text-center shadow-sm sm:p-10">
-          <CheckCircle2 className="mx-auto text-emerald-600" size={48} />
+        <section className="rounded-3xl border border-blue-200 bg-white p-7 text-center shadow-sm sm:p-10">
+          <CheckCircle2 className="mx-auto text-blue-600" size={48} />
           <h1 className="mt-5 text-3xl font-bold">Deposit submitted</h1>
           <p className="mt-3 text-sm leading-6 text-neutral-500">
             Your {details.name} deposit is awaiting administrator confirmation. Your balance will update after the payment is verified.
@@ -83,14 +83,14 @@ export function WalletDepositForm({ provider }: { provider: Provider }) {
       <Link href="/dashboard" className="inline-flex items-center gap-2 text-sm font-semibold text-bank-700">
         <ArrowLeft size={16} /> Back to dashboard
       </Link>
-      <section className="mt-5 overflow-hidden rounded-3xl border border-[#dfe6e2] bg-white shadow-sm">
-        <div className="bg-[#09251b] p-7 text-white sm:p-9">
+      <section className="mt-5 overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-sm">
+        <div className="bg-[#10233f] p-7 text-white sm:p-9">
           <div className="flex items-center gap-4">
             <span className="grid size-14 place-items-center rounded-2xl bg-white text-bank-800">
               <ProviderIcon provider={provider} />
             </span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.18em] text-emerald-300">Wallet deposit</p>
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-blue-300">Wallet deposit</p>
               <h1 className="mt-1 text-3xl font-bold">Deposit with {details.name}</h1>
             </div>
           </div>
@@ -122,7 +122,7 @@ export function WalletDepositForm({ provider }: { provider: Provider }) {
 
 function ProviderIcon({ provider }: { provider: Provider }) {
   if (provider === "paypal") return <SiPaypal aria-label="PayPal" size={30} style={{ color: "#003087", fill: "#003087" }} />;
-  if (provider === "cashapp") return <SiCashapp className="text-[#00b746]" size={28} />;
+  if (provider === "cashapp") return <SiCashapp className="text-[#2563eb]" size={28} />;
   return <span className="font-black text-[#862165]">Skrill</span>;
 }
 

@@ -252,7 +252,7 @@ export default function Page() {
             rows={[
               [
                 "From",
-                `${account?.account.name || "SecurePath Shield account"} · ${masked}`,
+                `${account?.account.name || "SecurePath Bank account"} · ${masked}`,
               ],
               ["Country", countryName(form.bankCountry)],
               ["Recipient", form.recipientName],

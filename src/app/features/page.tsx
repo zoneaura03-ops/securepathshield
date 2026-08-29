@@ -43,7 +43,7 @@ export default function FeaturesPage() {
             Banking solutions for every ambition.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-            From everyday spending to business growth, SecurePath Shield brings secure
+            From everyday spending to business growth, SecurePath Bank brings secure
             accounts, cards, transfers, lending, and investment tools together
             in one clear experience.
           </p>
@@ -95,7 +95,7 @@ export default function FeaturesPage() {
                   <p className="mt-7 text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
                     {benefit}
                   </p>
-                  <h3 className="mt-2 text-2xl text-[#17233f]">{title}</h3>
+                  <h3 className="mt-2 text-2xl text-[#10233f]">{title}</h3>
                   <p className="mt-4 text-sm leading-7 text-neutral-500">
                     {copy}
                   </p>
@@ -186,7 +186,7 @@ export default function FeaturesPage() {
           Ready for banking that keeps up?
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-neutral-600">
-          Create your SecurePath Shield profile and start building toward what matters
+          Create your SecurePath Bank profile and start building toward what matters
           next.
         </p>
         <AuthTransitionLink href="/register" className="btn mt-8">

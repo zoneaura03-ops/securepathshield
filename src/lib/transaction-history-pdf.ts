@@ -29,21 +29,21 @@ export async function buildTransactionHistoryPdf({
     .save()
     .opacity(0.045)
     .fontSize(64)
-    .fillColor("#17233f")
+    .fillColor("#10233f")
     .rotate(-32, { origin: [306, 396] })
-    .text("SECUREPATH SHIELD", 95, 350, { width: 430, align: "center" })
+    .text("SECUREPATH BANK", 95, 350, { width: 430, align: "center" })
     .restore();
   doc
-    .fillColor("#17233f")
+    .fillColor("#10233f")
     .fontSize(12)
-    .text("SECUREPATH SHIELD", { characterSpacing: 3 });
+    .text("SECUREPATH BANK", { characterSpacing: 3 });
   doc
-    .fillColor("#14231c")
+    .fillColor("#111827")
     .fontSize(24)
     .text("Transaction history", { characterSpacing: 0 });
   doc
     .moveDown(0.3)
-    .fillColor("#66756d")
+    .fillColor("#667085")
     .fontSize(10)
     .text(`${customerName} • Generated ${new Date().toLocaleString("en-GB")}`);
   doc.moveDown(1.2);
@@ -51,20 +51,20 @@ export async function buildTransactionHistoryPdf({
     if (doc.y > 710) doc.addPage();
     const direction = entry.type === "debit" ? "Debit" : "Credit";
     doc
-      .fillColor("#14231c")
+      .fillColor("#111827")
       .fontSize(10)
       .text(
         `${direction} • ${entry.rail.replaceAll("_", " ")} • ${entry.status}`,
         { continued: true },
       );
     doc
-      .fillColor(entry.type === "debit" ? "#a12a2a" : "#17233f")
+      .fillColor(entry.type === "debit" ? "#a12a2a" : "#10233f")
       .text(
         `  ${direction === "Debit" ? "-" : "+"}${entry.amount.toFixed(2)} ${currency}`,
         { align: "right" },
       );
     doc
-      .fillColor("#66756d")
+      .fillColor("#667085")
       .fontSize(8)
       .text(
         `${new Date(entry.createdAt).toLocaleString("en-GB")} • ${entry.reference}`,

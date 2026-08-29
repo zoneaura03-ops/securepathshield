@@ -37,12 +37,12 @@ export function PublicFooter() {
           <Link
             href="/"
             className="inline-flex items-center gap-2.5 text-[#8cc39c]"
-            aria-label="SecurePath Shield home"
+            aria-label="SecurePath Bank home"
           >
             <span className="grid size-10 place-items-center rounded-xl bg-bank-700/70 ring-1 ring-white/10">
               <ShieldCheck size={23} />
             </span>
-            <b className="text-sm tracking-[.2em]">SECUREPATH SHIELD</b>
+            <b className="text-sm tracking-[.2em]">SECUREPATH BANK</b>
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-7 text-white/50">
             {footer.description}
@@ -87,12 +87,12 @@ export function PublicFooter() {
         </div>
       </div>
       <div className="mx-auto max-w-[1100px] border-b border-white/10 py-6 text-[11px] leading-6 text-white/35">
-        SecurePath Shield is a demonstration interface. Product availability, rates,
+        SecurePath Bank is a demonstration interface. Product availability, rates,
         deposit protection, and regulatory disclosures must be configured for
         the applicable licensed entity and jurisdiction.
       </div>
       <div className="mx-auto flex max-w-[1100px] flex-col justify-between gap-3 pt-7 text-xs text-white/40 sm:flex-row sm:items-center">
-        <span>© 2026 SecurePath Shield Bank. All rights reserved.</span>
+        <span>© 2026 SecurePath Bank Bank. All rights reserved.</span>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
           <Link href="/legal" className="hover:text-white">
             Privacy

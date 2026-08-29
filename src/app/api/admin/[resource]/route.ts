@@ -244,7 +244,7 @@ export async function POST(
           ],
         );
         await connection.execute(
-          "INSERT INTO notifications(user_id,type,title,body) VALUES(?,'account','Account created','An administrator created and activated your SecurePath Shield account.')",
+          "INSERT INTO notifications(user_id,type,title,body) VALUES(?,'account','Account created','An administrator created and activated your SecurePath Bank account.')",
           [subject],
         );
       } else {
@@ -587,7 +587,7 @@ export async function POST(
               ? "Grant application approved"
               : "Grant application declined",
             approved
-              ? "Your grant application has been approved. A SecurePath Shield representative will contact you with the next steps."
+              ? "Your grant application has been approved. A SecurePath Bank representative will contact you with the next steps."
               : "Your grant application was declined. You may contact support for more information.",
           ],
         );

@@ -1,11 +1,11 @@
 {
-  "name": "SecurePath Shield Bank",
-  "short_name": "SecurePath Shield",
+  "name": "SecurePath Bank Bank",
+  "short_name": "SecurePath Bank",
   "description": "Secure digital banking for individuals and businesses.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f8f6",
-  "theme_color": "#17233f",
+  "background_color": "#f7f9fc",
+  "theme_color": "#10233f",
   "icons": [
     {
       "src": "/icon.svg",

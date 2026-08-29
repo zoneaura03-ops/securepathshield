@@ -10,13 +10,13 @@ export default function AboutPage() {
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-24 text-center text-white sm:px-8 sm:py-32">
         <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e4b74e]">
-          About SecurePath Shield
+          About SecurePath Bank
         </p>
         <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-normal leading-tight sm:text-6xl">
           Banking built around confidence, access, and progress.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/60">
-          SecurePath Shield combines thoughtful service with secure digital tools to help
+          SecurePath Bank combines thoughtful service with secure digital tools to help
           individuals and businesses manage money clearly wherever they are.
         </p>
       </section>

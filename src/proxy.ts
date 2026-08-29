@@ -43,7 +43,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/admin-login", request.url), {
       headers: responseHeaders,
     });
-  const hasSession = Boolean(request.cookies.get("securepathshield_session")?.value);
+  const hasSession = Boolean(request.cookies.get("securepathbank_session")?.value);
   if (request.nextUrl.pathname === "/admin-login") {
     const response = NextResponse.next();
     Object.entries(responseHeaders).forEach(([key, value]) =>
@@ -65,7 +65,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(login, request.url));
   }
   const headers = new Headers(request.headers);
-  headers.set("x-securepathshield-protected", "1");
+  headers.set("x-securepathbank-protected", "1");
   const response = NextResponse.next({ request: { headers } });
   Object.entries(responseHeaders).forEach(([key, value]) =>
     response.headers.set(key, value),

@@ -22,8 +22,8 @@ export function IdleSessionGuard() {
 
     const timeout = admin ? ADMIN_TIMEOUT_MS : USER_TIMEOUT_MS;
     const storageKey = admin
-      ? "securepathshield_admin_activity"
-      : "securepathshield_user_activity";
+      ? "securepathbank_admin_activity"
+      : "securepathbank_user_activity";
     let loggingOut = false;
     let lastWrite = 0;
 

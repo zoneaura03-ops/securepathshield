@@ -1,6 +1,6 @@
 export const bank = {
-  name: "SecurePath Shield",
-  fullName: "SecurePath Shield",
-  supportEmail: "support@securepathshield.com",
-  green: "#17233f",
+  name: "SecurePath Bank",
+  fullName: "SecurePath Bank",
+  supportEmail: "support@securepathgroups.com",
+  primary: "#10233f",
 } as const;

@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     ?.replace(/\s/g, "");
   if (!number || !/^\d{8,20}$/.test(number))
     return NextResponse.json(
-      { error: "Enter a valid SecurePath Shield account number." },
+      { error: "Enter a valid SecurePath Bank account number." },
       { status: 400 },
     );
   const [rows] = await db.execute<DatabaseRow[]>(
@@ -24,7 +24,7 @@ export async function GET(request: Request) {
   const row = rows[0];
   if (!row)
     return NextResponse.json(
-      { error: "The SecurePath Shield account was not found." },
+      { error: "The SecurePath Bank account was not found." },
       { status: 404 },
     );
   return NextResponse.json({
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
       name: row.name,
       accountType: row.type,
       currency: row.currency,
-      bankName: process.env.BANK_LEGAL_NAME || "SecurePath Shield",
+      bankName: process.env.BANK_LEGAL_NAME || "SecurePath Bank",
       isOwnAccount: Number(row.user_id) === user.id,
     },
   });

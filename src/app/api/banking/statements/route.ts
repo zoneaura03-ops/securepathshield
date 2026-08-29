@@ -4,9 +4,9 @@ import { currentUser } from "../../../../lib/auth";
 import { bank } from "../../../../lib/config";
 import { db, type DatabaseRow } from "../../../../lib/db";
 
-const GREEN = "#17233f";
-const DARK = "#14231c";
-const MUTED = "#66756d";
+const PRIMARY = "#10233f";
+const DARK = "#111827";
+const MUTED = "#667085";
 const LINE = "#dfe5ef";
 const PAGE_WIDTH = 612;
 const MARGIN = 45;
@@ -62,7 +62,7 @@ export async function GET(request: Request) {
   return new NextResponse(new Uint8Array(pdf), {
     headers: {
       "content-type": "application/pdf",
-      "content-disposition": `attachment; filename="securepathshield-statement-${from}-to-${to}.pdf"`,
+      "content-disposition": `attachment; filename="securepathbank-statement-${from}-to-${to}.pdf"`,
       "cache-control": "private, no-store",
     },
   });
@@ -169,7 +169,7 @@ async function buildStatement({
 }
 
 function drawBrandHeader(doc: PDFKit.PDFDocument) {
-  doc.rect(0, 0, PAGE_WIDTH, 104).fill(GREEN);
+  doc.rect(0, 0, PAGE_WIDTH, 104).fill(PRIMARY);
   drawShield(doc, MARGIN, 30, "#ffffff");
   doc
     .fillColor("#ffffff")
@@ -179,7 +179,7 @@ function drawBrandHeader(doc: PDFKit.PDFDocument) {
   doc
     .font("Helvetica")
     .fontSize(8)
-    .fillColor("#d9eee4")
+    .fillColor("#dbeafe")
     .text("SECURE DIGITAL BANKING", MARGIN + 34, 54, { characterSpacing: 1.2 });
   doc
     .fontSize(8)
@@ -191,9 +191,9 @@ function drawBrandHeader(doc: PDFKit.PDFDocument) {
 }
 
 function drawCompactHeader(doc: PDFKit.PDFDocument, from: string, to: string) {
-  drawShield(doc, MARGIN, 34, GREEN);
+  drawShield(doc, MARGIN, 34, PRIMARY);
   doc
-    .fillColor(GREEN)
+    .fillColor(PRIMARY)
     .font("Helvetica-Bold")
     .fontSize(12)
     .text(bank.name.toUpperCase(), MARGIN + 29, 36, { characterSpacing: 1.5 });
@@ -226,7 +226,7 @@ function drawAccountSummary(
   from: string,
   to: string,
 ) {
-  doc.roundedRect(MARGIN, 187, PAGE_WIDTH - MARGIN * 2, 83, 7).fill("#f4f8f6");
+  doc.roundedRect(MARGIN, 187, PAGE_WIDTH - MARGIN * 2, 83, 7).fill("#f7f9fc");
   const entries = [
     ["ACCOUNT HOLDER", customerName],
     ["ACCOUNT NUMBER", String(account.account_number)],
@@ -258,14 +258,14 @@ function drawTotals(
   items.forEach(([label, value], index) => {
     const x = MARGIN + index * 174;
     doc.fillColor(MUTED).font("Helvetica-Bold").fontSize(7).text(label, x, 287);
-    doc.fillColor(index === 1 ? GREEN : DARK).font("Helvetica-Bold").fontSize(11).text(value, x, 301, {
+    doc.fillColor(index === 1 ? PRIMARY : DARK).font("Helvetica-Bold").fontSize(11).text(value, x, 301, {
       width: 160,
     });
   });
 }
 
 function drawTableHeader(doc: PDFKit.PDFDocument, y: number) {
-  doc.rect(MARGIN, y, PAGE_WIDTH - MARGIN * 2, 24).fill(GREEN);
+  doc.rect(MARGIN, y, PAGE_WIDTH - MARGIN * 2, 24).fill(PRIMARY);
   const headers = [
     ["DATE", MARGIN + 7, 61],
     ["REFERENCE", MARGIN + 68, 91],
@@ -293,7 +293,7 @@ function drawTransactionRow(doc: PDFKit.PDFDocument, row: DatabaseRow, y: number
     [clean(row.reference), MARGIN + 68, 87, "left", MUTED],
     [clean(row.description), MARGIN + 159, 151, "left", DARK],
     [clean(row.type).toUpperCase(), MARGIN + 316, 46, "left", MUTED],
-    [amount, MARGIN + 364, 91, "right", row.type === "credit" ? GREEN : DARK],
+    [amount, MARGIN + 364, 91, "right", row.type === "credit" ? PRIMARY : DARK],
     [formatAmount(Number(row.balance_after), row.currency), MARGIN + 455, 60, "right", MUTED],
   ];
   cells.forEach(([value, x, width, align, color]) =>

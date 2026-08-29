@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cache } from "react";
 import { db, type DatabaseRow } from "./db";
 
-export const SESSION_COOKIE = "securepathshield_session";
+export const SESSION_COOKIE = "securepathbank_session";
 const hashToken = (token: string) =>
   createHash("sha256").update(token).digest("hex");
 

@@ -62,8 +62,8 @@ export default function Home() {
       <PublicHeader />
       <section className="relative isolate min-h-[700px] overflow-hidden text-white lg:min-h-[calc(100svh-78px)]">
         <Image
-          src="/images/securepathshield-corporate-hero.webp"
-          alt="SecurePath Shield banking professional"
+          src="/images/securepathbank-corporate-hero.webp"
+          alt="SecurePath Bank banking professional"
           fill
           priority
           sizes="100vw"
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#31466f] px-7 text-sm font-bold text-[#17233f]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#2563eb] px-7 text-sm font-bold text-[#10233f]"
               >
                 {hero.primaryAction}
                 <ArrowRight size={16} />
@@ -148,8 +148,8 @@ export default function Home() {
           <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e2e7f0] bg-white lg:grid-cols-2">
             <div className="relative min-h-[360px] lg:min-h-full">
               <Image
-                src="/images/securepathshield-business-banking.webp"
-                alt="Business owner using SecurePath Shield digital banking"
+                src="/images/securepathbank-business-banking.webp"
+                alt="Business owner using SecurePath Bank digital banking"
                 fill
                 sizes="(min-width:1024px) 50vw,100vw"
                 className="object-cover"
@@ -193,7 +193,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1100px]">
           <Heading
             center
-            eyebrow="Why SecurePath Shield"
+            eyebrow="Why SecurePath Bank"
             title="Everything important, nothing complicated."
             copy="Useful tools supported by real people and protection that works quietly in the background."
           />
@@ -250,13 +250,13 @@ export default function Home() {
             </ol>
             <AuthTransitionLink
               href="/register"
-              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#31466f] px-6 text-sm font-bold text-[#17233f]"
+              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#2563eb] px-6 text-sm font-bold text-[#10233f]"
             >
               Get started <ArrowRight size={15} />
             </AuthTransitionLink>
           </div>
           <div className="rounded-[24px] bg-white/10 p-4">
-            <div className="rounded-xl bg-white p-5 text-[#17233f]">
+            <div className="rounded-xl bg-white p-5 text-[#10233f]">
               <div className="flex justify-between border-b pb-4">
                 <div>
                   <p className="text-xs text-neutral-400">Available balance</p>
@@ -298,7 +298,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative min-h-[420px] overflow-hidden rounded-lg">
             <Image
-              src="/images/securepathshield-secure-mobile.webp"
+              src="/images/securepathbank-secure-mobile.webp"
               alt="Secure mobile banking authentication"
               fill
               sizes="(min-width:1024px) 50vw,100vw"

@@ -163,17 +163,17 @@ export async function POST(request: Request) {
       destination = destinations[0];
       if (!destination)
         throw new BankingError(
-          "The SecurePath Shield recipient account was not found.",
+          "The SecurePath Bank recipient account was not found.",
           404,
         );
       if (Number(destination.user_id) === user.id)
-        throw new BankingError("Choose another SecurePath Shield account.", 422);
+        throw new BankingError("Choose another SecurePath Bank account.", 422);
       if (destination.currency !== account.currency)
         throw new BankingError(
           "Internal transfers require matching account currencies.",
           422,
         );
-      const bankName = process.env.BANK_LEGAL_NAME || "SecurePath Shield";
+      const bankName = process.env.BANK_LEGAL_NAME || "SecurePath Bank";
       if (
         String(body.recipientAccountType || "") !== String(destination.type) ||
         String(body.recipientCurrency || "") !== String(destination.currency) ||
@@ -203,8 +203,8 @@ export async function POST(request: Request) {
         body.recipientAccount,
         type === "local" ? body.accountType : null,
         type === "internal"
-          ? process.env.BANK_LEGAL_NAME || "SecurePath Shield"
-          : walletProviderNames[type] || body.bankName || "SecurePath Shield",
+          ? process.env.BANK_LEGAL_NAME || "SecurePath Bank"
+          : walletProviderNames[type] || body.bankName || "SecurePath Bank",
         type === "local" ? String(body.bankCountry).toUpperCase() : null,
         body.routingCode || null,
         account.currency,

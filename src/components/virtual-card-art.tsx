@@ -28,16 +28,16 @@ export function VirtualCardArt({
       ? `${String(expiryMonth).padStart(2, "0")}/${String(expiryYear).slice(-2)}`
       : "--/--";
   const background = visa
-    ? "linear-gradient(135deg,#075237 0%,#063c2b 48%,#031f17 100%)"
+    ? "linear-gradient(135deg,#1d4ed8 0%,#10233f 48%,#071120 100%)"
     : credit
       ? "linear-gradient(135deg,#161a18 0%,#080b0a 58%,#18130a 100%)"
-      : "linear-gradient(135deg,#26342d 0%,#102219 48%,#080e0b 100%)";
+      : "linear-gradient(135deg,#26354f 0%,#10233f 48%,#071120 100%)";
 
   return (
     <div
       className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#c9a650]/80" : "ring-1 ring-inset ring-white/10"}`}
       style={{ background }}
-      aria-label={`SecurePath Shield ${network} ending ${digits}`}
+      aria-label={`SecurePath Bank ${network} ending ${digits}`}
     >
       <div
         className="absolute inset-0 opacity-25"
@@ -55,7 +55,7 @@ export function VirtualCardArt({
             <BrandMark className={`${compact ? "size-4" : "size-[clamp(1.2rem,4vw,2rem)]"} shrink-0 !fill-[#e0bd63] !text-[#f0cf76]`} />
             <div>
               <p className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f0cf76]`}>
-                SECUREPATH SHIELD
+                SECUREPATH BANK
               </p>
 
             </div>
@@ -128,10 +128,10 @@ export function VirtualCardBack({
   const digits = lastFour || (brand === "visa" ? "4826" : credit ? "8808" : "6241");
   const background =
     brand === "visa"
-      ? "linear-gradient(135deg,#075237,#031f17)"
+      ? "linear-gradient(135deg,#1d4ed8,#071120)"
       : credit
         ? "linear-gradient(135deg,#161a18,#080b0a 60%,#18130a)"
-        : "linear-gradient(135deg,#26342d,#080e0b)";
+        : "linear-gradient(135deg,#26354f,#071120)";
   return (
     <div
       className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#c9a650]/80" : "ring-1 ring-inset ring-white/10"}`}
@@ -150,10 +150,10 @@ export function VirtualCardBack({
         <div>
           <div className="flex items-center gap-2 text-[#f0cf76]">
             <BrandMark className="size-[clamp(1rem,3.5vw,1.7rem)] !fill-[#e0bd63] !text-[#f0cf76]" />
-            <span className="text-[clamp(.48rem,1.7vw,.74rem)] font-bold tracking-[.2em]">SECUREPATH SHIELD</span>
+            <span className="text-[clamp(.48rem,1.7vw,.74rem)] font-bold tracking-[.2em]">SECUREPATH BANK</span>
           </div>
           <p className="mt-1 text-[clamp(.3rem,1vw,.43rem)] text-white/45">
-            This card is issued for authorized use only. support@securepathshield.com
+            This card is issued for authorized use only. support@securepathgroups.com
           </p>
         </div>
         <span className="shrink-0 text-[clamp(.42rem,1.4vw,.64rem)] tracking-[.16em] text-white/65">

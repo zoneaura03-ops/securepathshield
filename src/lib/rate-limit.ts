@@ -1,9 +1,9 @@
 type Entry = { count: number; resetAt: number };
 const globalLimits = globalThis as typeof globalThis & {
-  securepathshieldRateLimits?: Map<string, Entry>;
+  securepathbankRateLimits?: Map<string, Entry>;
 };
-const limits = globalLimits.securepathshieldRateLimits ?? new Map<string, Entry>();
-globalLimits.securepathshieldRateLimits = limits;
+const limits = globalLimits.securepathbankRateLimits ?? new Map<string, Entry>();
+globalLimits.securepathbankRateLimits = limits;
 export function rateLimit(key: string, limit: number, windowMs: number) {
   const now = Date.now(),
     entry = limits.get(key);

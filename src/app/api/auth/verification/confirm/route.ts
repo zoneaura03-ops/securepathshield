@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   );
   await ensurePrimaryAccount(users[0].id);
   await db.execute(
-    "INSERT INTO notifications(user_id,type,title,body) VALUES(?,'account','Welcome to SecurePath Shield','Your email is verified and your secure banking account is ready.')",
+    "INSERT INTO notifications(user_id,type,title,body) VALUES(?,'account','Welcome to SecurePath Bank','Your email is verified and your secure banking account is ready.')",
     [users[0].id],
   );
   try {

@@ -10,9 +10,9 @@ export function AuthLayout({
   register?: boolean;
 }) {
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden bg-[#0b3b28]">
+    <main className="relative isolate min-h-screen overflow-x-hidden bg-[#10233f]">
       <Image
-        src="/images/securepathshield-auth-towers.webp"
+        src="/images/securepathbank-auth-towers.webp"
         alt="Modern financial district skyscrapers"
         fill
         priority
@@ -21,7 +21,7 @@ export function AuthLayout({
       />
 
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(3,31,20,.9),rgba(8,58,38,.74))]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#061f15]/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#071120]/70 to-transparent" />
 
       <div className="relative mx-auto min-h-screen w-full max-w-[1380px] px-4 sm:px-8 lg:px-12">
         {register && (
@@ -43,7 +43,7 @@ export function AuthLayout({
         </section>
 
         <p className="absolute inset-x-4 bottom-6 text-center text-[11px] text-white/45">
-          SecurePath Shield Bank · Secure digital banking · Privacy protected
+          SecurePath Bank Bank · Secure digital banking · Privacy protected
         </p>
       </div>
     </main>

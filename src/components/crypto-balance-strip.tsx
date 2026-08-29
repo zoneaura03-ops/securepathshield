@@ -29,7 +29,7 @@ export function CryptoBalanceStrip({ visible = true }: { visible?: boolean }) {
   ] as const;
   return (
     <div className="relative grid grid-cols-3 border-t border-white/10 bg-black/10">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2b9a6d]/15 blur-sm" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3b82f6]/15 blur-sm" />
       {assets.map(([Icon, name, key, tone]) => {
         const balance = data?.balances[key];
         const amount = balance ? balance.amount.toLocaleString("en-US", { minimumFractionDigits: name === "USDT" ? 2 : 0, maximumFractionDigits: name === "USDT" ? 2 : 8 }) : "…";

@@ -27,9 +27,9 @@ export default function Page() {
         data = await response.json();
       if (!response.ok) throw new Error(data.error || "Unable to verify PIN.");
       const storedDestination =
-        sessionStorage.getItem("securepathshield_login_destination") ||
+        sessionStorage.getItem("securepathbank_login_destination") ||
         (data.role === "admin" ? "/admin" : "/dashboard");
-      sessionStorage.removeItem("securepathshield_login_destination");
+      sessionStorage.removeItem("securepathbank_login_destination");
       const destination =
         storedDestination.startsWith("/") &&
         !storedDestination.startsWith("//")
@@ -53,7 +53,7 @@ export default function Page() {
   return (
     <main className="relative grid min-h-screen place-items-center overflow-hidden bg-[#eef3ef] px-5 py-8">
       <DashboardBackdrop />
-      <div className="absolute inset-0 bg-[#062b1d]/55 backdrop-blur-[3px]" />
+      <div className="absolute inset-0 bg-[#10233f]/55 backdrop-blur-[3px]" />
       <div className="relative z-10 w-full max-w-sm rounded-2xl border border-white/80 bg-white/95 px-7 py-6 text-center shadow-[0_30px_90px_rgba(0,20,12,.35)] sm:px-9 sm:py-7">
         <Logo />
         <h1 className="mt-7 text-3xl">Confirm it&apos;s you</h1>
@@ -74,7 +74,7 @@ export default function Page() {
         )}
       </div>
       {loading && (
-        <div className="fixed inset-0 z-[200] bg-[#062b1d]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[200] bg-[#10233f]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}
@@ -111,10 +111,10 @@ function DashboardBackdrop() {
       </aside>
       <section className="flex-1 p-10">
         <div className="h-8 w-64 rounded-lg bg-slate-300" />
-        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#087649] via-[#075f3c] to-[#063d29] shadow-xl" />
+        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#2563eb] via-[#1d4ed8] to-[#10233f] shadow-xl" />
         <div className="mt-8 grid grid-cols-4 gap-5">
           {[
-            "bg-emerald-100",
+            "bg-blue-100",
             "bg-blue-100",
             "bg-fuchsia-100",
             "bg-lime-100",

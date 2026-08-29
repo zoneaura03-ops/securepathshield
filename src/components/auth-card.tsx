@@ -114,7 +114,7 @@ function Frame({
             className="inline-flex items-center gap-2 text-bank-700"
           >
             <BrandMark />
-            <span className="text-xs font-bold tracking-[.22em]">SECUREPATH SHIELD</span>
+            <span className="text-xs font-bold tracking-[.22em]">SECUREPATH BANK</span>
           </AuthTransitionLink>
         </div>
         {children}
@@ -155,7 +155,7 @@ function Login({ notice }: { notice?: string }) {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Unable to sign in.");
       const requestedDestination = sessionStorage.getItem(
-        "securepathshield_login_destination",
+        "securepathbank_login_destination",
       );
       const safeDestination =
         requestedDestination?.startsWith("/dashboard/") && data.role !== "admin"
@@ -163,7 +163,7 @@ function Login({ notice }: { notice?: string }) {
           : data.role === "admin"
             ? "/admin"
             : "/dashboard";
-      sessionStorage.setItem("securepathshield_login_destination", safeDestination);
+      sessionStorage.setItem("securepathbank_login_destination", safeDestination);
       router.push("/pin");
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Unable to sign in.");
@@ -178,7 +178,7 @@ function Login({ notice }: { notice?: string }) {
         </p>
         <h1 className="mt-2 text-3xl">Welcome back</h1>
         <p className="mt-2 text-sm leading-6 text-neutral-500">
-          Enter your details to access your SecurePath Shield account.
+          Enter your details to access your SecurePath Bank account.
         </p>
         <form onSubmit={submit} className="mt-7 space-y-5">
           <label className="absolute -left-[10000px]" aria-hidden><span>Website</span><input tabIndex={-1} autoComplete="off" value={website} onChange={event=>setWebsite(event.target.value)} /></label>
@@ -233,7 +233,7 @@ function Login({ notice }: { notice?: string }) {
           {notice && (
             <p
               role="status"
-              className="rounded-md border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700"
+              className="rounded-md border border-blue-200 bg-blue-50 p-3 text-sm text-blue-700"
             >
               {notice}
             </p>
@@ -252,7 +252,7 @@ function Login({ notice }: { notice?: string }) {
           </button>
         </form>
         <p className="mt-6 flex items-center justify-center gap-1 text-center text-xs text-neutral-500">
-          <span>New to SecurePath Shield?</span>
+          <span>New to SecurePath Bank?</span>
           <AuthTransitionLink
             href="/register"
             className="font-semibold text-bank-700"
@@ -262,7 +262,7 @@ function Login({ notice }: { notice?: string }) {
         </p>
       </Frame>
       {loading && (
-        <div className="fixed inset-0 z-[100] bg-[#062b1d]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[100] bg-[#10233f]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}
@@ -343,7 +343,7 @@ function Registration() {
       if (!response.ok) {
         throw new Error(data.error || "Unable to send the verification code.");
       }
-      sessionStorage.setItem("securepathshield_verification_email", email);
+      sessionStorage.setItem("securepathbank_verification_email", email);
       setTransitioning(true);
       router.push(`/verify?email=${encodeURIComponent(email)}`);
     } catch (reason) {
@@ -506,18 +506,18 @@ function Registration() {
               <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
-                  <span className={passwordStrong ? "text-emerald-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
+                  <span className={passwordStrong ? "text-blue-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
                     {passwordStrong ? "Strong" : passwordScore >= 3 ? "Medium" : "Weak"}
                   </span>
                 </div>
                 <div className="mt-3 grid grid-cols-5 gap-1" aria-hidden="true">
                   {checks.map((_, index) => (
-                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-emerald-600" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
+                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-blue-600" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
                   ))}
                 </div>
                 <ul className="mt-3 grid gap-1 text-[11px] text-neutral-500 sm:grid-cols-2">
                   {checks.map((check) => (
-                    <li key={check.label} className={check.met ? "text-emerald-700" : undefined}>
+                    <li key={check.label} className={check.met ? "text-blue-700" : undefined}>
                       {check.met ? "?" : "?"} {check.label}
                     </li>
                   ))}
@@ -611,7 +611,7 @@ function Registration() {
         </p>
       </Frame>
       {transitioning && (
-        <div className="fixed inset-0 z-[100] bg-[#062b1d]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[100] bg-[#10233f]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}

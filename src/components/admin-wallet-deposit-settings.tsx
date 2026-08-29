@@ -51,7 +51,7 @@ export default function AdminWalletDepositSettings() {
   }
   return <section>
     <div className="flex items-center gap-3"><Copy className="text-bank-700" /><div><h2 className="text-2xl font-bold">Wallet payment details</h2><p className="mt-1 text-sm text-neutral-500">Configure the details customers copy before uploading payment receipts.</p></div></div>
-    {message && <p className="mt-5 rounded-xl bg-emerald-50 p-4 text-sm text-emerald-700">{message}</p>}
+    {message && <p className="mt-5 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">{message}</p>}
     {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
     <div className="mt-6 grid gap-6 xl:grid-cols-3">
       {settings === null ? Array.from({length:3}).map((_,i)=><div key={i} className="h-96 animate-pulse rounded-2xl bg-white" />) : settings.map((item)=>

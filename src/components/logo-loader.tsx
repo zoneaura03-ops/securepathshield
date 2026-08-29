@@ -12,14 +12,14 @@ export function LogoLoader({
       className={`grid place-items-center ${transparent ? "bg-transparent" : "bg-[#f7f9fc]"} ${fullScreen ? "min-h-screen" : "min-h-[55vh]"}`}
       role="status"
       aria-live="polite"
-      aria-label="Loading SecurePath Shield"
+      aria-label="Loading SecurePath Bank"
     >
       <div className="relative grid h-20 w-20 place-items-center">
         <span className="absolute inset-0 animate-ping rounded-full border border-bank-600/20" />
         <span className="absolute inset-2 animate-pulse rounded-full bg-bank-50" />
         <BrandMark className="relative h-10 w-10" />
       </div>
-      <span className="sr-only">Loading SecurePath Shield</span>
+      <span className="sr-only">Loading SecurePath Bank</span>
     </div>
   );
 }

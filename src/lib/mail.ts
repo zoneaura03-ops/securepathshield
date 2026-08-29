@@ -26,9 +26,9 @@ export async function sendVerificationEmail(email: string, code: string) {
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Your SecurePath Shield verification code",
-    text: `Your SecurePath Shield verification code is ${code}. It expires in 10 minutes. If you did not request this code, ignore this email.`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:28px;margin:28px 0 10px">Verify your email</h1><p style="color:#66736b;line-height:1.7">Use this verification code to finish creating your SecurePath Shield account:</p><div style="margin:26px 0;padding:20px;text-align:center;background:#f1f4f9;border-radius:8px;font-size:32px;font-weight:700;letter-spacing:10px;color:#17233f">${code}</div><p style="color:#66736b;font-size:13px;line-height:1.7">This code expires in 10 minutes. Never share it with anyone.</p></div>`,
+    subject: "Your SecurePath Bank verification code",
+    text: `Your SecurePath Bank verification code is ${code}. It expires in 10 minutes. If you did not request this code, ignore this email.`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 10px">Verify your email</h1><p style="color:#66736b;line-height:1.7">Use this verification code to finish creating your SecurePath Bank account:</p><div style="margin:26px 0;padding:20px;text-align:center;background:#f1f4f9;border-radius:8px;font-size:32px;font-weight:700;letter-spacing:10px;color:#10233f">${code}</div><p style="color:#66736b;font-size:13px;line-height:1.7">This code expires in 10 minutes. Never share it with anyone.</p></div>`,
   });
 }
 
@@ -37,9 +37,9 @@ export async function sendAccountReadyEmail(email: string) {
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Your SecurePath Shield account is ready",
-    text: "Your email is verified and your secure banking account is ready. You can now sign in to SecurePath Shield.",
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:28px;margin:28px 0 10px">Your email is verified</h1><p style="color:#66736b;line-height:1.7">Your secure banking account is ready. You can now sign in and manage your SecurePath Shield account.</p><a href="${process.env.APP_URL || "http://localhost:3000"}/login" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#17233f;color:white;text-decoration:none;font-weight:700">Sign in to SecurePath Shield</a></div>`,
+    subject: "Your SecurePath Bank account is ready",
+    text: "Your email is verified and your secure banking account is ready. You can now sign in to SecurePath Bank.",
+    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 10px">Your email is verified</h1><p style="color:#66736b;line-height:1.7">Your secure banking account is ready. You can now sign in and manage your SecurePath Bank account.</p><a href="${process.env.APP_URL || "http://localhost:3000"}/login" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#10233f;color:white;text-decoration:none;font-weight:700">Sign in to SecurePath Bank</a></div>`,
   });
 }
 
@@ -50,9 +50,9 @@ export async function sendKycApprovalEmail(email: string, firstName?: string) {
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Your SecurePath Shield identity verification was successful",
+    subject: "Your SecurePath Bank identity verification was successful",
     text: `${greeting}\n\nYour submitted government ID verification has been successful. Log in to start transacting: ${loginUrl}`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:28px;margin:28px 0 10px">Identity verification successful</h1><p style="color:#66736b;line-height:1.7">${greeting}</p><p style="color:#66736b;line-height:1.7">Your submitted government ID verification has been successful. Log in to start transacting.</p><a href="${loginUrl}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#17233f;color:white;text-decoration:none;font-weight:700">Log in to SecurePath Shield</a></div>`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 10px">Identity verification successful</h1><p style="color:#66736b;line-height:1.7">${greeting}</p><p style="color:#66736b;line-height:1.7">Your submitted government ID verification has been successful. Log in to start transacting.</p><a href="${loginUrl}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#10233f;color:white;text-decoration:none;font-weight:700">Log in to SecurePath Bank</a></div>`,
   });
 }
 
@@ -62,9 +62,9 @@ export async function sendPasswordResetEmail(email: string, token: string) {
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Reset your SecurePath Shield password",
-    text: `Reset your SecurePath Shield password: ${url}. This link expires in 30 minutes.`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:28px;margin:28px 0 10px">Reset your password</h1><p style="color:#66736b;line-height:1.7">Use the secure button below to choose a new password. This link expires in 30 minutes.</p><a href="${url}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#17233f;color:white;text-decoration:none;font-weight:700">Reset password</a><p style="color:#66736b;font-size:13px">If you did not request this, you can safely ignore this email.</p></div>`,
+    subject: "Reset your SecurePath Bank password",
+    text: `Reset your SecurePath Bank password: ${url}. This link expires in 30 minutes.`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 10px">Reset your password</h1><p style="color:#66736b;line-height:1.7">Use the secure button below to choose a new password. This link expires in 30 minutes.</p><a href="${url}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#10233f;color:white;text-decoration:none;font-weight:700">Reset password</a><p style="color:#66736b;font-size:13px">If you did not request this, you can safely ignore this email.</p></div>`,
   });
 }
 
@@ -85,12 +85,12 @@ export async function sendTransactionHistoryEmail({
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Your SecurePath Shield transaction history is ready",
+    subject: "Your SecurePath Bank transaction history is ready",
     text: `Hello ${customerName}, your transaction history for ${from} to ${to} is ready. Download the attached PDF for your records.`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:26px;margin:28px 0 10px">Transaction history ready</h1><p style="color:#66736b;line-height:1.7">Hello ${customerName}, your transaction history for ${from} to ${to} has been generated. Download the attached PDF and keep it for your records.</p></div>`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:26px;margin:28px 0 10px">Transaction history ready</h1><p style="color:#66736b;line-height:1.7">Hello ${customerName}, your transaction history for ${from} to ${to} has been generated. Download the attached PDF and keep it for your records.</p></div>`,
     attachments: [
       {
-        filename: `securepathshield-transaction-history-${from}-to-${to}.pdf`,
+        filename: `securepathbank-transaction-history-${from}-to-${to}.pdf`,
         content: pdf,
         contentType: "application/pdf",
       },
@@ -122,8 +122,8 @@ export async function sendCampaignEmail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
     subject: title,
-    text: `Hello ${firstName || "Customer"},\n\n${message}\n\nOpen SecurePath Shield: ${destination}`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:540px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:27px;margin:28px 0 12px">${safeTitle}</h1><p style="color:#66736b;line-height:1.7">Hello ${safeName},</p><p style="color:#66736b;line-height:1.7">${safeMessage}</p><a href="${destination}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#17233f;color:white;text-decoration:none;font-weight:700">Open SecurePath Shield</a></div>`,
+    text: `Hello ${firstName || "Customer"},\n\n${message}\n\nOpen SecurePath Bank: ${destination}`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:540px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:27px;margin:28px 0 12px">${safeTitle}</h1><p style="color:#66736b;line-height:1.7">Hello ${safeName},</p><p style="color:#66736b;line-height:1.7">${safeMessage}</p><a href="${destination}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#10233f;color:white;text-decoration:none;font-weight:700">Open SecurePath Bank</a></div>`,
   });
 }
 
@@ -174,7 +174,7 @@ export async function sendTransferVerificationEmail({
     to: email,
     subject,
     text: `${message} Customer support: ${supportUrl}`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:540px;margin:auto;padding:32px;color:#17233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:27px;margin:28px 0 12px">${subject}</h1><p style="color:#66736b;line-height:1.7">${message}</p><a href="${supportUrl}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#17233f;color:white;text-decoration:none;font-weight:700">Contact customer support</a></div>`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:540px;margin:auto;padding:32px;color:#10233f"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:27px;margin:28px 0 12px">${subject}</h1><p style="color:#66736b;line-height:1.7">${message}</p><a href="${supportUrl}" style="display:inline-block;margin:22px 0;padding:14px 22px;border-radius:6px;background:#10233f;color:white;text-decoration:none;font-weight:700">Contact customer support</a></div>`,
   });
 }
 
@@ -196,7 +196,7 @@ export async function sendCreditNotificationEmail({
   reason?: string;
 }) {
   const transporter = nodemailer.createTransport(mailConfig());
-  const subject = `${amount} ${currency} credited to your SecurePath Shield account`;
+  const subject = `${amount} ${currency} credited to your SecurePath Bank account`;
   const processedAt = new Intl.DateTimeFormat("en-GB", {
     dateStyle: "medium",
     timeStyle: "long",
@@ -211,7 +211,7 @@ export async function sendCreditNotificationEmail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
     subject,
-    text: `SECUREPATH SHIELD TRANSACTION RECEIPT\n\nStatus: Successful\nType: Credit\nAmount: ${amount} ${currency}\nDestination: ${channel}\nReference: ${reference}\nProcessed: ${processedAt}${balanceLine}${reasonLine}\n\nIf you do not recognize this transaction, contact SecurePath Shield customer support immediately.`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:580px;margin:auto;padding:32px;color:#17233f;position:relative;overflow:hidden"><div style="position:absolute;inset:170px 0 auto;text-align:center;font-size:64px;font-weight:800;letter-spacing:8px;color:#17233f;opacity:.045;transform:rotate(-28deg)">SECUREPATH SHIELD</div><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#17233f">SECUREPATH SHIELD</div><h1 style="font-size:28px;margin:28px 0 8px">Transaction receipt</h1><p style="margin:0;color:#66736b;line-height:1.7">${message}</p><div style="margin:24px 0;padding:22px;background:#f1f4f9;border-radius:10px"><div style="font-size:28px;font-weight:700;color:#17233f">${amount} ${currency}</div><div style="margin-top:8px;font-size:13px;font-weight:700;color:#17233f">SUCCESSFUL</div></div><table style="width:100%;border-collapse:collapse;font-size:14px"><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Transaction type</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">Credit</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Destination</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${channel}</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Reference</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${reference}</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Processed</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${processedAt}</td></tr>${balanceAfter ? `<tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Balance after credit</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${balanceAfter} ${currency}</td></tr>` : ""}${reason ? `<tr><td style="padding:11px 0;color:#66736b">Description</td><td style="padding:11px 0;text-align:right;font-weight:700">${reason}</td></tr>` : ""}</table><p style="margin-top:26px;color:#66736b;font-size:13px;line-height:1.7">If you do not recognize this transaction, contact SecurePath Shield customer support immediately.</p></div>`,
+    text: `SECUREPATH BANK TRANSACTION RECEIPT\n\nStatus: Successful\nType: Credit\nAmount: ${amount} ${currency}\nDestination: ${channel}\nReference: ${reference}\nProcessed: ${processedAt}${balanceLine}${reasonLine}\n\nIf you do not recognize this transaction, contact SecurePath Bank customer support immediately.`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:580px;margin:auto;padding:32px;color:#10233f;position:relative;overflow:hidden"><div style="position:absolute;inset:170px 0 auto;text-align:center;font-size:64px;font-weight:800;letter-spacing:8px;color:#10233f;opacity:.045;transform:rotate(-28deg)">SECUREPATH BANK</div><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#10233f">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 8px">Transaction receipt</h1><p style="margin:0;color:#66736b;line-height:1.7">${message}</p><div style="margin:24px 0;padding:22px;background:#f1f4f9;border-radius:10px"><div style="font-size:28px;font-weight:700;color:#10233f">${amount} ${currency}</div><div style="margin-top:8px;font-size:13px;font-weight:700;color:#10233f">SUCCESSFUL</div></div><table style="width:100%;border-collapse:collapse;font-size:14px"><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Transaction type</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">Credit</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Destination</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${channel}</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Reference</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${reference}</td></tr><tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Processed</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${processedAt}</td></tr>${balanceAfter ? `<tr><td style="padding:11px 0;color:#66736b;border-bottom:1px solid #e5e9e6">Balance after credit</td><td style="padding:11px 0;text-align:right;font-weight:700;border-bottom:1px solid #e5e9e6">${balanceAfter} ${currency}</td></tr>` : ""}${reason ? `<tr><td style="padding:11px 0;color:#66736b">Description</td><td style="padding:11px 0;text-align:right;font-weight:700">${reason}</td></tr>` : ""}</table><p style="margin-top:26px;color:#66736b;font-size:13px;line-height:1.7">If you do not recognize this transaction, contact SecurePath Bank customer support immediately.</p></div>`,
   });
 }

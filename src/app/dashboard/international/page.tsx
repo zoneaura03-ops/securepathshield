@@ -256,7 +256,7 @@ export default function Page() {
             rows={[
               [
                 "From",
-                `${account?.account.name || "SecurePath Shield account"} · ******${account?.account.accountNumber.slice(6) || ""}`,
+                `${account?.account.name || "SecurePath Bank account"} · ******${account?.account.accountNumber.slice(6) || ""}`,
               ],
               ["Recipient", form.recipientName],
               [

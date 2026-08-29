@@ -102,14 +102,14 @@ export function AdminShell({
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f6f4] lg:grid lg:grid-cols-[284px_minmax(0,1fr)]">
-      <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#071d15] text-white lg:sticky lg:top-0 lg:flex">
+    <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[284px_minmax(0,1fr)]">
+      <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#071120] text-white lg:sticky lg:top-0 lg:flex">
         <div className="border-b border-white/10 px-7 py-6">
           <div className="inline-flex rounded-xl bg-white px-3 py-2">
             <Logo href="/admin" />
           </div>
-          <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-emerald-200/55">
-            <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399]" />{" "}
+          <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-blue-200/55">
+            <span className="size-1.5 rounded-full bg-blue-400 shadow-[0_0_12px_#34d399]" />{" "}
             Operations console
           </div>
         </div>
@@ -124,19 +124,19 @@ export function AdminShell({
                   <Link
                     key={href}
                     href={href}
-                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-emerald-500/25 to-emerald-400/10 text-white shadow-[inset_3px_0_0_#34d399]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
+                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-blue-500/25 to-blue-400/10 text-white shadow-[inset_3px_0_0_#34d399]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
                   >
                     <Icon
                       size={17}
                       className={
                         active(href)
-                          ? "text-emerald-300"
+                          ? "text-blue-300"
                           : "text-white/40 group-hover:text-white/70"
                       }
                     />
                     <span className="flex-1">{label}</span>
                     {active(href) && (
-                      <ChevronRight size={14} className="text-emerald-300" />
+                      <ChevronRight size={14} className="text-blue-300" />
                     )}
                   </Link>
                 ))}
@@ -146,7 +146,7 @@ export function AdminShell({
         </div>
         <div className="border-t border-white/10 p-4">
           <div className="mb-3 flex items-center gap-3 rounded-xl bg-white/[.06] p-3">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-emerald-300 to-emerald-600 text-xs font-bold text-[#062016] ring-2 ring-white/10">
+            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blue-300 to-blue-600 text-xs font-bold text-[#062016] ring-2 ring-white/10">
               {initials}
             </span>
             <div className="min-w-0">
@@ -165,14 +165,14 @@ export function AdminShell({
       </aside>
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-30 border-b border-[#dde5e0] bg-white/90 backdrop-blur-xl">
+        <header className="sticky top-0 z-30 border-b border-[#dfe5ef] bg-white/90 backdrop-blur-xl">
           <div className="flex h-[72px] items-center gap-4 px-4 sm:px-7 lg:px-9">
             <div className="lg:hidden">
               <Logo href="/admin" compact />
             </div>
             <div className="hidden min-w-0 sm:block">
               <p className="text-xs font-semibold text-neutral-900">
-                SecurePath Shield Administration
+                SecurePath Bank Administration
               </p>
               <p className="mt-0.5 text-[10px] text-neutral-400">
                 Secure operations and approvals
@@ -188,7 +188,7 @@ export function AdminShell({
                     setProfileOpen(false);
                   }}
                   aria-label="Search customers"
-                  className="grid size-10 place-items-center rounded-full border border-[#e0e6e2] bg-white text-neutral-500 hover:border-bank-200 hover:text-bank-700"
+                  className="grid size-10 place-items-center rounded-full border border-[#dfe5ef] bg-white text-neutral-500 hover:border-bank-200 hover:text-bank-700"
                 >
                   <Search size={17} />
                 </button>
@@ -220,7 +220,7 @@ export function AdminShell({
                   type="button"
                   onClick={toggleNotifications}
                   aria-label="Review notifications"
-                  className="relative grid size-10 place-items-center rounded-full border border-[#e0e6e2] bg-white text-neutral-500 hover:border-bank-200 hover:text-bank-700"
+                  className="relative grid size-10 place-items-center rounded-full border border-[#dfe5ef] bg-white text-neutral-500 hover:border-bank-200 hover:text-bank-700"
                 >
                   <BellRing size={17} />
                   <span className="absolute right-1.5 top-1.5 size-2 rounded-full bg-red-500 ring-2 ring-white" />
@@ -271,7 +271,7 @@ export function AdminShell({
                     setSearchOpen(false);
                     setNotificationOpen(false);
                   }}
-                  className="ml-1 flex items-center gap-2 rounded-full border border-[#e0e6e2] bg-white py-1 pl-1 pr-3"
+                  className="ml-1 flex items-center gap-2 rounded-full border border-[#dfe5ef] bg-white py-1 pl-1 pr-3"
                 >
                   {user.avatarUrl ? (
                     <Image
@@ -317,7 +317,7 @@ export function AdminShell({
               </div>
             </div>
           </div>
-          <nav className="flex gap-2 overflow-x-auto border-t border-[#edf1ee] px-4 py-2 lg:hidden">
+          <nav className="flex gap-2 overflow-x-auto border-t border-[#eef2f7] px-4 py-2 lg:hidden">
             {groups
               .flatMap((group) => group.links)
               .map(([label, href, Icon]) => (

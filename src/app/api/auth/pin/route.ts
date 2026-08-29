@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     );
   const cookieStore = await cookies();
   const { pin } = await request.json(),
-    token = cookieStore.get("securepathshield_login_challenge")?.value;
+    token = cookieStore.get("securepathbank_login_challenge")?.value;
   if (!token || !/^\d{4}$/.test(String(pin || "")))
     return NextResponse.json(
       { error: "Your sign-in challenge expired. Start again." },
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       { status: 403 },
     );
   await db.execute("DELETE FROM login_challenges WHERE id=?", [challenge.id]);
-  cookieStore.set("securepathshield_login_challenge", "", { path: "/", maxAge: 0 });
+  cookieStore.set("securepathbank_login_challenge", "", { path: "/", maxAge: 0 });
   await createSession(challenge.user_id, Boolean(challenge.remember_me));
   return NextResponse.json({ ok: true, role: challenge.role });
 }

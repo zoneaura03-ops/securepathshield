@@ -169,10 +169,10 @@ export default function AdminTransactionHistoryGenerator() {
 
   return (
     <div className="mx-auto max-w-[1400px]">
-      <section className="relative overflow-hidden rounded-[28px] bg-[#09251b] p-7 text-white shadow-[0_22px_65px_rgba(7,36,25,.17)] sm:p-9">
-        <div className="absolute -right-20 -top-20 size-64 rounded-full bg-emerald-400/15 blur-3xl" />
+      <section className="relative overflow-hidden rounded-[28px] bg-[#10233f] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
+        <div className="absolute -right-20 -top-20 size-64 rounded-full bg-blue-400/15 blur-3xl" />
         <div className="relative">
-          <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-emerald-300">
+          <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-blue-300">
             <Sparkles size={14} /> Account history tools
           </p>
           <h1 className="mt-4 text-3xl font-semibold sm:text-4xl">
@@ -196,7 +196,7 @@ export default function AdminTransactionHistoryGenerator() {
       )}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[.72fr_1.28fr]">
-        <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)]">
+        <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(16,35,63,.05)]">
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
               <UserRound size={20} />
@@ -239,7 +239,7 @@ export default function AdminTransactionHistoryGenerator() {
                   key={user.id}
                   type="button"
                   onClick={() => setSelected(user)}
-                  className={`flex w-full items-center gap-3 rounded-xl border p-3 text-left transition ${selected?.id === user.id ? "border-bank-500 bg-bank-50 ring-2 ring-bank-100" : "border-[#e5ebe7] hover:bg-neutral-50"}`}
+                  className={`flex w-full items-center gap-3 rounded-xl border p-3 text-left transition ${selected?.id === user.id ? "border-bank-500 bg-bank-50 ring-2 ring-bank-100" : "border-[#e2e7f0] hover:bg-neutral-50"}`}
                 >
                   <span
                     className={`grid size-10 shrink-0 place-items-center rounded-full text-xs font-bold ${selected?.id === user.id ? "bg-bank-700 text-white" : "bg-neutral-100 text-neutral-600"}`}
@@ -274,7 +274,7 @@ export default function AdminTransactionHistoryGenerator() {
 
         <form
           onSubmit={generate}
-          className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(21,57,41,.05)] sm:p-7"
+          className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(16,35,63,.05)] sm:p-7"
         >
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
@@ -288,7 +288,7 @@ export default function AdminTransactionHistoryGenerator() {
             </div>
           </div>
           {selected && (
-            <div className="mt-5 rounded-2xl bg-[#f4f8f5] p-4">
+            <div className="mt-5 rounded-2xl bg-[#f7f9fc] p-4">
               <p className="text-xs font-semibold text-bank-800">
                 Generating for {selected.first_name} {selected.last_name}
               </p>
@@ -543,21 +543,21 @@ export default function AdminTransactionHistoryGenerator() {
           {success && (
             <div
               role="status"
-              className="mt-3 flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
+              className="mt-3 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800"
             >
-              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-emerald-600 text-white">
+              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-blue-600 text-white">
                 <Check size={14} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">History generated successfully</p>
-                <p className="mt-1 break-words text-xs leading-5 text-emerald-700">
+                <p className="mt-1 break-words text-xs leading-5 text-blue-700">
                   {success}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setSuccess("")}
-                className="text-xs font-bold text-emerald-700"
+                className="text-xs font-bold text-blue-700"
                 aria-label="Dismiss confirmation"
               >
                 ×

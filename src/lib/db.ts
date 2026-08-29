@@ -1,7 +1,7 @@
 import mysql, { type Pool, type RowDataPacket } from "mysql2/promise";
 
 const globalDatabase = globalThis as typeof globalThis & {
-  securepathshieldPool?: Pool;
+  securepathbankPool?: Pool;
 };
 
 function createPool() {
@@ -21,6 +21,6 @@ function createPool() {
   });
 }
 
-export const db = globalDatabase.securepathshieldPool ?? createPool();
-if (process.env.NODE_ENV !== "production") globalDatabase.securepathshieldPool = db;
+export const db = globalDatabase.securepathbankPool ?? createPool();
+if (process.env.NODE_ENV !== "production") globalDatabase.securepathbankPool = db;
 export type DatabaseRow = RowDataPacket;

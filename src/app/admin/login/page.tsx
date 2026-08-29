@@ -26,13 +26,13 @@ export default function Page() {
       setLoading(false);
       return;
     }
-    sessionStorage.setItem("securepathshield_login_destination", "/admin");
+    sessionStorage.setItem("securepathbank_login_destination", "/admin");
     router.push("/pin");
   }
 
   return (
     <main
-      className="relative grid min-h-screen overflow-hidden bg-[#071510] px-4 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_28rem] lg:place-items-center lg:gap-12 lg:px-16"
+      className="relative grid min-h-screen overflow-hidden bg-[#071120] px-4 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_28rem] lg:place-items-center lg:gap-12 lg:px-16"
       style={{
         backgroundImage: "url('/images/admin-office-skyscraper.png')",
         backgroundPosition: "center",
@@ -44,13 +44,13 @@ export default function Page() {
 
       <section className="relative z-10 hidden max-w-xl justify-self-start text-white lg:block">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold tracking-wide backdrop-blur-md">
-          <ShieldCheck size={16} className="text-emerald-300" /> Secure operations portal
+          <ShieldCheck size={16} className="text-blue-300" /> Secure operations portal
         </div>
         <h1 className="mt-7 text-5xl font-semibold leading-[1.08] tracking-tight">
           Banking operations,<br />protected by design.
         </h1>
         <p className="mt-5 max-w-lg text-base leading-7 text-white/70">
-          Review customers, verification requests, transactions, cards, and account activity from the SecurePath Shield administration workspace.
+          Review customers, verification requests, transactions, cards, and account activity from the SecurePath Bank administration workspace.
         </p>
       </section>
 
@@ -61,11 +61,11 @@ export default function Page() {
         <Logo />
         <div className="mt-8 flex items-center gap-3">
           <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700"><ShieldCheck size={21} /></span>
-          <div><h2 className="text-2xl font-semibold text-neutral-900">Admin access</h2><p className="mt-0.5 text-xs text-neutral-500">Authorized SecurePath Shield personnel only</p></div>
+          <div><h2 className="text-2xl font-semibold text-neutral-900">Admin access</h2><p className="mt-0.5 text-xs text-neutral-500">Authorized SecurePath Bank personnel only</p></div>
         </div>
         <label className="mt-7 block">
           <span className="label">Admin email</span>
-          <input required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" className="field mt-2" type="email" placeholder="admin@securepathshield.com" />
+          <input required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" className="field mt-2" type="email" placeholder="admin@securepathgroups.com" />
         </label>
         <label className="mt-4 block">
           <span className="label">Password</span>

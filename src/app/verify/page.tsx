@@ -19,7 +19,7 @@ export default function Page() {
   useEffect(() => {
     setEmail(
       searchParams.get("email") ||
-        sessionStorage.getItem("securepathshield_verification_email") ||
+        sessionStorage.getItem("securepathbank_verification_email") ||
         "",
     );
   }, [searchParams]);
@@ -44,7 +44,7 @@ export default function Page() {
       });
       const data = await response.json();
       if (response.ok) {
-        sessionStorage.removeItem("securepathshield_verification_email");
+        sessionStorage.removeItem("securepathbank_verification_email");
         router.push("/dashboard");
         return;
       }
@@ -127,7 +127,7 @@ export default function Page() {
         </button>
       </div>
       {loading && (
-        <div className="fixed inset-0 z-[200] bg-[#062b1d]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[200] bg-[#10233f]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}

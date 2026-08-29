@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       accountType: account.type,
       currency: account.currency,
       status: account.status,
-      bankName: process.env.BANK_LEGAL_NAME || "SecurePath Shield",
+      bankName: process.env.BANK_LEGAL_NAME || "SecurePath Bank",
     },
   });
 }

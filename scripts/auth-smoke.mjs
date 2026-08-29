@@ -26,7 +26,7 @@ try {
   });
   if (!login.ok) throw new Error(`Login failed: ${await login.text()}`);
   const challenge = login.headers.get("set-cookie")?.split(";")[0];
-  if (!challenge?.startsWith("securepathshield_login_challenge="))
+  if (!challenge?.startsWith("securepathbank_login_challenge="))
     throw new Error("Login did not issue a PIN challenge.");
   const pinResponse = await fetch(`${baseUrl}/api/auth/pin`, {
     method: "POST",
@@ -39,7 +39,7 @@ try {
     session = setCookie
       .split(",")
       .map((value) => value.trim())
-      .find((value) => value.startsWith("securepathshield_session="))
+      .find((value) => value.startsWith("securepathbank_session="))
       ?.split(";")[0];
   if (!session) throw new Error("PIN verification did not issue a session.");
   const dashboard = await fetch(`${baseUrl}/dashboard`, {

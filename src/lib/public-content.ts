@@ -3,7 +3,7 @@ export const publicContent = {
     eyebrow: "Trusted by over 4.5 million customers worldwide",
     title: "Credible, Innovative and Secured Banking",
     description:
-      "Experience banking excellence with industry-leading security, personalized service, and global financial solutions. Whether you’re saving for tomorrow or investing for the future, SecurePath Shield gives you the tools and support to move forward with confidence.",
+      "Experience banking excellence with industry-leading security, personalized service, and global financial solutions. Whether you’re saving for tomorrow or investing for the future, SecurePath Bank gives you the tools and support to move forward with confidence.",
     primaryAction: "Open Account – It’s Free",
     secondaryAction: "Access Your Account",
     assurances: ["Bank-Grade Security", "256-bit Encryption", "24/7 Support"],
@@ -12,7 +12,7 @@ export const publicContent = {
     eyebrow: "Progressive Web App",
     title: "Secure banking, wherever you may be.",
     description:
-      "Experience the convenience of a native banking app directly from your browser. SecurePath Shield is fast, secure, reliable, and designed to work beautifully on every device.",
+      "Experience the convenience of a native banking app directly from your browser. SecurePath Bank is fast, secure, reliable, and designed to work beautifully on every device.",
     badge: "Fast & Secure",
     benefits: [
       {
@@ -32,7 +32,7 @@ export const publicContent = {
       },
     ],
     installSteps: [
-      "Open SecurePath Shield in Safari on your iPhone.",
+      "Open SecurePath Bank in Safari on your iPhone.",
       "Tap the Share button at the bottom of the screen.",
       "Choose “Add to Home Screen”, then tap Add.",
     ],
@@ -55,7 +55,7 @@ export const publicContent = {
     ],
   },
   whyChooseUs: {
-    eyebrow: "Why Choose SecurePath Shield",
+    eyebrow: "Why Choose SecurePath Bank",
     title: "Banking excellence without borders.",
     description:
       "We combine personal service with secure technology to give every customer confidence, control, and convenient access to their finances wherever they may be.",
@@ -84,7 +84,7 @@ export const publicContent = {
       "Contact Us",
     ],
     address: "301 East Water Street, Charlottesville, VA 22901 Virginia",
-    email: "support@securepathshield.com",
+    email: "support@securepathgroups.com",
   },
   proof: [
     ["1M+", "Customers worldwide"],
@@ -185,7 +185,7 @@ export const publicContent = {
   ],
   testimonials: [
     [
-      "“SecurePath Shield makes international payments feel straightforward and transparent.”",
+      "“SecurePath Bank makes international payments feel straightforward and transparent.”",
       "Amelia R.",
       "Small business owner",
     ],

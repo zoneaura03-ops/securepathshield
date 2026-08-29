@@ -3,11 +3,11 @@ import Image from "next/image";
 import { FormEvent, use, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check, ImageUp, Search, ShieldAlert, X } from "lucide-react";
-import AdminTransactionHistoryGenerator from "../../../components/securepathshield-admin-transaction-history";
-import AdminUserFunding from "../../../components/securepathshield-admin-user-funding";
-import AdminCreateUser from "../../../components/securepathshield-admin-create-user";
-import AdminSupport from "../../../components/securepathshield-admin-support";
-import AdminTransferQueue from "../../../components/securepathshield-admin-transfer-queue";
+import AdminTransactionHistoryGenerator from "../../../components/securepathbank-admin-transaction-history";
+import AdminUserFunding from "../../../components/securepathbank-admin-user-funding";
+import AdminCreateUser from "../../../components/securepathbank-admin-create-user";
+import AdminSupport from "../../../components/securepathbank-admin-support";
+import AdminTransferQueue from "../../../components/securepathbank-admin-transfer-queue";
 import AdminProfileSettings from "../../../components/admin-profile-settings";
 import AdminLiveChat from "../../../components/admin-live-chat";
 import AdminPasswordSettings from "../../../components/admin-password-settings";
@@ -165,7 +165,7 @@ export default function Page({
                 {section === "users" && (
                   <div className="mt-3 flex flex-wrap gap-2 text-[10px] font-bold uppercase">
                     <span
-                      className={`rounded-full px-2.5 py-1 ${row.status === "active" ? "bg-emerald-50 text-emerald-700" : "bg-neutral-100 text-neutral-600"}`}
+                      className={`rounded-full px-2.5 py-1 ${row.status === "active" ? "bg-blue-50 text-blue-700" : "bg-neutral-100 text-neutral-600"}`}
                     >
                       {String(row.status)}
                     </span>
@@ -194,7 +194,7 @@ export default function Page({
                     <span className="rounded bg-violet-50 px-2 py-1 text-violet-800">
                       Tax: {String(row.tax_code || "—")}
                     </span>
-                    <span className="rounded bg-emerald-50 px-2 py-1 text-emerald-800">
+                    <span className="rounded bg-blue-50 px-2 py-1 text-blue-800">
                       COT: {String(row.cot_code || "—")}
                     </span>
                   </div>
@@ -520,7 +520,7 @@ function DepositWalletSettings() {
         screenshot replaces the generated QR display.
       </p>
       {message && (
-        <p className="mt-5 rounded-xl bg-emerald-50 p-4 text-sm text-emerald-700">
+        <p className="mt-5 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">
           {message}
         </p>
       )}
@@ -540,7 +540,7 @@ function DepositWalletSettings() {
           : settings.map((item) => (
               <section
                 key={item.asset}
-                className="overflow-hidden rounded-2xl border border-[#dfe6e2] bg-white shadow-sm"
+                className="overflow-hidden rounded-2xl border border-[#dfe5ef] bg-white shadow-sm"
               >
                 <div className="flex items-center justify-between border-b bg-neutral-50 px-5 py-4">
                   <div>
@@ -785,7 +785,7 @@ function CryptoBalanceManager() {
         </p>
       )}
       {success && (
-        <p className="mt-5 rounded-xl bg-emerald-50 p-4 text-sm text-emerald-700">
+        <p className="mt-5 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">
           {success}
         </p>
       )}
@@ -812,7 +812,7 @@ function CryptoBalanceManager() {
                   <span className="rounded bg-indigo-50 px-2 py-1 text-indigo-700">
                     {formatAdminCrypto(user.eth_balance, "ETH")}
                   </span>
-                  <span className="rounded bg-emerald-50 px-2 py-1 text-emerald-700">
+                  <span className="rounded bg-blue-50 px-2 py-1 text-blue-700">
                     {formatAdminCrypto(user.usdt_balance, "USDT")}
                   </span>
                 </div>

@@ -71,7 +71,7 @@ export function AccountDetailsClient({
       </p>
       <h1 className="mt-2 text-3xl sm:text-4xl">Account details</h1>
       <p className="mt-2 text-sm text-neutral-500">
-        Use these details when receiving money into your SecurePath Shield account.
+        Use these details when receiving money into your SecurePath Bank account.
       </p>
       <div className="mt-6 rounded-2xl bg-bank-900 p-6 text-white">
         <Landmark size={24} />
@@ -162,7 +162,7 @@ export function AccountDetailsClient({
                   onClick={() => copy(label, item)}
                 >
                   {copied === label ? (
-                    <Check size={16} className="text-emerald-600" />
+                    <Check size={16} className="text-blue-600" />
                   ) : (
                     <Copy size={16} />
                   )}

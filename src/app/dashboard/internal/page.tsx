@@ -133,7 +133,7 @@ export default function Page() {
         <Status
           icon={<CheckCircle2 />}
           title="Transfer completed"
-          text="Funds are now available in the recipient's SecurePath Shield account."
+          text="Funds are now available in the recipient's SecurePath Bank account."
         />
         <div className="card mt-5 rounded-2xl p-6">
           <Rows
@@ -182,10 +182,10 @@ export default function Page() {
             rows={[
               [
                 "From",
-                `${account?.account.name || "SecurePath Shield account"} - ${masked}`,
+                `${account?.account.name || "SecurePath Bank account"} - ${masked}`,
               ],
               ["Recipient", recipient?.name || ""],
-              ["SecurePath Shield account", mask(form.recipientAccount)],
+              ["SecurePath Bank account", mask(form.recipientAccount)],
               ["Bank", recipient?.bankName || ""],
               ["Account type", recipient?.accountType || ""],
               ["Currency", recipient?.currency || ""],
@@ -224,7 +224,7 @@ export default function Page() {
     <div className="mx-auto max-w-3xl">
       <Header
         title="Internal transfer"
-        text="Send money instantly to another SecurePath Shield account."
+        text="Send money instantly to another SecurePath Bank account."
       />
       <div className="mt-6 rounded-2xl bg-bank-900 p-5 text-white">
         <p className="text-[10px] uppercase tracking-widest text-white/50">
@@ -243,7 +243,7 @@ export default function Page() {
           <h2 className="text-xl">Recipient information</h2>
           <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_auto] sm:items-end">
             <Field
-              label="SecurePath Shield account number"
+              label="SecurePath Bank account number"
               inputMode="numeric"
               pattern="[0-9]{8,20}"
               value={form.recipientAccount}
@@ -263,14 +263,14 @@ export default function Page() {
             </button>
           </div>
           {recipient && (
-            <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
-                Verified SecurePath Shield recipient
+            <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">
+                Verified SecurePath Bank recipient
               </p>
-              <p className="mt-1 font-semibold text-emerald-950">
+              <p className="mt-1 font-semibold text-blue-950">
                 {recipient.name}
               </p>
-              <p className="text-xs text-emerald-700">
+              <p className="text-xs text-blue-700">
                 {recipient.bankName} - {recipient.accountType} -{" "}
                 {recipient.currency}
               </p>

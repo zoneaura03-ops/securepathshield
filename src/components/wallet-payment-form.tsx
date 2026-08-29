@@ -24,7 +24,7 @@ const providerDetails = {
     identifier: "Recipient $Cashtag",
     placeholder: "$RecipientName",
     type: "text",
-    color: "bg-[#00d64f]",
+    color: "bg-[#2563eb]",
     copy: "Send directly using the recipient's unique Cash App $Cashtag.",
   },
   skrill: {
@@ -119,7 +119,7 @@ export function WalletPaymentForm({ provider }: { provider: Provider }) {
         <button type="button" onClick={() => { setPin(""); setError(""); setStep("form"); }} className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-bank-700"><ArrowLeft size={16} /> Edit payment</button>
         <div className="card rounded-2xl p-6 sm:p-8">
           <Header provider={provider} title={`Review your ${details.name} payment`} copy="Confirm the recipient and payment details before authorizing." />
-          <Review rows={[["From", `${account?.account.name || "SecurePath Shield account"} · ${maskedAccount}`], ["Provider", details.name], ["Recipient", recipientName], [details.identifier, maskIdentifier(identifier, provider)], ...(provider === "paypal" ? [["PayPal payment type", paymentType === "goods_services" ? "Goods and services" : "Friends and family"]] : []), ["Purpose", purpose], ["Note", note || "None"], ["Amount", money(numericAmount, account?.account.currency)], ["Fee", money(0, account?.account.currency)], ["Total debit", money(numericAmount, account?.account.currency)]]} />
+          <Review rows={[["From", `${account?.account.name || "SecurePath Bank account"} · ${maskedAccount}`], ["Provider", details.name], ["Recipient", recipientName], [details.identifier, maskIdentifier(identifier, provider)], ...(provider === "paypal" ? [["PayPal payment type", paymentType === "goods_services" ? "Goods and services" : "Friends and family"]] : []), ["Purpose", purpose], ["Note", note || "None"], ["Amount", money(numericAmount, account?.account.currency)], ["Fee", money(0, account?.account.currency)], ["Total debit", money(numericAmount, account?.account.currency)]]} />
           <div className="mt-6 border-t pt-6"><h2 className="text-xl">Authorize payment</h2><p className="mt-1 text-xs leading-5 text-neutral-500">Enter your 4-digit transaction PIN after checking every detail.</p><Field className="mt-4" label="4-digit transaction PIN" type="password" inputMode="numeric" pattern="[0-9]{4}" maxLength={4} value={pin} onChange={(value) => setPin(value.replace(/\D/g, "").slice(0, 4))} /></div>
           {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
           <button type="button" onClick={submit} disabled={pin.length !== 4} className="btn mt-6 w-full"><ShieldCheck size={17} /> Authorize {details.name} payment</button>

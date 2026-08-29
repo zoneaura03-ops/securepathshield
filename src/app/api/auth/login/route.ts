@@ -100,7 +100,7 @@ export async function POST(request: Request) {
       "INSERT INTO login_challenges(user_id,token_hash,remember_me,expires_at) VALUES(?,?,?,DATE_ADD(NOW(),INTERVAL 5 MINUTE))",
       [user.id, tokenHash, Boolean(remember)],
     );
-    (await cookies()).set("securepathshield_login_challenge", token, {
+    (await cookies()).set("securepathbank_login_challenge", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",

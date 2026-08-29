@@ -57,10 +57,10 @@ export async function POST(request: Request) {
         { status: 409 },
       );    const cardName =
       brand === "visa"
-        ? "SecurePath Shield Visa"
+        ? "SecurePath Bank Visa"
         : brand === "mastercard"
-          ? "SecurePath Shield Mastercard"
-          : "SecurePath Shield Credit Card";
+          ? "SecurePath Bank Mastercard"
+          : "SecurePath Bank Credit Card";
     await db.execute(
       "INSERT INTO cards(user_id,account_id,brand,card_name,currency,status) VALUES(?,?,?,?,?,'pending')",
       [user.id, account.id, brand, cardName, account.currency],
