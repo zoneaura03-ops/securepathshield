@@ -124,10 +124,10 @@ export default function AdminUserFunding() {
 
   return (
     <div className="mx-auto max-w-[1400px]">
-      <section className="relative overflow-hidden rounded-[28px] bg-[#0a1728] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
-        <div className="absolute -right-20 -top-24 size-72 rounded-full bg-blue-400/15 blur-3xl" />
+      <section className="relative overflow-hidden rounded-[28px] bg-[#0a1728] p-7 text-white shadow-[0_22px_65px_rgba(10,23,40,.17)] sm:p-9">
+        <div className="absolute -right-20 -top-24 size-72 rounded-full bg-gold-400/15 blur-3xl" />
         <div className="relative">
-          <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-blue-300">
+          <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-gold-300">
             <Coins size={15} /> Treasury operations
           </p>
           <h1 className="mt-4 text-3xl font-semibold sm:text-4xl">
@@ -150,7 +150,7 @@ export default function AdminUserFunding() {
       )}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[.72fr_1.28fr]">
-        <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(16,35,63,.05)]">
+        <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(10,23,40,.05)]">
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
               <UserRound size={20} />
@@ -249,7 +249,7 @@ export default function AdminUserFunding() {
 
         <form
           onSubmit={fund}
-          className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(16,35,63,.05)] sm:p-7"
+          className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(10,23,40,.05)] sm:p-7"
         >
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
@@ -399,14 +399,14 @@ export default function AdminUserFunding() {
           {success && (
             <div
               role="status"
-              className="mt-3 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800"
+              className="mt-3 flex items-start gap-3 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700"
             >
-              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-blue-600 text-white">
+              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gold-500 text-white">
                 <Check size={14} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">Funding completed</p>
-                <p className="mt-1 break-words text-xs leading-5 text-blue-700">
+                <p className="mt-1 break-words text-xs leading-5 text-gold-700">
                   {success}
                 </p>
               </div>

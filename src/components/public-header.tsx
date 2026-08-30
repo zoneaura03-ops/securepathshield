@@ -51,7 +51,7 @@ export function PublicHeader() {
       <header
         className={`sticky top-0 z-40 border-b transition-all duration-300 ${
           scrolled
-            ? "border-black/[0.06] bg-white/90 shadow-[0_8px_30px_rgba(16,35,63,.08)] backdrop-blur-xl"
+            ? "border-black/[0.06] bg-white/90 shadow-[0_8px_30px_rgba(10,23,40,.08)] backdrop-blur-xl"
             : "border-black/[0.045] bg-white"
         }`}
       >

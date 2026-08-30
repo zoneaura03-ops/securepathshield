@@ -28,7 +28,7 @@ export default function Page() {
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-20 text-white sm:px-8">
         <div className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#2563eb]">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#d6b45f]">
             Legal and regulatory
           </p>
           <h1 className="mt-4 text-5xl">Clear disclosures build trust.</h1>

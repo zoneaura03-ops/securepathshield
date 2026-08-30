@@ -34,7 +34,7 @@ export default function AdminCampaigns() {
   return (
     <div className="mx-auto max-w-3xl">
       <section className="rounded-[28px] bg-[#0a1728] p-8 text-white">
-        <BellRing className="text-blue-300" />
+        <BellRing className="text-gold-300" />
         <h1 className="mt-4 text-3xl">Campaign notifications</h1>
         <p className="mt-2 text-sm text-white/60">
           Send an in-app announcement to every active customer.
@@ -78,7 +78,7 @@ export default function AdminCampaigns() {
           </p>
         )}
         {status && (
-          <p className="rounded-xl bg-blue-50 p-3 text-sm text-blue-700">
+          <p className="rounded-xl bg-gold-50 p-3 text-sm text-gold-700">
             {status}
           </p>
         )}

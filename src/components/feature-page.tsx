@@ -521,7 +521,7 @@ function CryptoSwap() {
     <div>
       <Header eyebrow="Digital assets" title="Crypto Swap" copy="Exchange cash, Bitcoin, Ethereum, and Tether using a live market quote and one clear fee." />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {message && <p className="mt-5 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">{message}</p>}
+      {message && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">{message}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_minmax(300px,.75fr)]">
         <form onSubmit={completeSwap} className="rounded-3xl border border-[#dfe5ef] bg-white p-5 shadow-sm sm:p-7">
@@ -572,8 +572,8 @@ function CryptoSwap() {
         </form>
 
         <aside className="space-y-5">
-          <div className="rounded-3xl bg-[#0b3b2b] p-6 text-white shadow-sm">
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-blue-200">Portfolio balances</p>
+          <div className="rounded-3xl bg-[#0a1728] p-6 text-white shadow-sm">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-gold-300">Portfolio balances</p>
             <div className="mt-5 space-y-4">
               {assets.map((asset) => <div key={asset} className="flex items-center justify-between border-b border-white/10 pb-4 last:border-0 last:pb-0"><span className="font-bold">{asset}</span><span>{formatAsset(asset === data?.account.currency ? data.account.availableBalance : data?.balances[asset] || 0, asset, false)}</span></div>)}
             </div>
@@ -588,7 +588,7 @@ function CryptoSwap() {
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {!data ? <RowsLoading /> : data.swaps.length ? data.swaps.map((swap) => (
             <article key={swap.reference} className="flex flex-col gap-3 border-b p-5 last:border-0 sm:flex-row sm:items-center sm:justify-between">
-              <div><div className="flex items-center gap-2"><b>{swap.from_asset} â†’ {swap.to_asset}</b><span className="rounded-full bg-blue-50 px-2 py-1 text-[9px] font-bold uppercase text-blue-700">{swap.status}</span></div><p className="mt-1 text-xs text-neutral-500">{swap.reference} Â· {new Date(swap.created_at).toLocaleString("en-GB")}</p></div>
+              <div><div className="flex items-center gap-2"><b>{swap.from_asset} â†’ {swap.to_asset}</b><span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">{swap.status}</span></div><p className="mt-1 text-xs text-neutral-500">{swap.reference} Â· {new Date(swap.created_at).toLocaleString("en-GB")}</p></div>
               <div className="text-left sm:text-right"><b>{formatAsset(swap.to_amount, swap.to_asset)}</b><p className="mt-1 text-xs text-neutral-500">From {formatAsset(swap.from_amount, swap.from_asset)}</p></div>
             </article>
           )) : <Empty title="No crypto swaps yet" copy="Your completed exchanges will appear here." />}
@@ -651,7 +651,7 @@ function Deposit() {
               ? "text-[#f7931a]"
               : value === "eth"
                 ? "text-[#627eea]"
-                : "text-[#2563eb]";
+                : "text-[#d6b45f]";
           return (
             <button
               key={value}
@@ -796,7 +796,7 @@ function Receipt() {
       <div className="receipt-paper relative overflow-hidden rounded-2xl border bg-white p-7 shadow-sm">
         <div className="receipt-watermark pointer-events-none absolute inset-0 grid place-items-center" aria-hidden><BrandMark className="h-72 w-72 opacity-[.045]" /></div>
         <div className="relative">
-          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH BANK</p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-blue-50 text-blue-700"}`}>{String(item.status)}</span></div>
+          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH BANK</p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-gold-50 text-gold-700"}`}>{String(item.status)}</span></div>
           <p className="mt-6 text-center text-3xl font-bold text-bank-800">{formatMoney(Number(item.amount), String(item.currency))}</p>
           <p className="mt-1 text-center text-xs text-neutral-500">{String(item.description)}</p>
         <Review
@@ -958,7 +958,7 @@ function PremiumCards() {
         copy="Apply for a Visa, Mastercard, or SecurePath Bank Credit Card, then manage it securely."
       />
 
-      <section className="mt-6 rounded-2xl border border-[#e1e6ef] bg-white p-5 shadow-[0_8px_24px_rgba(16,35,63,.05)] sm:p-6">
+      <section className="mt-6 rounded-2xl border border-[#e1e6ef] bg-white p-5 shadow-[0_8px_24px_rgba(10,23,40,.05)] sm:p-6">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-xl font-bold text-[#111827]">Apply for a new card</h2>
@@ -998,12 +998,12 @@ function PremiumCards() {
                 onClick={() => { if (!unavailable) setSelectedBrand(brand); }}
                 disabled={saving || unavailable}
                 aria-label={owned ? `${title} owned` : pendingApplication ? `${title} under review` : defaultCopy}
-                className={`group relative overflow-hidden rounded-2xl border bg-white p-3 text-left transition ${owned ? "border-blue-300 bg-blue-50/30" : pendingApplication ? "border-amber-200 bg-amber-50/30" : "border-[#dfe5ef] hover:-translate-y-0.5 hover:border-bank-300 hover:shadow-[0_12px_30px_rgba(16,35,63,.1)]"}`}
+                className={`group relative overflow-hidden rounded-2xl border bg-white p-3 text-left transition ${owned ? "border-gold-300 bg-gold-50/30" : pendingApplication ? "border-amber-200 bg-amber-50/30" : "border-[#dfe5ef] hover:-translate-y-0.5 hover:border-bank-300 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)]"}`}
               >
                 <CardArtwork brand={brand} holder={accountHolder} />
                 <span className="flex items-center gap-3 px-1 pb-1 pt-4">
                   <span className="min-w-0 flex-1">
-                    <span className="flex items-center gap-2"><span className="block truncate font-bold">{title}</span>{owned && <span className="rounded-full bg-blue-100 px-2 py-1 text-[9px] font-bold uppercase text-blue-700">Owned</span>}{pendingApplication && <span className="rounded-full bg-amber-100 px-2 py-1 text-[9px] font-bold uppercase text-amber-700">Under review</span>}</span>
+                    <span className="flex items-center gap-2"><span className="block truncate font-bold">{title}</span>{owned && <span className="rounded-full bg-gold-100 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">Owned</span>}{pendingApplication && <span className="rounded-full bg-amber-100 px-2 py-1 text-[9px] font-bold uppercase text-amber-700">Under review</span>}</span>
                     <span className="mt-1 block text-xs leading-5 text-neutral-500">{copy}</span>
                   </span>
                   {!unavailable && <ChevronRight className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-bank-700" size={19} />}
@@ -1042,17 +1042,17 @@ function PremiumCards() {
                       ? "Declined"
                       : "Frozen";
               const statusTone = active
-                ? "bg-blue-50 text-blue-700"
+                ? "bg-gold-50 text-gold-700"
                 : pending
                   ? "bg-amber-50 text-amber-700"
                   : card.status === "declined"
                     ? "bg-red-50 text-red-700"
-                    : "bg-sky-50 text-sky-700";
+                    : "bg-gold-50 text-gold-700";
 
               return (
                 <article
                   key={card.id}
-                  className="rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(16,35,63,.055)] sm:p-5"
+                  className="rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(10,23,40,.055)] sm:p-5"
                 >
                   <div className="grid min-w-0 gap-5 sm:grid-cols-[260px_1fr] sm:items-center lg:grid-cols-[260px_1fr_auto]">
                     <VirtualCardThumb card={card} />
@@ -1079,7 +1079,7 @@ function PremiumCards() {
                     <div className="flex items-end justify-between gap-4 border-t border-neutral-100 pt-4 sm:col-span-2 lg:col-span-1 lg:block lg:min-w-40 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 lg:text-right">
                       <div>
                         <p className="text-[10px] text-neutral-400">{active ? "Balance" : "Status"}</p>
-                        <p className={`mt-1 font-bold ${active ? "text-xl text-[#111827]" : pending ? "text-amber-700" : "text-sky-700"}`}>
+                        <p className={`mt-1 font-bold ${active ? "text-xl text-[#111827]" : pending ? "text-amber-700" : "text-gold-700"}`}>
                           {active ? formatMoney(card.balance, card.currency) : statusLabel}
                         </p>
                       </div>
@@ -1125,7 +1125,7 @@ function PremiumCards() {
 
       {selectedBrand && (
         <div
-          className="fixed inset-0 z-[210] grid place-items-center bg-[#061f16]/55 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[210] grid place-items-center bg-[#071321]/55 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-labelledby="card-application-title"
@@ -1176,7 +1176,7 @@ function PremiumCards() {
         </div>
       )}
       {accessCard && (
-        <div className="fixed inset-0 z-[215] grid place-items-center bg-[#061f16]/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="card-access-title">
+        <div className="fixed inset-0 z-[215] grid place-items-center bg-[#071321]/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="card-access-title">
           <section className="w-full max-w-lg rounded-3xl border border-white/70 bg-white p-6 shadow-[0_30px_90px_rgba(0,25,15,.3)] sm:p-8">
             <div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[.18em] text-bank-600">Protected card access</p><h2 id="card-access-title" className="mt-2 text-2xl">{accessCard.card_name}</h2><p className="mt-1 text-xs text-neutral-500">Card ending in {accessCard.last_four}</p></div><button type="button" onClick={() => setAccessCard(null)} className="grid size-10 place-items-center rounded-full bg-neutral-100 text-neutral-600" aria-label="Close">×</button></div>
             {accessResult ? (
@@ -1188,7 +1188,7 @@ function PremiumCards() {
         </div>
       )}      {operation && (
         <div
-          className="fixed inset-0 z-[210] grid place-items-center bg-[#061f16]/55 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[210] grid place-items-center bg-[#071321]/55 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-labelledby="card-operation-title"
@@ -1537,11 +1537,11 @@ function GrantApplications() {
         )}
       </div>
 
-      {message && <p className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-700">{message}</p>}
+      {message && <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700">{message}</p>}
       {error && <ErrorMessage text={error} />}
 
       {applying && (
-        <section className="mt-7 overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-[0_14px_40px_rgba(16,35,63,.07)]">
+        <section className="mt-7 overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-[0_14px_40px_rgba(10,23,40,.07)]">
           <div className="border-b bg-[#f7faf8] px-5 py-5 sm:px-7">
             <div className="flex items-center justify-between gap-2">
               {steps.map((label, index) => {
@@ -1712,7 +1712,7 @@ function GrantApplications() {
         <h2 className="mt-2 text-2xl font-bold">Your submissions and drafts</h2>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {applications === null ? <RowsLoading /> : applications.length ? applications.map((application) => {
-            const tone = application.status === "approved" ? "bg-blue-50 text-blue-700" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-blue-50 text-blue-700" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
+            const tone = application.status === "approved" ? "bg-gold-50 text-gold-700" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-gold-50 text-gold-700" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
             return (
               <article key={application.id} className="border-b p-5 last:border-0">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -1818,7 +1818,7 @@ function CustomerSupport() {
       <Header eyebrow="Help centre" title="Customer Support" copy="Tell us what happened, set the urgency, and track every request from one place." />
       <SupportLiveChat />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {success && <p className="mt-5 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">{success}</p>}
+      {success && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">{success}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(280px,.8fr)]">
         <form onSubmit={submit} className="space-y-5 rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-sm">
@@ -1833,7 +1833,7 @@ function CustomerSupport() {
         </form>
 
         <aside className="space-y-4">
-          <div className="rounded-3xl bg-[#0b3b2b] p-6 text-white"><ShieldCheck className="text-blue-300" /><h3 className="mt-4 text-xl font-bold">Your security matters</h3><p className="mt-2 text-sm leading-6 text-blue-50/75">SecurePath Bank support will never ask for your password, full card number, CVV, or transaction PIN.</p></div>
+          <div className="rounded-3xl bg-[#0a1728] p-6 text-white"><ShieldCheck className="text-gold-300" /><h3 className="mt-4 text-xl font-bold">Your security matters</h3><p className="mt-2 text-sm leading-6 text-gold-50/75">SecurePath Bank support will never ask for your password, full card number, CVV, or transaction PIN.</p></div>
           <div className="rounded-2xl border border-[#e1e6ef] bg-white p-5"><b className="text-sm">Expected response</b><p className="mt-2 text-xs leading-5 text-neutral-500">Urgent security issues are prioritized. Other requests are handled according to their category and submission time.</p></div>
         </aside>
       </div>
@@ -1843,9 +1843,9 @@ function CustomerSupport() {
         <h2 className="mt-2 text-2xl font-bold">Your requests</h2>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {tickets === null ? <RowsLoading /> : tickets.length ? tickets.map((ticket) => {
-            const statusTone = ticket.status === "resolved" || ticket.status === "closed" ? "bg-blue-50 text-blue-700" : ticket.status === "in_progress" ? "bg-blue-50 text-blue-700" : "bg-amber-50 text-amber-700";
+            const statusTone = ticket.status === "resolved" || ticket.status === "closed" ? "bg-gold-50 text-gold-700" : ticket.status === "in_progress" ? "bg-gold-50 text-gold-700" : "bg-amber-50 text-amber-700";
             const priorityTone = ticket.priority === "urgent" ? "text-red-600" : ticket.priority === "high" ? "text-amber-600" : "text-neutral-500";
-            return <article key={ticket.id} className="border-b p-5 last:border-0"><div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-bold">{ticket.subject}</h3><span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${statusTone}`}>{ticket.status.replace("_", " ")}</span></div><p className="mt-1 text-xs text-neutral-500">{ticket.reference} Â· {supportCategories.find(([value]) => value === ticket.category)?.[1] || ticket.category} Â· {new Date(ticket.created_at).toLocaleString("en-GB")}</p></div><span className={`text-[10px] font-bold uppercase ${priorityTone}`}>{ticket.priority} priority</span></div><p className="mt-3 text-sm leading-6 text-neutral-600">{ticket.message}</p>{ticket.admin_response&&<div className="mt-4 rounded-xl border border-blue-100 bg-blue-50 p-4"><p className="text-[10px] font-bold uppercase tracking-widest text-blue-700">Customer care response</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-blue-950">{ticket.admin_response}</p>{ticket.responded_at&&<p className="mt-2 text-[10px] text-blue-700">{new Date(ticket.responded_at).toLocaleString("en-GB")}</p>}</div>}</article>;
+            return <article key={ticket.id} className="border-b p-5 last:border-0"><div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-bold">{ticket.subject}</h3><span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${statusTone}`}>{ticket.status.replace("_", " ")}</span></div><p className="mt-1 text-xs text-neutral-500">{ticket.reference} Â· {supportCategories.find(([value]) => value === ticket.category)?.[1] || ticket.category} Â· {new Date(ticket.created_at).toLocaleString("en-GB")}</p></div><span className={`text-[10px] font-bold uppercase ${priorityTone}`}>{ticket.priority} priority</span></div><p className="mt-3 text-sm leading-6 text-neutral-600">{ticket.message}</p>{ticket.admin_response&&<div className="mt-4 rounded-xl border border-gold-100 bg-gold-50 p-4"><p className="text-[10px] font-bold uppercase tracking-widest text-gold-700">Customer care response</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-[#0a1728]">{ticket.admin_response}</p>{ticket.responded_at&&<p className="mt-2 text-[10px] text-gold-700">{new Date(ticket.responded_at).toLocaleString("en-GB")}</p>}</div>}</article>;
           }) : <Empty title="No support requests" copy="When you contact support, your request and its status will appear here." />}
         </div>
       </section>
@@ -1934,7 +1934,7 @@ function Investments() {
         copy="Build a diversified portfolio directly from your SecurePath Bank account."
       />
 
-      <section className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#06291d] via-[#0a573a] to-[#148258] p-6 text-white shadow-[0_22px_60px_rgba(8,65,43,.2)] sm:p-8">
+      <section className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#101f33] via-[#0d1c30] to-[#0a1728] p-6 text-white shadow-[0_22px_60px_rgba(10,23,40,.20)] sm:p-8">
         <div className="absolute -right-20 -top-24 size-64 rounded-full bg-white/[.06]" />
         <div className="relative grid gap-7 lg:grid-cols-[1.25fr_1fr] lg:items-end">
           <div>
@@ -1959,7 +1959,7 @@ function Investments() {
 
       {error && <ErrorMessage text={error} />}
       {message && (
-        <p className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-700">
+        <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700">
           {message}
         </p>
       )}
@@ -1984,12 +1984,12 @@ function Investments() {
                     : Building2;
               const riskTone =
                 product.risk === "Low"
-                  ? "bg-blue-50 text-blue-700"
+                  ? "bg-gold-50 text-gold-700"
                   : product.risk === "Moderate"
                     ? "bg-amber-50 text-amber-700"
                     : "bg-violet-50 text-violet-700";
               return (
-                <article key={product.id} className="flex flex-col rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_8px_24px_rgba(16,35,63,.05)]">
+                <article key={product.id} className="flex flex-col rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_8px_24px_rgba(10,23,40,.05)]">
                   <div className="flex items-start justify-between gap-3">
                     <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700"><Icon size={20} /></span>
                     <span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${riskTone}`}>{product.risk} risk</span>
@@ -2036,7 +2036,7 @@ function Investments() {
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-bold">{holding.product_name}</h3>
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-[9px] font-bold uppercase text-blue-700">{holding.status}</span>
+                    <span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">{holding.status}</span>
                   </div>
                   <p className="mt-1 text-xs text-neutral-500">{holding.reference} Â· Matures {new Date(holding.maturity_date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>
                 </div>
@@ -2059,7 +2059,7 @@ function Investments() {
       </section>
 
       {selected && (
-        <div className="fixed inset-0 z-[210] grid place-items-center bg-[#061f16]/55 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="investment-title" onMouseDown={(event) => { if (event.target === event.currentTarget && !saving) setSelected(null); }}>
+        <div className="fixed inset-0 z-[210] grid place-items-center bg-[#071321]/55 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="investment-title" onMouseDown={(event) => { if (event.target === event.currentTarget && !saving) setSelected(null); }}>
           <section className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-[0_30px_90px_rgba(0,25,15,.3)] sm:p-7">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -2305,7 +2305,7 @@ function ProfileSettings() {
           />
         </div>
         {message && (
-          <p className="mx-6 mb-6 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-700">
+          <p className="mx-6 mb-6 rounded-lg border border-gold-300 bg-gold-50 p-3 text-sm text-gold-700">
             {message}
           </p>
         )}

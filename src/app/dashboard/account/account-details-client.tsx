@@ -162,7 +162,7 @@ export function AccountDetailsClient({
                   onClick={() => copy(label, item)}
                 >
                   {copied === label ? (
-                    <Check size={16} className="text-blue-600" />
+                    <Check size={16} className="text-gold-500" />
                   ) : (
                     <Copy size={16} />
                   )}

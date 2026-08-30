@@ -39,12 +39,12 @@ export default function Page() {
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,32,.94)_0%,rgba(16,35,63,.76)_46%,rgba(7,17,32,.58)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,32,.94)_0%,rgba(10,23,40,.76)_46%,rgba(7,17,32,.58)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_25%,rgba(37,99,235,.18),transparent_38%)]" />
 
       <section className="relative z-10 hidden max-w-xl justify-self-start text-white lg:block">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold tracking-wide backdrop-blur-md">
-          <ShieldCheck size={16} className="text-blue-300" /> Secure operations portal
+          <ShieldCheck size={16} className="text-gold-300" /> Secure operations portal
         </div>
         <h1 className="mt-7 text-5xl font-semibold leading-[1.08] tracking-tight">
           Banking operations,<br />protected by design.

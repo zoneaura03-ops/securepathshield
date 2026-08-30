@@ -28,7 +28,7 @@ export function VirtualCardArt({
       ? `${String(expiryMonth).padStart(2, "0")}/${String(expiryYear).slice(-2)}`
       : "--/--";
   const background = visa
-    ? "linear-gradient(135deg,#1d4ed8 0%,#0a1728 48%,#06111f 100%)"
+    ? "linear-gradient(135deg,#b78a32 0%,#0a1728 48%,#06111f 100%)"
     : credit
       ? "linear-gradient(135deg,#161a18 0%,#080b0a 58%,#18130a 100%)"
       : "linear-gradient(135deg,#26354f 0%,#0a1728 48%,#06111f 100%)";
@@ -128,7 +128,7 @@ export function VirtualCardBack({
   const digits = lastFour || (brand === "visa" ? "4826" : credit ? "8808" : "6241");
   const background =
     brand === "visa"
-      ? "linear-gradient(135deg,#1d4ed8,#06111f)"
+      ? "linear-gradient(135deg,#b78a32,#06111f)"
       : credit
         ? "linear-gradient(135deg,#161a18,#080b0a 60%,#18130a)"
         : "linear-gradient(135deg,#26354f,#06111f)";

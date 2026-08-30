@@ -179,7 +179,7 @@ function drawBrandHeader(doc: PDFKit.PDFDocument) {
   doc
     .font("Helvetica")
     .fontSize(8)
-    .fillColor("#dbeafe")
+    .fillColor("#fdf0ca")
     .text("SECURE DIGITAL BANKING", MARGIN + 34, 54, { characterSpacing: 1.2 });
   doc
     .fontSize(8)

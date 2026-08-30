@@ -233,7 +233,7 @@ function Login({ notice }: { notice?: string }) {
           {notice && (
             <p
               role="status"
-              className="rounded-md border border-blue-200 bg-blue-50 p-3 text-sm text-blue-700"
+              className="rounded-md border border-gold-300 bg-gold-50 p-3 text-sm text-gold-700"
             >
               {notice}
             </p>
@@ -506,18 +506,18 @@ function Registration() {
               <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
-                  <span className={passwordStrong ? "text-blue-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
+                  <span className={passwordStrong ? "text-gold-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
                     {passwordStrong ? "Strong" : passwordScore >= 3 ? "Medium" : "Weak"}
                   </span>
                 </div>
                 <div className="mt-3 grid grid-cols-5 gap-1" aria-hidden="true">
                   {checks.map((_, index) => (
-                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-blue-600" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
+                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-gold-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
                   ))}
                 </div>
                 <ul className="mt-3 grid gap-1 text-[11px] text-neutral-500 sm:grid-cols-2">
                   {checks.map((check) => (
-                    <li key={check.label} className={check.met ? "text-blue-700" : undefined}>
+                    <li key={check.label} className={check.met ? "text-gold-700" : undefined}>
                       {check.met ? "?" : "?"} {check.label}
                     </li>
                   ))}

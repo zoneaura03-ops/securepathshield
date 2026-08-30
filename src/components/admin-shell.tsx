@@ -108,8 +108,8 @@ export function AdminShell({
           <div className="inline-flex rounded-xl bg-white px-3 py-2">
             <Logo href="/admin" />
           </div>
-          <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-blue-200/55">
-            <span className="size-1.5 rounded-full bg-blue-400 shadow-[0_0_12px_#34d399]" />{" "}
+          <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-gold-300/55">
+            <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#d6b45f]" />{" "}
             Operations console
           </div>
         </div>
@@ -124,19 +124,19 @@ export function AdminShell({
                   <Link
                     key={href}
                     href={href}
-                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-blue-500/25 to-blue-400/10 text-white shadow-[inset_3px_0_0_#34d399]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
+                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-gold-500/25 to-gold-400/10 text-white shadow-[inset_3px_0_0_#d6b45f]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
                   >
                     <Icon
                       size={17}
                       className={
                         active(href)
-                          ? "text-blue-300"
+                          ? "text-gold-300"
                           : "text-white/40 group-hover:text-white/70"
                       }
                     />
                     <span className="flex-1">{label}</span>
                     {active(href) && (
-                      <ChevronRight size={14} className="text-blue-300" />
+                      <ChevronRight size={14} className="text-gold-300" />
                     )}
                   </Link>
                 ))}
@@ -146,7 +146,7 @@ export function AdminShell({
         </div>
         <div className="border-t border-white/10 p-4">
           <div className="mb-3 flex items-center gap-3 rounded-xl bg-white/[.06] p-3">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blue-300 to-blue-600 text-xs font-bold text-[#062016] ring-2 ring-white/10">
+            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-gold-300 to-gold-500 text-xs font-bold text-[#0a1728] ring-2 ring-white/10">
               {initials}
             </span>
             <div className="min-w-0">

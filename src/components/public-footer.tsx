@@ -46,7 +46,7 @@ export function PublicFooter() {
                 key={index}
                 href="#"
                 aria-label={["Facebook", "Instagram", "LinkedIn"][index]}
-                className="grid size-9 place-items-center rounded-full border border-white/10 text-white/55 transition hover:border-blue-300/50 hover:text-blue-300"
+                className="grid size-9 place-items-center rounded-full border border-white/10 text-white/55 transition hover:border-gold-300/50 hover:text-gold-300"
               >
                 <Icon size={15} />
               </a>
@@ -59,7 +59,7 @@ export function PublicFooter() {
           <h3 className="text-base font-semibold">Contact & support</h3>
           <ul className="mt-5 space-y-4 text-sm leading-6 text-white/50">
             <li className="flex gap-3">
-              <MapPin className="mt-1 shrink-0 text-blue-300" size={16} />
+              <MapPin className="mt-1 shrink-0 text-gold-300" size={16} />
               <span>{footer.address}</span>
             </li>
             <li>
@@ -67,13 +67,13 @@ export function PublicFooter() {
                 className="flex items-center gap-3 transition hover:text-white"
                 href={`mailto:${footer.email}`}
               >
-                <Mail className="shrink-0 text-blue-300" size={16} />
+                <Mail className="shrink-0 text-gold-300" size={16} />
                 {footer.email}
               </a>
             </li>
 
             <li className="flex items-center gap-3">
-              <Clock3 className="shrink-0 text-blue-300" size={16} />
+              <Clock3 className="shrink-0 text-gold-300" size={16} />
               Support available 24/7
             </li>
           </ul>

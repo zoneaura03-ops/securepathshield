@@ -20,7 +20,7 @@ export function AuthLayout({
         className="absolute inset-0 -z-40 object-cover object-center"
       />
 
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(7,17,32,.92),rgba(16,35,63,.78))]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(7,17,32,.92),rgba(10,23,40,.78))]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#06111f]/70 to-transparent" />
 
       <div className="relative mx-auto min-h-screen w-full max-w-[1380px] px-4 sm:px-8 lg:px-12">
@@ -29,11 +29,11 @@ export function AuthLayout({
         )}
         <div className="absolute inset-x-4 top-6 flex items-center justify-center gap-5 text-center text-white/70 sm:inset-x-8 sm:justify-between sm:text-left lg:inset-x-12">
           <div className="hidden items-center gap-2 text-[11px] font-semibold uppercase tracking-[.16em] sm:flex">
-            <Fingerprint size={17} className="text-blue-300" />
+            <Fingerprint size={17} className="text-gold-300" />
             Bank-grade protection
           </div>
           <div className="flex items-center gap-2 text-[11px] text-white/60">
-            <LockKeyhole size={14} className="text-blue-300" />
+            <LockKeyhole size={14} className="text-gold-300" />
             256-bit encrypted session
           </div>
         </div>

@@ -8,10 +8,10 @@ export function TransactionCard({ item }: { item: TransactionSummary }) {
   return (
     <Link
       href={`/dashboard/receipt?reference=${encodeURIComponent(item.id)}`}
-      className="flex items-center gap-3 rounded-2xl border border-[#e1e6ef] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(16,35,63,.045)] hover:border-bank-200 hover:bg-bank-50/30 sm:px-5"
+      className="flex items-center gap-3 rounded-2xl border border-[#e1e6ef] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(10,23,40,.045)] hover:border-bank-200 hover:bg-bank-50/30 sm:px-5"
     >
       <span
-        className={`grid size-11 shrink-0 place-items-center rounded-xl ${credit ? "bg-blue-50 text-blue-600" : "bg-rose-50 text-rose-600"}`}
+        className={`grid size-11 shrink-0 place-items-center rounded-xl ${credit ? "bg-gold-50 text-gold-500" : "bg-rose-50 text-rose-600"}`}
       >
         {credit ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
       </span>
@@ -25,7 +25,7 @@ export function TransactionCard({ item }: { item: TransactionSummary }) {
       </div>
       <div className="shrink-0 text-right">
         <p
-          className={`text-sm font-bold ${credit ? "text-blue-600" : "text-gray-800"}`}
+          className={`text-sm font-bold ${credit ? "text-gold-500" : "text-gray-800"}`}
         >
           {credit ? "+" : ""}
           {item.amount.toLocaleString("en-US", {

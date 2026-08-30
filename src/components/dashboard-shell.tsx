@@ -271,7 +271,7 @@ export function DashboardShell({
                   )}
                 </button>
                 {notificationOpen && (
-                  <div className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-[min(25rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(16,35,63,.18)]">
+                  <div className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-[min(25rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(10,23,40,.18)]">
                     <div className="border-b border-[#edf0ee] p-4">
                       <div className="flex items-center justify-between">
                         <div><p className="font-semibold">Notifications</p><p className="mt-0.5 text-[11px] text-neutral-500">{unreadCount ? `${unreadCount} unread` : "You're all caught up"}</p></div>
@@ -348,7 +348,7 @@ export function DashboardShell({
                       <span
                         title="Identity verified"
                         aria-label="Identity verified"
-                        className="absolute -bottom-0.5 -right-0.5 grid size-[18px] place-items-center rounded-full bg-blue-600 text-white ring-2 ring-white"
+                        className="absolute -bottom-0.5 -right-0.5 grid size-[18px] place-items-center rounded-full bg-gold-500 text-white ring-2 ring-white"
                       >
                         <Check size={11} strokeWidth={3.5} aria-hidden="true" />
                       </span>
@@ -362,7 +362,7 @@ export function DashboardShell({
                 {profileOpen && (
                   <div
                     role="menu"
-                    className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-64 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(16,35,63,.18)]"
+                    className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-64 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(10,23,40,.18)]"
                   >
                     <div className="flex items-center gap-3 border-b border-[#edf0ee] p-4">
                       <Image
@@ -493,7 +493,7 @@ export function DashboardShell({
         <DashboardLiveChat />
         <nav
           aria-label="Mobile navigation"
-          className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-[#dfe5ef] bg-white/95 px-1 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_30px_rgba(16,35,63,.08)] backdrop-blur lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-[#dfe5ef] bg-white/95 px-1 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_30px_rgba(10,23,40,.08)] backdrop-blur lg:hidden"
         >
           {bottom.map(([name, href, Icon]) => {
             const active = path === href;

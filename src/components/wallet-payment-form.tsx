@@ -24,7 +24,7 @@ const providerDetails = {
     identifier: "Recipient $Cashtag",
     placeholder: "$RecipientName",
     type: "text",
-    color: "bg-[#2563eb]",
+    color: "bg-[#d6b45f]",
     copy: "Send directly using the recipient's unique Cash App $Cashtag.",
   },
   skrill: {

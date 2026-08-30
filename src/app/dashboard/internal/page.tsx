@@ -263,14 +263,14 @@ export default function Page() {
             </button>
           </div>
           {recipient && (
-            <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">
+            <div className="mt-4 rounded-xl border border-gold-300 bg-gold-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-gold-700">
                 Verified SecurePath Bank recipient
               </p>
-              <p className="mt-1 font-semibold text-blue-950">
+              <p className="mt-1 font-semibold text-[#0a1728]">
                 {recipient.name}
               </p>
-              <p className="text-xs text-blue-700">
+              <p className="text-xs text-gold-700">
                 {recipient.bankName} - {recipient.accountType} -{" "}
                 {recipient.currency}
               </p>

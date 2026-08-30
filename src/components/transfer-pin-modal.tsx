@@ -15,7 +15,7 @@ export function TransferPinModal({
   onConfirm: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center bg-[#03110c]/75 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="transfer-pin-title">
+    <div className="fixed inset-0 z-[100] grid place-items-center bg-[#050d18]/75 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="transfer-pin-title">
       <div className="relative w-full max-w-md rounded-[28px] bg-white p-6 shadow-2xl sm:p-8">
         <button type="button" onClick={onClose} className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200" aria-label="Close PIN entry">
           <X size={18} />

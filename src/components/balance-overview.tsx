@@ -31,8 +31,8 @@ export function BalanceOverview({
   }
 
   return (
-    <section className="relative overflow-hidden rounded-[22px] bg-gradient-to-br from-[#2563eb] via-[#1d4ed8] to-[#0a1728] text-white shadow-[0_22px_55px_rgba(16,35,63,.22)]">
-      <div className="absolute -left-20 -top-24 size-64 rounded-full bg-[#3b82f6]/20" />
+    <section className="relative overflow-hidden rounded-[22px] bg-gradient-to-br from-[#d6b45f] via-[#b78a32] to-[#0a1728] text-white shadow-[0_22px_55px_rgba(10,23,40,.22)]">
+      <div className="absolute -left-20 -top-24 size-64 rounded-full bg-[#e3c777]/20" />
       <div className="absolute left-16 top-8 size-32 rounded-full bg-white/[.035] blur-sm" />
       <div className="absolute -right-12 -top-20 size-64 rounded-full bg-white/[.06]" />
       <div className="relative flex items-start justify-between gap-4 p-6 sm:p-8">

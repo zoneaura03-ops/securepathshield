@@ -95,7 +95,7 @@ function DashboardBackdrop() {
       aria-hidden="true"
       className="absolute inset-0 flex min-w-[900px] select-none opacity-90"
     >
-      <aside className="w-64 shrink-0 bg-[#082f22] p-7 text-white">
+      <aside className="w-64 shrink-0 bg-[#0a1728] p-7 text-white">
         <Logo />
         <div className="mt-14 space-y-3 text-sm text-white/65">
           {items.map(([Icon, label], index) => (
@@ -111,11 +111,11 @@ function DashboardBackdrop() {
       </aside>
       <section className="flex-1 p-10">
         <div className="h-8 w-64 rounded-lg bg-slate-300" />
-        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#2563eb] via-[#1d4ed8] to-[#0a1728] shadow-xl" />
+        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#d6b45f] via-[#b78a32] to-[#0a1728] shadow-xl" />
         <div className="mt-8 grid grid-cols-4 gap-5">
           {[
-            "bg-blue-100",
-            "bg-blue-100",
+            "bg-gold-100",
+            "bg-gold-100",
             "bg-fuchsia-100",
             "bg-lime-100",
           ].map((tone) => (

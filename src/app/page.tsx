@@ -69,11 +69,11 @@ export default function Home() {
           sizes="100vw"
           className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
         />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(16,35,63,.88)_44%,rgba(37,99,235,.28))]" />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(10,23,40,.88)_44%,rgba(37,99,235,.28))]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#06111f]/78 via-transparent to-transparent" />
         <div className="mx-auto flex min-h-[700px] max-w-[1180px] items-center px-5 py-16 sm:px-8 lg:min-h-[calc(100svh-78px)]">
           <div className="max-w-[650px] text-center lg:text-left">
-            <p className="inline-flex rounded-full border border-blue-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-blue-200">
+            <p className="inline-flex rounded-full border border-gold-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-gold-300">
               🏆 {hero.eyebrow}
             </p>
             <h1 className="mt-7 text-[44px] font-normal leading-[1.07] tracking-[-.035em] sm:text-[62px] lg:text-[68px]">
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#2563eb] px-7 text-sm font-bold text-white"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#d6b45f] px-7 text-sm font-bold text-[#0a1728] hover:bg-[#e3c777]"
               >
                 {hero.primaryAction}
                 <ArrowRight size={16} />
@@ -250,7 +250,7 @@ export default function Home() {
             </ol>
             <AuthTransitionLink
               href="/register"
-              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#2563eb] px-6 text-sm font-bold text-white"
+              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#d6b45f] px-6 text-sm font-bold text-[#0a1728] hover:bg-[#e3c777]"
             >
               Get started <ArrowRight size={15} />
             </AuthTransitionLink>
@@ -271,7 +271,7 @@ export default function Home() {
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {["Transfer", "Deposit", "Cards"].map((x) => (
                   <div
-                    className="rounded-xl border border-blue-100 bg-blue-50/70 p-4 text-center text-xs font-semibold text-[#0a1728]"
+                    className="rounded-xl border border-gold-100 bg-gold-50/70 p-4 text-center text-xs font-semibold text-[#0a1728]"
                     key={x}
                   >
                     {x}

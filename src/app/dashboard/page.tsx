@@ -44,7 +44,7 @@ const transferOptions = [
 const walletDepositOptions = [
   [SiPaypal, "PayPal", "Deposit via PayPal", "paypal", "bg-white text-[#003087]"],
   [SkrillMark, "Skrill", "Deposit via Skrill", "skrill", "bg-[#862165] text-white"],
-  [SiCashapp, "Cash App", "Deposit via Cash App", "cashapp", "bg-[#2563eb] text-white"],
+  [SiCashapp, "Cash App", "Deposit via Cash App", "cashapp", "bg-[#d6b45f] text-white"],
 ] as const;
 
 function SkrillMark({ size = 22 }: { size?: number }) {
@@ -61,7 +61,7 @@ function SkrillMark({ size = 22 }: { size?: number }) {
 const cryptoNetworks = [
   [SiBitcoin, "BTC Network", "Send BTC", "text-[#f7931a]"],
   [SiEthereum, "ETH Network", "Send ETH", "text-[#627eea]"],
-  [SiTether, "USDT (TRC-20)", "Send USDT", "text-[#2563eb]"],
+  [SiTether, "USDT (TRC-20)", "Send USDT", "text-[#d6b45f]"],
 ] as const;
 
 export default async function Page() {
@@ -93,7 +93,7 @@ export default async function Page() {
             <Link
               key={route}
               href={`/dashboard/${route}`}
-              className={`group rounded-2xl border p-4 shadow-[0_8px_24px_rgba(16,35,63,.05)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(16,35,63,.1)] sm:p-5 ${tileTone}`}
+              className={`group rounded-2xl border p-4 shadow-[0_8px_24px_rgba(10,23,40,.05)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5 ${tileTone}`}
             >
               <span
                 className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}
@@ -116,7 +116,7 @@ export default async function Page() {
             <Link
               key={provider}
               href={`/dashboard/wallet-payment?provider=${provider}`}
-              className="group rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_8px_24px_rgba(16,35,63,.05)] transition hover:-translate-y-0.5 hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(16,35,63,.1)] sm:p-5"
+              className="group rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_8px_24px_rgba(10,23,40,.05)] transition hover:-translate-y-0.5 hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5"
             >
               <span className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}>
                 <Icon size={22} />
@@ -135,7 +135,7 @@ export default async function Page() {
             <Link
               key={title}
               href="/dashboard/deposit"
-              className="min-w-0 rounded-2xl border border-[#e1e6ef] bg-white p-3 shadow-[0_8px_24px_rgba(16,35,63,.045)] sm:p-4"
+              className="min-w-0 rounded-2xl border border-[#e1e6ef] bg-white p-3 shadow-[0_8px_24px_rgba(10,23,40,.045)] sm:p-4"
             >
               <span className={`text-xl ${tone}`}>
                 <Icon />
@@ -243,18 +243,18 @@ function DashboardCard({
   const statusLabel =
     active ? "Active" : pending ? "Pending" : card.status === "declined" ? "Declined" : "Frozen";
   const statusTone = active
-    ? "bg-blue-50 text-blue-700"
+    ? "bg-gold-50 text-gold-700"
     : pending
       ? "bg-amber-50 text-amber-700"
       : card.status === "declined"
         ? "bg-red-50 text-red-700"
-        : "bg-sky-50 text-sky-700";
+        : "bg-gold-50 text-gold-700";
 
   return (
     <Link
       href="/dashboard/cards"
       aria-label={`Open ${card.name}`}
-      className="group flex min-w-0 items-center gap-4 rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(16,35,63,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(16,35,63,.1)] sm:p-5"
+      className="group flex min-w-0 items-center gap-4 rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(10,23,40,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5"
     >
       <span className="block h-[76px] w-[116px] shrink-0 overflow-hidden rounded-xl shadow-md">
         <VirtualCardArt
@@ -283,7 +283,7 @@ function DashboardCard({
         <span className="block text-[10px] text-neutral-400">
           {active ? "Balance" : "Status"}
         </span>
-        <span className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-sky-700"}`}>
+        <span className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-gold-700"}`}>
           {active ? money(card.balance, card.currency) : statusLabel}
         </span>
       </span>
