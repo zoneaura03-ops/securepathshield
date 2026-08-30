@@ -264,13 +264,13 @@ export default function Page() {
           </div>
           {recipient && (
             <div className="mt-4 rounded-xl border border-gold-300 bg-gold-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gold-700">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#0a1728]">
                 Verified SecurePath Bank recipient
               </p>
               <p className="mt-1 font-semibold text-[#0a1728]">
                 {recipient.name}
               </p>
-              <p className="text-xs text-gold-700">
+              <p className="text-xs text-[#0a1728]">
                 {recipient.bankName} - {recipient.accountType} -{" "}
                 {recipient.currency}
               </p>
@@ -391,7 +391,7 @@ function Status({
 }) {
   return (
     <div className="mx-auto max-w-xl rounded-2xl border bg-white p-10 text-center shadow-sm">
-      <span className="mx-auto grid size-14 place-items-center rounded-full bg-bank-50 text-bank-700">
+      <span className="mx-auto grid size-14 place-items-center rounded-full bg-gold-50 text-gold-600">
         {icon}
       </span>
       <h1 className="mt-5 text-3xl">{title}</h1>

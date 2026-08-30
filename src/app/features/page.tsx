@@ -89,7 +89,7 @@ export default function FeaturesPage() {
                   key={title}
                   className="group rounded-xl border border-black/[.06] bg-white p-7 shadow-[0_12px_35px_rgba(17,45,28,.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(17,45,28,.11)]"
                 >
-                  <div className="grid size-12 place-items-center rounded-xl bg-bank-50 text-bank-700">
+                  <div className="grid size-12 place-items-center rounded-xl bg-gold-50 text-gold-600">
                     <Icon size={22} />
                   </div>
                   <p className="mt-7 text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
@@ -164,7 +164,7 @@ export default function FeaturesPage() {
                   key={item.title}
                   className="rounded-xl bg-white p-8 shadow-[0_14px_45px_rgba(17,45,28,.08)] sm:p-10"
                 >
-                  <Icon className="text-bank-600" size={30} />
+                  <Icon className="text-gold-500" size={30} />
                   <h3 className="mt-7 text-3xl">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-neutral-500">
                     {item.description}

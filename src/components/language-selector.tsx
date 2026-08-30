@@ -54,7 +54,7 @@ export function LanguageSelector() {
               <span className="text-base">{language.flag}</span>
               <span className="flex-1">{language.label}</span>
               {selected.code === language.code && (
-                <Check size={14} className="text-bank-600" />
+                <Check size={14} className="text-gold-500" />
               )}
             </button>
           ))}
@@ -67,7 +67,7 @@ export function LanguageSelector() {
         onClick={() => setOpen(!open)}
         className="flex h-11 items-center gap-2 rounded-full border border-[#dce4df] bg-white px-3.5 text-xs font-semibold text-neutral-700 shadow-[0_8px_24px_rgba(10,23,40,.14)] hover:bg-bank-50"
       >
-        <Globe2 size={16} className="text-bank-600" />
+        <Globe2 size={16} className="text-gold-500" />
         <span className="text-sm">{selected.flag}</span>
         <span>{selected.code}</span>
         <ChevronDown

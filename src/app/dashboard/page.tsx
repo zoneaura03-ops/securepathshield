@@ -197,7 +197,7 @@ export default async function Page() {
               .map((item) => <TransactionCard key={item.id} item={item} />)
           ) : (
             <div className="rounded-2xl border border-[#e2e7f0] bg-white px-6 py-12 text-center shadow-sm">
-              <span className="mx-auto grid size-12 place-items-center rounded-full bg-bank-50 text-bank-600">
+              <span className="mx-auto grid size-12 place-items-center rounded-full bg-gold-50 text-gold-600">
                 <TrendingUp size={21} />
               </span>
               <h3 className="mt-4 font-semibold">No transactions yet</h3>
@@ -243,12 +243,12 @@ function DashboardCard({
   const statusLabel =
     active ? "Active" : pending ? "Pending" : card.status === "declined" ? "Declined" : "Frozen";
   const statusTone = active
-    ? "bg-gold-50 text-gold-700"
+    ? "bg-gold-50 text-[#0a1728]"
     : pending
       ? "bg-amber-50 text-amber-700"
       : card.status === "declined"
         ? "bg-red-50 text-red-700"
-        : "bg-gold-50 text-gold-700";
+        : "bg-gold-50 text-[#0a1728]";
 
   return (
     <Link
@@ -283,11 +283,11 @@ function DashboardCard({
         <span className="block text-[10px] text-neutral-400">
           {active ? "Balance" : "Status"}
         </span>
-        <span className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-gold-700"}`}>
+        <span className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-[#0a1728]"}`}>
           {active ? money(card.balance, card.currency) : statusLabel}
         </span>
       </span>
-      <ChevronRight size={20} className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-bank-700" />
+      <ChevronRight size={20} className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500" />
     </Link>
   );
 }

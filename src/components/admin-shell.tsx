@@ -131,7 +131,7 @@ export function AdminShell({
                       className={
                         active(href)
                           ? "text-gold-300"
-                          : "text-white/40 group-hover:text-white/70"
+                          : "text-gold-300/55 group-hover:text-gold-300"
                       }
                     />
                     <span className="flex-1">{label}</span>

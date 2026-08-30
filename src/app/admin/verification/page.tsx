@@ -75,7 +75,7 @@ export default function Page() {
           <div className="h-72 animate-pulse bg-neutral-50" />
         ) : rows.length === 0 ? (
           <div className="p-12 text-center">
-            <ShieldAlert className="mx-auto text-bank-600" />
+            <ShieldAlert className="mx-auto text-gold-500" />
             <h2 className="mt-4 text-xl">Queue is clear</h2>
           </div>
         ) : (

@@ -64,7 +64,7 @@ export default function AdminTransferQueue() {
       </section>
       <div className="mt-6 space-y-5">
         {rows === null ? Array.from({ length: 3 }).map((_, index) => <div key={index} className="h-64 animate-pulse rounded-3xl bg-white" />) : visibleRows.length === 0 ? (
-          <div className="rounded-3xl border bg-white p-14 text-center"><ShieldCheck className="mx-auto text-bank-600" size={32} /><h2 className="mt-4 text-xl">No matching transfers</h2><p className="mt-2 text-sm text-neutral-500">Adjust the filters or refresh the queue.</p></div>
+          <div className="rounded-3xl border bg-white p-14 text-center"><ShieldCheck className="mx-auto text-gold-500" size={32} /><h2 className="mt-4 text-xl">No matching transfers</h2><p className="mt-2 text-sm text-neutral-500">Adjust the filters or refresh the queue.</p></div>
         ) : visibleRows.map((row) => {
           const id = String(row.id);
           const verified = row.verification_stage === "verified";
@@ -73,7 +73,7 @@ export default function AdminTransferQueue() {
           return (
             <article key={id} className="overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-[0_12px_35px_rgba(10,23,40,.06)]">
               <div className="grid gap-5 border-b border-[#e2e7f0] p-5 sm:p-6 lg:grid-cols-[1.3fr_.8fr_auto] lg:items-center">
-                <div><div className="flex flex-wrap items-center gap-2"><span className="rounded-full bg-bank-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-bank-700">{String(row.transfer_type || "transfer")}</span><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${verified ? "bg-gold-50 text-gold-700" : "bg-amber-50 text-amber-700"}`}>{stageLabels[String(row.verification_stage)] || String(row.verification_stage || "Pending")}</span></div><h2 className="mt-3 text-xl font-bold">{String(row.recipient_name || "Recipient")}</h2><p className="mt-1 text-xs text-neutral-500">{String(row.email)} · {String(row.reference)}</p></div>
+                <div><div className="flex flex-wrap items-center gap-2"><span className="rounded-full bg-bank-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-bank-700">{String(row.transfer_type || "transfer")}</span><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${verified ? "bg-gold-50 text-[#0a1728]" : "bg-amber-50 text-amber-700"}`}>{stageLabels[String(row.verification_stage)] || String(row.verification_stage || "Pending")}</span></div><h2 className="mt-3 text-xl font-bold">{String(row.recipient_name || "Recipient")}</h2><p className="mt-1 text-xs text-neutral-500">{String(row.email)} · {String(row.reference)}</p></div>
                 <div><p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Transfer amount</p><p className="mt-2 text-2xl font-bold text-[#0a1728]">{amount} {String(row.currency || "")}</p><p className="mt-1 text-xs text-neutral-500">{String(row.bank_name || "SecurePath Bank")} · {String(row.created_at || "")}</p></div>
                 <ArrowRight className="hidden text-neutral-300 lg:block" />
               </div>

@@ -20,7 +20,7 @@ export function TransferPinModal({
         <button type="button" onClick={onClose} className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200" aria-label="Close PIN entry">
           <X size={18} />
         </button>
-        <span className="grid size-12 place-items-center rounded-2xl bg-bank-50 text-bank-700"><ShieldCheck size={22} /></span>
+        <span className="grid size-12 place-items-center rounded-2xl bg-gold-50 text-gold-600"><ShieldCheck size={22} /></span>
         <h2 id="transfer-pin-title" className="mt-5 text-2xl">Authorize transfer</h2>
         <p className="mt-2 pr-8 text-sm leading-6 text-neutral-500">Enter your 4-digit transaction PIN to securely authorize this transfer.</p>
         <div className="mt-7"><PINPad value={value} onChange={onChange} /></div>

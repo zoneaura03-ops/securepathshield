@@ -90,7 +90,7 @@ export function TransferVerification({ reference }: { reference: string }) {
 
   return (
     <div className="mx-auto max-w-xl rounded-3xl border bg-white p-7 text-center shadow-sm">
-      <span className="mx-auto grid size-14 place-items-center rounded-full bg-bank-50 text-bank-700">
+      <span className="mx-auto grid size-14 place-items-center rounded-full bg-gold-50 text-gold-600">
         {loading ? <LoaderCircle className="animate-spin" /> : <ShieldCheck />}
       </span>
       <h1 className="mt-5 text-3xl">Transfer verification</h1>

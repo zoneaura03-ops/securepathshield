@@ -29,7 +29,7 @@ export default function Page() {
           Enter your email and we’ll send a secure, time-limited reset link.
         </p>
         {message ? (
-          <div className="mt-7 rounded-lg bg-gold-50 p-4 text-sm leading-6 text-gold-700">
+          <div className="mt-7 rounded-lg bg-gold-50 p-4 text-sm leading-6 text-[#0a1728]">
             {message}
           </div>
         ) : (

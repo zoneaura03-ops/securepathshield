@@ -152,7 +152,7 @@ export default function AdminUserFunding() {
       <div className="mt-7 grid gap-6 xl:grid-cols-[.72fr_1.28fr]">
         <section className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(10,23,40,.05)]">
           <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
+            <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600">
               <UserRound size={20} />
             </span>
             <div>
@@ -219,7 +219,7 @@ export default function AdminUserFunding() {
                       </span>
                     </span>
                     {selected?.id === user.id && (
-                      <Check size={17} className="text-bank-700" />
+                      <Check size={17} className="text-gold-500" />
                     )}
                   </div>
                   <div className="mt-3 grid grid-cols-2 gap-2 text-[10px]">
@@ -252,7 +252,7 @@ export default function AdminUserFunding() {
           className="rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-[0_12px_35px_rgba(10,23,40,.05)] sm:p-7"
         >
           <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700">
+            <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600">
               {crypto ? <Bitcoin size={20} /> : <WalletCards size={20} />}
             </span>
             <div>
@@ -399,14 +399,14 @@ export default function AdminUserFunding() {
           {success && (
             <div
               role="status"
-              className="mt-3 flex items-start gap-3 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700"
+              className="mt-3 flex items-start gap-3 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]"
             >
               <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gold-500 text-white">
                 <Check size={14} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">Funding completed</p>
-                <p className="mt-1 break-words text-xs leading-5 text-gold-700">
+                <p className="mt-1 break-words text-xs leading-5 text-[#0a1728]">
                   {success}
                 </p>
               </div>

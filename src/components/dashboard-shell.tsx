@@ -182,12 +182,12 @@ export function DashboardShell({
                   key={href}
                   href={href}
                   onClick={() => setDrawer(false)}
-                  className={`flex items-center ${mobile ? "gap-4 rounded-xl px-2 py-3.5 text-[15px]" : "gap-3 rounded-lg px-3 py-2.5 text-[13px]"} font-medium transition ${active ? (mobile ? "bg-neutral-50 text-bank-800" : "bg-bank-700 text-white shadow-[0_8px_20px_rgba(23,107,67,.2)]") : "text-neutral-700 hover:bg-bank-50 hover:text-bank-800"}`}
+                  className={`flex items-center ${mobile ? "gap-4 rounded-xl px-2 py-3.5 text-[15px]" : "gap-3 rounded-lg px-3 py-2.5 text-[13px]"} font-medium transition ${active ? (mobile ? "bg-neutral-50 text-bank-800" : "bg-bank-700 text-white shadow-[0_8px_20px_rgba(214,180,95,.2)]") : "text-neutral-700 hover:bg-bank-50 hover:text-bank-800"}`}
                 >
                   <span
-                    className={`${mobile ? "grid size-11 place-items-center rounded-xl bg-[#eaf1ee]" : ""}`}
+                    className={`${mobile ? "grid size-11 place-items-center rounded-xl bg-gold-50" : ""}`}
                   >
-                    <Icon size={mobile ? 20 : 17} />
+                    <Icon size={mobile ? 20 : 17} className="text-gold-500" />
                   </span>
                   <span>{name}</span>
                 </Link>
@@ -312,7 +312,7 @@ export function DashboardShell({
                           <button key={item.id} type="button" onClick={() => openNotification(item.id)} className={`block w-full rounded-xl p-3 text-left transition hover:bg-neutral-50 ${item.readAt ? "" : "bg-bank-50"}`}>
                             <div className="flex items-start gap-3">{!item.readAt && <span aria-label="Unread" className="mt-1.5 size-2 shrink-0 rounded-full bg-red-500" />}<div className="min-w-0 flex-1"><div className="flex justify-between gap-2"><p className="truncate text-sm font-semibold">{item.title}</p><span className="shrink-0 text-[10px] text-neutral-400">{item.date}</span></div><p className="mt-1 line-clamp-2 text-xs leading-5 text-neutral-500">{item.body}</p><p className="mt-1.5 text-[10px] font-semibold capitalize text-bank-700">{notificationGroup(item.type)}</p></div></div>
                           </button>
-                        )) : <div className="px-5 py-10 text-center"><Bell className="mx-auto text-bank-300" size={24} /><p className="mt-3 text-sm font-semibold">No matching notifications</p><p className="mt-1 text-xs text-neutral-500">Try another filter or check back later.</p></div>}
+                        )) : <div className="px-5 py-10 text-center"><Bell className="mx-auto text-gold-500" size={24} /><p className="mt-3 text-sm font-semibold">No matching notifications</p><p className="mt-1 text-xs text-neutral-500">Try another filter or check back later.</p></div>}
                       </div>
                     )}
                   </div>
@@ -505,7 +505,7 @@ export function DashboardShell({
                 className={`flex min-h-[68px] flex-col items-center justify-center gap-1 text-[10px] font-semibold ${active ? "text-bank-700" : "text-neutral-400"}`}
               >
                 <span
-                  className={`grid place-items-center rounded-xl ${name === "Transfer" ? "-mt-5 size-14 bg-bank-700 text-white shadow-[0_8px_22px_rgba(23,107,67,.3)] ring-4 ring-white" : `size-9 ${active ? "bg-bank-100 text-bank-700" : ""}`}`}
+                  className={`grid place-items-center rounded-xl ${name === "Transfer" ? "-mt-5 size-14 bg-bank-700 text-white shadow-[0_8px_22px_rgba(214,180,95,.3)] ring-4 ring-white" : `size-9 ${active ? "bg-gold-100 text-gold-700" : ""}`}`}
                 >
                   {name === "Account" ? (
                     <Image

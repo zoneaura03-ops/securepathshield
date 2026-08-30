@@ -143,7 +143,7 @@ export default function Page({
           </div>
         ) : rows.length === 0 ? (
           <div className="p-12 text-center">
-            <ShieldAlert className="mx-auto text-bank-600" />
+            <ShieldAlert className="mx-auto text-gold-500" />
             <h2 className="mt-4 text-xl">Queue is clear</h2>
             <p className="mt-2 text-sm text-neutral-500">
               There are no records requiring attention.
@@ -165,12 +165,12 @@ export default function Page({
                 {section === "users" && (
                   <div className="mt-3 flex flex-wrap gap-2 text-[10px] font-bold uppercase">
                     <span
-                      className={`rounded-full px-2.5 py-1 ${row.status === "active" ? "bg-gold-50 text-gold-700" : "bg-neutral-100 text-neutral-600"}`}
+                      className={`rounded-full px-2.5 py-1 ${row.status === "active" ? "bg-gold-50 text-[#0a1728]" : "bg-neutral-100 text-neutral-600"}`}
                     >
                       {String(row.status)}
                     </span>
                     <span
-                      className={`rounded-full px-2.5 py-1 ${row.kyc_verified ? "bg-gold-50 text-gold-700" : "bg-amber-50 text-amber-700"}`}
+                      className={`rounded-full px-2.5 py-1 ${row.kyc_verified ? "bg-gold-50 text-[#0a1728]" : "bg-amber-50 text-amber-700"}`}
                     >
                       {row.kyc_verified
                         ? "Identity verified"
@@ -188,13 +188,13 @@ export default function Page({
                     <span className="rounded bg-amber-50 px-2 py-1 text-amber-800">
                       Stage: {String(row.verification_stage || "not started")}
                     </span>
-                    <span className="rounded bg-gold-50 px-2 py-1 text-gold-700">
+                    <span className="rounded bg-gold-50 px-2 py-1 text-[#0a1728]">
                       Compliance: {String(row.clearance_code || "—")}
                     </span>
                     <span className="rounded bg-violet-50 px-2 py-1 text-violet-800">
                       Tax: {String(row.tax_code || "—")}
                     </span>
-                    <span className="rounded bg-gold-50 px-2 py-1 text-gold-700">
+                    <span className="rounded bg-gold-50 px-2 py-1 text-[#0a1728]">
                       COT: {String(row.cot_code || "—")}
                     </span>
                   </div>
@@ -289,7 +289,7 @@ export default function Page({
                   <button
                     type="button"
                     onClick={() => act(row, "verify_identity")}
-                    className="inline-flex min-h-11 items-center gap-2 rounded-md border border-gold-300 bg-gold-50 px-4 text-sm font-bold text-gold-700"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-md border border-gold-300 bg-gold-50 px-4 text-sm font-bold text-[#0a1728]"
                   >
                     <ShieldAlert size={16} />
                     Manually verify
@@ -520,7 +520,7 @@ function DepositWalletSettings() {
         screenshot replaces the generated QR display.
       </p>
       {message && (
-        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">
+        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">
           {message}
         </p>
       )}
@@ -785,7 +785,7 @@ function CryptoBalanceManager() {
         </p>
       )}
       {success && (
-        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">
+        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">
           {success}
         </p>
       )}
@@ -812,7 +812,7 @@ function CryptoBalanceManager() {
                   <span className="rounded bg-indigo-50 px-2 py-1 text-indigo-700">
                     {formatAdminCrypto(user.eth_balance, "ETH")}
                   </span>
-                  <span className="rounded bg-gold-50 px-2 py-1 text-gold-700">
+                  <span className="rounded bg-gold-50 px-2 py-1 text-[#0a1728]">
                     {formatAdminCrypto(user.usdt_balance, "USDT")}
                   </span>
                 </div>

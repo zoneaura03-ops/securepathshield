@@ -40,7 +40,7 @@ export default function Page() {
       }}
     >
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,32,.94)_0%,rgba(10,23,40,.76)_46%,rgba(7,17,32,.58)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_25%,rgba(37,99,235,.18),transparent_38%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_25%,rgba(214,180,95,.18),transparent_38%)]" />
 
       <section className="relative z-10 hidden max-w-xl justify-self-start text-white lg:block">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold tracking-wide backdrop-blur-md">
@@ -60,7 +60,7 @@ export default function Page() {
       >
         <Logo />
         <div className="mt-8 flex items-center gap-3">
-          <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700"><ShieldCheck size={21} /></span>
+          <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600"><ShieldCheck size={21} /></span>
           <div><h2 className="text-2xl font-semibold text-neutral-900">Admin access</h2><p className="mt-0.5 text-xs text-neutral-500">Authorized SecurePath Bank personnel only</p></div>
         </div>
         <label className="mt-7 block">

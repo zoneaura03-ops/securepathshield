@@ -165,7 +165,7 @@ function Review({ rows }: { rows: string[][] }) {
   return <dl className="mt-6 divide-y">{rows.map(([label, value]) => <div key={label} className="flex justify-between gap-5 py-3 text-sm"><dt className="text-neutral-500">{label}</dt><dd className="break-all text-right font-semibold capitalize">{value}</dd></div>)}</dl>;
 }
 function PaymentState({ icon, title, copy }: { icon: React.ReactNode; title: string; copy: string }) {
-  return <div className="mx-auto max-w-xl rounded-2xl border bg-white p-10 text-center shadow-sm"><span className="mx-auto grid size-14 place-items-center rounded-full bg-bank-50 text-bank-700">{icon}</span><h1 className="mt-5 text-3xl">{title}</h1><p className="mt-2 text-sm text-neutral-500">{copy}</p></div>;
+  return <div className="mx-auto max-w-xl rounded-2xl border bg-white p-10 text-center shadow-sm"><span className="mx-auto grid size-14 place-items-center rounded-full bg-gold-50 text-gold-600">{icon}</span><h1 className="mt-5 text-3xl">{title}</h1><p className="mt-2 text-sm text-neutral-500">{copy}</p></div>;
 }
 function money(amount: number, currency = "USD") { return new Intl.NumberFormat("en-US", { style: "currency", currency }).format(amount); }
 function maskIdentifier(value: string, provider: Provider) {

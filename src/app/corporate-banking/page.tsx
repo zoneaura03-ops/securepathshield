@@ -59,7 +59,7 @@ export default function CorporateBankingPage() {
       <section className="mx-auto grid max-w-[1100px] gap-5 px-5 py-24 sm:px-8 md:grid-cols-2">
         {services.map(([Icon, title, copy]) => (
           <article className="card rounded-lg p-8" key={title}>
-            <Icon className="text-bank-600" />
+            <Icon className="text-gold-500" />
             <h2 className="mt-7 text-2xl">{title}</h2>
             <p className="mt-4 text-sm leading-7 text-neutral-500">{copy}</p>
           </article>

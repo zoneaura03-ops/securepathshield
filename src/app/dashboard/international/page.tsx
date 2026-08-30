@@ -671,7 +671,7 @@ function State({
 }) {
   return (
     <div className="mx-auto max-w-xl rounded-2xl border bg-white p-10 text-center shadow-sm">
-      <span className="mx-auto grid size-14 place-items-center rounded-full bg-bank-50 text-bank-700">
+      <span className="mx-auto grid size-14 place-items-center rounded-full bg-gold-50 text-gold-600">
         {icon}
       </span>
       <h1 className="mt-5 text-3xl">{title}</h1>

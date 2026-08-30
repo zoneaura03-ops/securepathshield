@@ -47,7 +47,7 @@ function Field({
     <label className="block">
       <span className="label">{label}</span>
       <span className="relative block">
-        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
+        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-gold-500">
           {icon}
         </span>
         <input
@@ -81,7 +81,7 @@ function Select({
     <label className="block">
       <span className="label">{label}</span>
       <span className="relative block">
-        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
+        <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-gold-500">
           {icon}
         </span>
         <select
@@ -194,7 +194,7 @@ function Login({ notice }: { notice?: string }) {
           <label>
             <span className="label">Password</span>
             <span className="relative block">
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-gold-500">
                 <Lock size={16} />
               </span>
               <input
@@ -210,7 +210,7 @@ function Login({ notice }: { notice?: string }) {
               <button
                 type="button"
                 onClick={() => setShow(!show)}
-                className="absolute inset-y-0 right-0 grid w-11 place-items-center text-neutral-400"
+                className="absolute inset-y-0 right-0 grid w-11 place-items-center text-gold-500"
               >
                 {show ? <EyeOff size={17} /> : <Eye size={17} />}
               </button>
@@ -233,7 +233,7 @@ function Login({ notice }: { notice?: string }) {
           {notice && (
             <p
               role="status"
-              className="rounded-md border border-gold-300 bg-gold-50 p-3 text-sm text-gold-700"
+              className="rounded-md border border-gold-300 bg-gold-50 p-3 text-sm text-[#0a1728]"
             >
               {notice}
             </p>
@@ -376,7 +376,7 @@ function Registration() {
           {steps.map((x, i) => (
             <div key={x} className="flex-1">
               <div
-                className={`h-1 rounded-full ${i <= step ? "bg-bank-600" : "bg-neutral-200"}`}
+                className={`h-1 rounded-full ${i <= step ? "bg-gold-400" : "bg-neutral-200"}`}
               />
               <p className="mt-2 hidden text-[10px] text-neutral-400 sm:block">
                 {x}
@@ -482,7 +482,7 @@ function Registration() {
               <label>
                 <span className="label">Create password</span>
                 <span className="relative block">
-                  <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-neutral-400">
+                  <span className="pointer-events-none absolute inset-y-0 left-0 flex w-11 items-center justify-center border-r border-[#e2e7f0] text-gold-500">
                     <Lock size={16} />
                   </span>
                   <input
@@ -497,7 +497,7 @@ function Registration() {
                   <button
                     type="button"
                     onClick={() => setShow(!show)}
-                    className="absolute inset-y-0 right-0 grid w-11 place-items-center text-neutral-400"
+                    className="absolute inset-y-0 right-0 grid w-11 place-items-center text-gold-500"
                   >
                     {show ? <EyeOff size={17} /> : <Eye size={17} />}
                   </button>
@@ -506,7 +506,7 @@ function Registration() {
               <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
-                  <span className={passwordStrong ? "text-gold-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
+                  <span className={passwordStrong ? "text-[#0a1728]" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
                     {passwordStrong ? "Strong" : passwordScore >= 3 ? "Medium" : "Weak"}
                   </span>
                 </div>
@@ -517,7 +517,7 @@ function Registration() {
                 </div>
                 <ul className="mt-3 grid gap-1 text-[11px] text-neutral-500 sm:grid-cols-2">
                   {checks.map((check) => (
-                    <li key={check.label} className={check.met ? "text-gold-700" : undefined}>
+                    <li key={check.label} className={check.met ? "text-[#0a1728]" : undefined}>
                       {check.met ? "?" : "?"} {check.label}
                     </li>
                   ))}

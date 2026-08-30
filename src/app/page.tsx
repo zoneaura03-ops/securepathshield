@@ -69,12 +69,12 @@ export default function Home() {
           sizes="100vw"
           className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
         />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(10,23,40,.88)_44%,rgba(37,99,235,.28))]" />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(10,23,40,.88)_44%,rgba(214,180,95,.18))]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#06111f]/78 via-transparent to-transparent" />
         <div className="mx-auto flex min-h-[700px] max-w-[1180px] items-center px-5 py-16 sm:px-8 lg:min-h-[calc(100svh-78px)]">
           <div className="max-w-[650px] text-center lg:text-left">
             <p className="inline-flex rounded-full border border-gold-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-gold-300">
-              🏆 {hero.eyebrow}
+              &#x1F3C6; {hero.eyebrow}
             </p>
             <h1 className="mt-7 text-[44px] font-normal leading-[1.07] tracking-[-.035em] sm:text-[62px] lg:text-[68px]">
               {hero.title}
@@ -104,11 +104,11 @@ export default function Home() {
                   key={x}
                 >
                   {i === 0 ? (
-                    <ShieldCheck size={14} />
+                    <ShieldCheck size={14} className="text-gold-300" />
                   ) : i === 1 ? (
-                    <LockKeyhole size={14} />
+                    <LockKeyhole size={14} className="text-gold-300" />
                   ) : (
-                    <Headphones size={14} />
+                    <Headphones size={14} className="text-gold-300" />
                   )}{" "}
                   {x}
                 </span>
@@ -167,7 +167,7 @@ export default function Home() {
                     className="border-b border-[#e2e7f0] p-6 odd:sm:border-r"
                     key={title}
                   >
-                    <Icon className="text-bank-600" size={22} />
+                    <Icon className="text-gold-500" size={22} />
                     <h3 className="mt-5 text-xl">{title}</h3>
                     <p className="mt-2 text-xs font-semibold text-bank-600">
                       {benefit}
@@ -205,7 +205,7 @@ export default function Home() {
                   className="rounded-lg border border-[#e2e7f0] p-6"
                   key={title}
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-md bg-bank-50 text-bank-600">
+                  <span className="grid h-11 w-11 place-items-center rounded-md bg-gold-50 text-gold-600">
                     <Icon size={20} />
                   </span>
                   <h3 className="mt-6 font-sans text-sm font-semibold">
@@ -235,7 +235,7 @@ export default function Home() {
                 const Icon = stepIcons[i];
                 return (
                   <li className="flex gap-4" key={title}>
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-bank-700">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-gold-600">
                       <Icon size={18} />
                     </span>
                     <div>
@@ -264,7 +264,7 @@ export default function Home() {
                     {"\u00a39,844.65"}
                   </p>
                 </div>
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-bank-50 text-bank-600">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-gold-50 text-gold-600">
                   <ScanFace size={20} />
                 </span>
               </div>
@@ -319,7 +319,7 @@ export default function Home() {
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {security.slice(0, 4).map(([title, copy]) => (
                 <div className="flex gap-3" key={title}>
-                  <Check className="mt-0.5 shrink-0 text-bank-600" size={17} />
+                  <Check className="mt-0.5 shrink-0 text-gold-500" size={17} />
                   <div>
                     <p className="text-sm font-semibold">{title}</p>
                     <p className="mt-1 text-xs leading-5 text-neutral-500">
@@ -330,7 +330,7 @@ export default function Home() {
               ))}
             </div>
             <figure className="mt-8 rounded-lg bg-bank-50 p-6">
-              <Quote className="text-bank-300" size={23} />
+              <Quote className="text-gold-500" size={23} />
               <blockquote className="mt-4 text-sm leading-7 text-neutral-600">
                 {testimonials[0][0]}
               </blockquote>
@@ -355,7 +355,7 @@ export default function Home() {
           </AuthTransitionLink>
           <AuthTransitionLink
             href="/login"
-            className="inline-flex min-h-12 min-w-48 items-center justify-center rounded-md border border-bank-600 px-5 text-sm font-semibold text-bank-700"
+            className="inline-flex min-h-12 min-w-48 items-center justify-center rounded-md border border-gold-500 px-5 text-sm font-semibold text-[#0a1728] hover:bg-gold-50"
           >
             Access Your Account
           </AuthTransitionLink>

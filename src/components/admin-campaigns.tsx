@@ -78,7 +78,7 @@ export default function AdminCampaigns() {
           </p>
         )}
         {status && (
-          <p className="rounded-xl bg-gold-50 p-3 text-sm text-gold-700">
+          <p className="rounded-xl bg-gold-50 p-3 text-sm text-[#0a1728]">
             {status}
           </p>
         )}

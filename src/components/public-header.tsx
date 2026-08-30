@@ -70,13 +70,13 @@ export function PublicHeader() {
                 className={`group relative px-3.5 py-3 text-[13px] font-medium transition-colors ${
                   pathname === link.href ||
                   (link.href === "/features" && pathname === "/features")
-                    ? "text-bank-700"
-                    : "text-neutral-600 hover:text-bank-700"
+                    ? "text-[#0a1728]"
+                    : "text-neutral-600 hover:text-[#0a1728]"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-3.5 bottom-1 h-[2px] origin-left bg-bank-600 transition-transform duration-200 ${
+                  className={`absolute inset-x-3.5 bottom-1 h-[2px] origin-left bg-gold-400 transition-transform duration-200 ${
                     pathname === link.href ||
                     (link.href === "/features" && pathname === "/features")
                       ? "scale-x-100"
@@ -88,14 +88,14 @@ export function PublicHeader() {
             <span className="mx-2 h-5 w-px bg-neutral-200" />
             <AuthTransitionLink
               href="/login"
-              className="rounded px-3 py-3 text-[13px] font-medium text-neutral-600 hover:bg-bank-50 hover:text-bank-700"
+              className="rounded px-3 py-3 text-[13px] font-medium text-neutral-600 hover:bg-gold-50 hover:text-[#0a1728]"
             >
-              <LockKeyhole className="mr-1.5 inline-block" size={13} />
+              <LockKeyhole className="mr-1.5 inline-block text-gold-600" size={13} />
               Sign In
             </AuthTransitionLink>
             <AuthTransitionLink
               href="/register"
-              className="ml-1 rounded-[5px] bg-bank-600 px-5 py-3 text-[13px] font-semibold text-white shadow-[0_7px_18px_rgba(23,107,67,.18)] hover:-translate-y-0.5 hover:bg-bank-700 hover:shadow-[0_10px_24px_rgba(23,107,67,.24)]"
+              className="ml-1 rounded-[5px] bg-gold-400 px-5 py-3 text-[13px] font-semibold text-[#0a1728] shadow-[0_7px_18px_rgba(214,180,95,.24)] hover:-translate-y-0.5 hover:bg-gold-300 hover:shadow-[0_10px_24px_rgba(214,180,95,.3)]"
             >
               Open Account
             </AuthTransitionLink>
@@ -105,7 +105,7 @@ export function PublicHeader() {
             aria-label="Open navigation menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="grid h-11 w-11 place-items-center rounded-full text-black hover:bg-bank-50 hover:text-bank-700 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full text-gold-600 hover:bg-gold-50 hover:text-gold-700 lg:hidden"
             type="button"
           >
             <Menu size={25} strokeWidth={2} />
@@ -133,7 +133,7 @@ export function PublicHeader() {
               onClick={() => setOpen(false)}
               aria-label="Close navigation"
             >
-              <X size={23} />
+              <X size={23} className="text-gold-600" />
             </button>
           </div>
           <nav className="mt-10 flex flex-col">
@@ -144,15 +144,15 @@ export function PublicHeader() {
                   key={link.label}
                   onClick={() => setOpen(false)}
                   href={link.href}
-                  className={`flex items-center gap-3 border-b border-neutral-100 py-4 text-[15px] font-medium ${pathname === link.href ? "text-bank-700" : "text-neutral-700"}`}
+                  className={`flex items-center gap-3 border-b border-neutral-100 py-4 text-[15px] font-medium ${pathname === link.href ? "text-[#0a1728]" : "text-neutral-700"}`}
                 >
                   <span
-                    className={`grid h-9 w-9 place-items-center rounded-md ${pathname === link.href ? "bg-bank-100 text-bank-700" : "bg-neutral-50 text-neutral-500"}`}
+                    className={`grid h-9 w-9 place-items-center rounded-md ${pathname === link.href ? "bg-gold-50 text-gold-600" : "bg-gold-50 text-gold-600"}`}
                   >
                     <Icon size={17} />
                   </span>
                   <span className="flex-1">{link.label}</span>
-                  <span className="text-bank-600">→</span>
+                  <span className="text-gold-600">{"\u2192"}</span>
                 </Link>
               );
             })}
@@ -161,9 +161,9 @@ export function PublicHeader() {
             <AuthTransitionLink
               onNavigate={() => setOpen(false)}
               href="/login"
-              className="flex h-12 items-center justify-center rounded border border-bank-600 text-sm font-semibold text-bank-700"
+              className="flex h-12 items-center justify-center rounded border border-gold-500 text-sm font-semibold text-[#0a1728] hover:bg-gold-50"
             >
-              <LockKeyhole className="mr-2" size={16} />
+              <LockKeyhole className="mr-2 text-gold-600" size={16} />
               Access Your Account
             </AuthTransitionLink>
             <AuthTransitionLink
@@ -171,7 +171,7 @@ export function PublicHeader() {
               href="/register"
               className="btn w-full"
             >
-              <UserPlus size={16} />
+              <UserPlus size={16} className="text-[#0a1728]" />
               Open Account
             </AuthTransitionLink>
           </div>

@@ -62,7 +62,7 @@ export default function Page() {
       <section className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         {cards.map(([Icon, label, key, href, gradient], index) => (
           <Link href={href} key={key} className="group relative overflow-hidden rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_12px_35px_rgba(10,23,40,.055)] transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(10,23,40,.11)]">
-            <div className="flex items-start justify-between"><span className={`grid size-11 place-items-center rounded-xl bg-gradient-to-br ${gradient} text-white shadow-md`}><Icon size={19} /></span><ArrowUpRight size={17} className="text-neutral-300 transition group-hover:text-bank-600" /></div>
+            <div className="flex items-start justify-between"><span className={`grid size-11 place-items-center rounded-xl bg-gradient-to-br ${gradient} text-white shadow-md`}><Icon size={19} /></span><ArrowUpRight size={17} className="text-neutral-300 transition group-hover:text-gold-500" /></div>
             <p className="mt-6 text-xs font-semibold text-neutral-500">{label}</p><div className="mt-1 flex items-end justify-between"><p className="text-3xl font-semibold tracking-tight text-neutral-900">{stats ? stats[key] : "—"}</p>{index > 0 && stats && stats[key] > 0 && <span className="rounded-full bg-red-50 px-2 py-1 text-[9px] font-bold uppercase text-red-600">Action needed</span>}</div>
           </Link>
         ))}
@@ -73,7 +73,7 @@ export default function Page() {
           <div className="flex items-center justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.18em] text-bank-600">Priority queues</p><h2 className="mt-2 text-2xl">Operations requiring review</h2></div><span className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">{stats ? pendingActions : "—"} open</span></div>
           <div className="mt-6 divide-y divide-[#eef2f7]">
             {cards.slice(1).map(([Icon, label, key, href]) => (
-              <Link href={href} key={key} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"><span className="grid size-10 place-items-center rounded-xl bg-bank-50 text-bank-700"><Icon size={18} /></span><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{label}</p><p className="mt-0.5 text-[11px] text-neutral-400">Review submissions and record a decision</p></div><span className="grid min-w-9 place-items-center rounded-full bg-neutral-100 px-2 py-1 text-xs font-bold text-neutral-700">{stats ? stats[key] : "—"}</span><ArrowUpRight size={16} className="text-neutral-300" /></Link>
+              <Link href={href} key={key} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"><span className="grid size-10 place-items-center rounded-xl bg-gold-50 text-gold-600"><Icon size={18} /></span><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{label}</p><p className="mt-0.5 text-[11px] text-neutral-400">Review submissions and record a decision</p></div><span className="grid min-w-9 place-items-center rounded-full bg-neutral-100 px-2 py-1 text-xs font-bold text-neutral-700">{stats ? stats[key] : "—"}</span><ArrowUpRight size={16} className="text-neutral-300" /></Link>
             ))}
           </div>
         </div>

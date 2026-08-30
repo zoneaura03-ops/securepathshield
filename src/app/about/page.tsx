@@ -39,7 +39,7 @@ export default function AboutPage() {
           ],
         ].map(([Icon, title, copy]) => (
           <article className="card rounded-lg p-8" key={String(title)}>
-            <Icon className="text-bank-600" />
+            <Icon className="text-gold-500" />
             <h2 className="mt-7 text-2xl">{String(title)}</h2>
             <p className="mt-4 text-sm leading-7 text-neutral-500">
               {String(copy)}

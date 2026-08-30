@@ -86,7 +86,7 @@ export function AccountDetailsClient({
       {!details && (
         <div className="card mt-5 rounded-2xl p-5 sm:p-6">
           <div className="flex gap-3">
-            <ShieldCheck className="shrink-0 text-bank-700" />
+            <ShieldCheck className="shrink-0 text-gold-500" />
             <div>
               <h2 className="font-semibold">Reveal full account details</h2>
               <p className="mt-1 text-xs leading-5 text-neutral-500">

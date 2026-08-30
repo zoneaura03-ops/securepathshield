@@ -43,7 +43,7 @@ export function AuthLayout({
         </section>
 
         <p className="absolute inset-x-4 bottom-6 text-center text-[11px] text-white/45">
-          SecurePath Bank · Secure digital banking · Privacy protected
+          Secure Path Bank &middot; Secure digital banking &middot; Privacy protected
         </p>
       </div>
     </main>

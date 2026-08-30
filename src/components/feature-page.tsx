@@ -521,7 +521,7 @@ function CryptoSwap() {
     <div>
       <Header eyebrow="Digital assets" title="Crypto Swap" copy="Exchange cash, Bitcoin, Ethereum, and Tether using a live market quote and one clear fee." />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {message && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">{message}</p>}
+      {message && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">{message}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_minmax(300px,.75fr)]">
         <form onSubmit={completeSwap} className="rounded-3xl border border-[#dfe5ef] bg-white p-5 shadow-sm sm:p-7">
@@ -545,7 +545,7 @@ function CryptoSwap() {
           <div className="rounded-2xl border border-[#e1e7e3] bg-neutral-50 p-4">
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">You receive</span>
             <div className="mt-3 flex items-center gap-3">
-              <div className="min-w-0 flex-1 text-3xl font-bold">{quoteLoading ? <LoaderCircle className="animate-spin text-bank-600" /> : quote ? formatAsset(quote.receiveAmount, to, false) : "0.00"}</div>
+              <div className="min-w-0 flex-1 text-3xl font-bold">{quoteLoading ? <LoaderCircle className="animate-spin text-gold-500" /> : quote ? formatAsset(quote.receiveAmount, to, false) : "0.00"}</div>
               <AssetSelect value={to} assets={assets} onChange={(value) => { setTo(value); if (value === from) setFrom(to); }} />
             </div>
           </div>
@@ -564,7 +564,7 @@ function CryptoSwap() {
             </button>
           ) : (
             <div className="mt-6 rounded-2xl border border-bank-200 p-5">
-              <div className="flex items-start gap-3"><ShieldCheck className="mt-0.5 text-bank-700" /><div><b>Confirm this exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Rates move quickly. The final amount is recalculated securely when you confirm.</p></div></div>
+              <div className="flex items-start gap-3"><ShieldCheck className="mt-0.5 text-gold-500" /><div><b>Confirm this exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Rates move quickly. The final amount is recalculated securely when you confirm.</p></div></div>
               <Field label="4-digit transaction PIN" type="password" value={pin} onChange={(value) => setPin(value.replace(/\D/g, "").slice(0, 4))} />
               <div className="mt-4 grid grid-cols-2 gap-3"><button type="button" onClick={() => { setReviewing(false); setPin(""); }} className="rounded-xl border px-4 py-3 text-sm font-bold">Back</button><button disabled={submitting} className="btn justify-center">{submitting ? "Swappingâ€¦" : "Confirm swap"}</button></div>
             </div>
@@ -578,7 +578,7 @@ function CryptoSwap() {
               {assets.map((asset) => <div key={asset} className="flex items-center justify-between border-b border-white/10 pb-4 last:border-0 last:pb-0"><span className="font-bold">{asset}</span><span>{formatAsset(asset === data?.account.currency ? data.account.availableBalance : data?.balances[asset] || 0, asset, false)}</span></div>)}
             </div>
           </div>
-          <div className="rounded-2xl border border-[#e1e6ef] bg-white p-5"><div className="flex gap-3"><ShieldCheck className="shrink-0 text-bank-600" /><div><b className="text-sm">Protected exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Every swap requires your transaction PIN and is settled atomicallyâ€”both balances update together or neither does.</p></div></div></div>
+          <div className="rounded-2xl border border-[#e1e6ef] bg-white p-5"><div className="flex gap-3"><ShieldCheck className="shrink-0 text-gold-500" /><div><b className="text-sm">Protected exchange</b><p className="mt-1 text-xs leading-5 text-neutral-500">Every swap requires your transaction PIN and is settled atomicallyâ€”both balances update together or neither does.</p></div></div></div>
         </aside>
       </div>
 
@@ -588,7 +588,7 @@ function CryptoSwap() {
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {!data ? <RowsLoading /> : data.swaps.length ? data.swaps.map((swap) => (
             <article key={swap.reference} className="flex flex-col gap-3 border-b p-5 last:border-0 sm:flex-row sm:items-center sm:justify-between">
-              <div><div className="flex items-center gap-2"><b>{swap.from_asset} â†’ {swap.to_asset}</b><span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">{swap.status}</span></div><p className="mt-1 text-xs text-neutral-500">{swap.reference} Â· {new Date(swap.created_at).toLocaleString("en-GB")}</p></div>
+              <div><div className="flex items-center gap-2"><b>{swap.from_asset} â†’ {swap.to_asset}</b><span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-[#0a1728]">{swap.status}</span></div><p className="mt-1 text-xs text-neutral-500">{swap.reference} Â· {new Date(swap.created_at).toLocaleString("en-GB")}</p></div>
               <div className="text-left sm:text-right"><b>{formatAsset(swap.to_amount, swap.to_asset)}</b><p className="mt-1 text-xs text-neutral-500">From {formatAsset(swap.from_amount, swap.from_asset)}</p></div>
             </article>
           )) : <Empty title="No crypto swaps yet" copy="Your completed exchanges will appear here." />}
@@ -714,7 +714,7 @@ function Deposit() {
           >
             <span className="min-w-0 flex-1 truncate">{details.address}</span>
             {copied ? (
-              <Check className="text-bank-600" size={16} />
+              <Check className="text-gold-500" size={16} />
             ) : (
               <Copy size={16} />
             )}
@@ -796,7 +796,7 @@ function Receipt() {
       <div className="receipt-paper relative overflow-hidden rounded-2xl border bg-white p-7 shadow-sm">
         <div className="receipt-watermark pointer-events-none absolute inset-0 grid place-items-center" aria-hidden><BrandMark className="h-72 w-72 opacity-[.045]" /></div>
         <div className="relative">
-          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH BANK</p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-gold-50 text-gold-700"}`}>{String(item.status)}</span></div>
+          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH BANK</p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-gold-50 text-[#0a1728]"}`}>{String(item.status)}</span></div>
           <p className="mt-6 text-center text-3xl font-bold text-bank-800">{formatMoney(Number(item.amount), String(item.currency))}</p>
           <p className="mt-1 text-center text-xs text-neutral-500">{String(item.description)}</p>
         <Review
@@ -1003,10 +1003,10 @@ function PremiumCards() {
                 <CardArtwork brand={brand} holder={accountHolder} />
                 <span className="flex items-center gap-3 px-1 pb-1 pt-4">
                   <span className="min-w-0 flex-1">
-                    <span className="flex items-center gap-2"><span className="block truncate font-bold">{title}</span>{owned && <span className="rounded-full bg-gold-100 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">Owned</span>}{pendingApplication && <span className="rounded-full bg-amber-100 px-2 py-1 text-[9px] font-bold uppercase text-amber-700">Under review</span>}</span>
+                    <span className="flex items-center gap-2"><span className="block truncate font-bold">{title}</span>{owned && <span className="rounded-full bg-gold-100 px-2 py-1 text-[9px] font-bold uppercase text-[#0a1728]">Owned</span>}{pendingApplication && <span className="rounded-full bg-amber-100 px-2 py-1 text-[9px] font-bold uppercase text-amber-700">Under review</span>}</span>
                     <span className="mt-1 block text-xs leading-5 text-neutral-500">{copy}</span>
                   </span>
-                  {!unavailable && <ChevronRight className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-bank-700" size={19} />}
+                  {!unavailable && <ChevronRight className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500" size={19} />}
                 </span>
               </button>
             );
@@ -1042,12 +1042,12 @@ function PremiumCards() {
                       ? "Declined"
                       : "Frozen";
               const statusTone = active
-                ? "bg-gold-50 text-gold-700"
+                ? "bg-gold-50 text-[#0a1728]"
                 : pending
                   ? "bg-amber-50 text-amber-700"
                   : card.status === "declined"
                     ? "bg-red-50 text-red-700"
-                    : "bg-gold-50 text-gold-700";
+                    : "bg-gold-50 text-[#0a1728]";
 
               return (
                 <article
@@ -1079,7 +1079,7 @@ function PremiumCards() {
                     <div className="flex items-end justify-between gap-4 border-t border-neutral-100 pt-4 sm:col-span-2 lg:col-span-1 lg:block lg:min-w-40 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 lg:text-right">
                       <div>
                         <p className="text-[10px] text-neutral-400">{active ? "Balance" : "Status"}</p>
-                        <p className={`mt-1 font-bold ${active ? "text-xl text-[#111827]" : pending ? "text-amber-700" : "text-gold-700"}`}>
+                        <p className={`mt-1 font-bold ${active ? "text-xl text-[#111827]" : pending ? "text-amber-700" : "text-[#0a1728]"}`}>
                           {active ? formatMoney(card.balance, card.currency) : statusLabel}
                         </p>
                       </div>
@@ -1537,7 +1537,7 @@ function GrantApplications() {
         )}
       </div>
 
-      {message && <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700">{message}</p>}
+      {message && <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]">{message}</p>}
       {error && <ErrorMessage text={error} />}
 
       {applying && (
@@ -1712,7 +1712,7 @@ function GrantApplications() {
         <h2 className="mt-2 text-2xl font-bold">Your submissions and drafts</h2>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {applications === null ? <RowsLoading /> : applications.length ? applications.map((application) => {
-            const tone = application.status === "approved" ? "bg-gold-50 text-gold-700" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-gold-50 text-gold-700" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
+            const tone = application.status === "approved" ? "bg-gold-50 text-[#0a1728]" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-gold-50 text-[#0a1728]" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
             return (
               <article key={application.id} className="border-b p-5 last:border-0">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -1818,7 +1818,7 @@ function CustomerSupport() {
       <Header eyebrow="Help centre" title="Customer Support" copy="Tell us what happened, set the urgency, and track every request from one place." />
       <SupportLiveChat />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {success && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-gold-700">{success}</p>}
+      {success && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">{success}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(280px,.8fr)]">
         <form onSubmit={submit} className="space-y-5 rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-sm">
@@ -1843,9 +1843,9 @@ function CustomerSupport() {
         <h2 className="mt-2 text-2xl font-bold">Your requests</h2>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {tickets === null ? <RowsLoading /> : tickets.length ? tickets.map((ticket) => {
-            const statusTone = ticket.status === "resolved" || ticket.status === "closed" ? "bg-gold-50 text-gold-700" : ticket.status === "in_progress" ? "bg-gold-50 text-gold-700" : "bg-amber-50 text-amber-700";
+            const statusTone = ticket.status === "resolved" || ticket.status === "closed" ? "bg-gold-50 text-[#0a1728]" : ticket.status === "in_progress" ? "bg-gold-50 text-[#0a1728]" : "bg-amber-50 text-amber-700";
             const priorityTone = ticket.priority === "urgent" ? "text-red-600" : ticket.priority === "high" ? "text-amber-600" : "text-neutral-500";
-            return <article key={ticket.id} className="border-b p-5 last:border-0"><div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-bold">{ticket.subject}</h3><span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${statusTone}`}>{ticket.status.replace("_", " ")}</span></div><p className="mt-1 text-xs text-neutral-500">{ticket.reference} Â· {supportCategories.find(([value]) => value === ticket.category)?.[1] || ticket.category} Â· {new Date(ticket.created_at).toLocaleString("en-GB")}</p></div><span className={`text-[10px] font-bold uppercase ${priorityTone}`}>{ticket.priority} priority</span></div><p className="mt-3 text-sm leading-6 text-neutral-600">{ticket.message}</p>{ticket.admin_response&&<div className="mt-4 rounded-xl border border-gold-100 bg-gold-50 p-4"><p className="text-[10px] font-bold uppercase tracking-widest text-gold-700">Customer care response</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-[#0a1728]">{ticket.admin_response}</p>{ticket.responded_at&&<p className="mt-2 text-[10px] text-gold-700">{new Date(ticket.responded_at).toLocaleString("en-GB")}</p>}</div>}</article>;
+            return <article key={ticket.id} className="border-b p-5 last:border-0"><div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-bold">{ticket.subject}</h3><span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${statusTone}`}>{ticket.status.replace("_", " ")}</span></div><p className="mt-1 text-xs text-neutral-500">{ticket.reference} Â· {supportCategories.find(([value]) => value === ticket.category)?.[1] || ticket.category} Â· {new Date(ticket.created_at).toLocaleString("en-GB")}</p></div><span className={`text-[10px] font-bold uppercase ${priorityTone}`}>{ticket.priority} priority</span></div><p className="mt-3 text-sm leading-6 text-neutral-600">{ticket.message}</p>{ticket.admin_response&&<div className="mt-4 rounded-xl border border-gold-100 bg-gold-50 p-4"><p className="text-[10px] font-bold uppercase tracking-widest text-[#0a1728]">Customer care response</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-[#0a1728]">{ticket.admin_response}</p>{ticket.responded_at&&<p className="mt-2 text-[10px] text-[#0a1728]">{new Date(ticket.responded_at).toLocaleString("en-GB")}</p>}</div>}</article>;
           }) : <Empty title="No support requests" copy="When you contact support, your request and its status will appear here." />}
         </div>
       </section>
@@ -1959,7 +1959,7 @@ function Investments() {
 
       {error && <ErrorMessage text={error} />}
       {message && (
-        <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-gold-700">
+        <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]">
           {message}
         </p>
       )}
@@ -1984,14 +1984,14 @@ function Investments() {
                     : Building2;
               const riskTone =
                 product.risk === "Low"
-                  ? "bg-gold-50 text-gold-700"
+                  ? "bg-gold-50 text-[#0a1728]"
                   : product.risk === "Moderate"
                     ? "bg-amber-50 text-amber-700"
                     : "bg-violet-50 text-violet-700";
               return (
                 <article key={product.id} className="flex flex-col rounded-2xl border border-[#dfe5ef] bg-white p-5 shadow-[0_8px_24px_rgba(10,23,40,.05)]">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="grid size-11 place-items-center rounded-xl bg-bank-50 text-bank-700"><Icon size={20} /></span>
+                    <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600"><Icon size={20} /></span>
                     <span className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase ${riskTone}`}>{product.risk} risk</span>
                   </div>
                   <h3 className="mt-5 text-lg font-bold">{product.name}</h3>
@@ -2025,7 +2025,7 @@ function Investments() {
             <p className="text-[11px] font-bold uppercase tracking-[.18em] text-neutral-500">Your portfolio</p>
             <h2 className="mt-2 text-2xl font-bold">Current holdings</h2>
           </div>
-          <TrendingUp className="text-bank-600" />
+          <TrendingUp className="text-gold-500" />
         </div>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {data === null ? (
@@ -2036,7 +2036,7 @@ function Investments() {
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-bold">{holding.product_name}</h3>
-                    <span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-gold-700">{holding.status}</span>
+                    <span className="rounded-full bg-gold-50 px-2 py-1 text-[9px] font-bold uppercase text-[#0a1728]">{holding.status}</span>
                   </div>
                   <p className="mt-1 text-xs text-neutral-500">{holding.reference} Â· Matures {new Date(holding.maturity_date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</p>
                 </div>
@@ -2066,7 +2066,7 @@ function Investments() {
                 <p className="text-[10px] font-bold uppercase tracking-[.16em] text-bank-600">Review investment</p>
                 <h2 id="investment-title" className="mt-2 text-2xl font-bold">{selected.name}</h2>
               </div>
-              <span className="grid size-11 place-items-center rounded-full bg-bank-50 text-bank-700"><TrendingUp size={19} /></span>
+              <span className="grid size-11 place-items-center rounded-full bg-gold-50 text-gold-600"><TrendingUp size={19} /></span>
             </div>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field label={`Amount (${currency})`} type="number" value={amount} onChange={setAmount} />
@@ -2305,7 +2305,7 @@ function ProfileSettings() {
           />
         </div>
         {message && (
-          <p className="mx-6 mb-6 rounded-lg border border-gold-300 bg-gold-50 p-3 text-sm text-gold-700">
+          <p className="mx-6 mb-6 rounded-lg border border-gold-300 bg-gold-50 p-3 text-sm text-[#0a1728]">
             {message}
           </p>
         )}
@@ -2518,7 +2518,7 @@ function StateCard({
 }) {
   return (
     <div className="mt-6 rounded-xl border bg-white p-10 text-center">
-      <span className="mx-auto grid size-16 place-items-center rounded-full bg-bank-50 text-bank-600 [&>svg]:size-8">
+      <span className="mx-auto grid size-16 place-items-center rounded-full bg-gold-50 text-gold-600 [&>svg]:size-8">
         {icon}
       </span>
       <h1 className="mt-5 text-3xl">{title}</h1>
