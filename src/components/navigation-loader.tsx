@@ -4,8 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { LogoLoader } from "./logo-loader";
 
-const MINIMUM_VISIBLE_MS = 350;
-const MAXIMUM_VISIBLE_MS = 3000;
+const MINIMUM_VISIBLE_MS = 120;
+const MAXIMUM_VISIBLE_MS = 1200;
 
 export function NavigationLoader({ children }: { children: ReactNode }) {
   const pathname = usePathname();

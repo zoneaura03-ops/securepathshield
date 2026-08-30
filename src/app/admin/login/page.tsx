@@ -34,7 +34,7 @@ export default function Page() {
     <main
       className="relative grid min-h-screen overflow-hidden bg-[#06111f] px-4 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_28rem] lg:place-items-center lg:gap-12 lg:px-16"
       style={{
-        backgroundImage: "url('/images/securepathbank-admin-login-v2.png')",
+        backgroundImage: "url('/images/securepathbank-admin-login-v2.webp')",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

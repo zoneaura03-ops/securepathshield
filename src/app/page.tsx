@@ -62,7 +62,7 @@ export default function Home() {
       <PublicHeader />
       <section className="relative isolate min-h-[700px] overflow-hidden text-white lg:min-h-[calc(100svh-78px)]">
         <Image
-          src="/images/securepathbank-corporate-hero-v2.png"
+          src="/images/securepathbank-corporate-hero-v2.webp"
           alt="SecurePath Bank banking professional"
           fill
           priority
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e2e7f0] bg-white lg:grid-cols-2">
             <div className="relative min-h-[360px] lg:min-h-full">
               <Image
-                src="/images/securepathbank-business-services-v2.png"
+                src="/images/securepathbank-business-services-v2.webp"
                 alt="Business owner using SecurePath Bank digital banking"
                 fill
                 sizes="(min-width:1024px) 50vw,100vw"
@@ -302,7 +302,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative min-h-[420px] overflow-hidden rounded-lg">
             <Image
-              src="/images/securepathbank-security-trust-v2.png"
+              src="/images/securepathbank-security-trust-v2.webp"
               alt="Secure mobile banking authentication"
               fill
               sizes="(min-width:1024px) 50vw,100vw"

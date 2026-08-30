@@ -79,11 +79,6 @@ export function PublicFooter() {
           </ul>
         </div>
       </div>
-      <div className="mx-auto max-w-[1100px] border-b border-white/10 py-6 text-[11px] leading-6 text-white/35">
-        SecurePath Bank is a demonstration interface. Product availability, rates,
-        deposit protection, and regulatory disclosures must be configured for
-        the applicable licensed entity and jurisdiction.
-      </div>
       <div className="mx-auto flex max-w-[1100px] flex-col justify-between gap-3 pt-7 text-xs text-white/40 sm:flex-row sm:items-center">
         <span>© 2026 SecurePath Bank. All rights reserved.</span>
         <div className="flex flex-wrap gap-x-5 gap-y-2">

@@ -12,7 +12,7 @@ export function AuthLayout({
   return (
     <main className="relative isolate min-h-screen overflow-x-hidden bg-[#0a1728]">
       <Image
-        src="/images/securepathbank-auth-towers-v2.png"
+        src="/images/securepathbank-auth-towers-v2.webp"
         alt="Modern financial district skyscrapers"
         fill
         priority
