@@ -522,7 +522,7 @@ function CryptoSwap() {
     <div>
       <Header eyebrow="Digital assets" title="Crypto Swap" copy="Exchange cash, Bitcoin, Ethereum, and Tether using a live market quote and one clear fee." />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {message && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">{message}</p>}
+      {message && <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">{message}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_minmax(300px,.75fr)]">
         <form onSubmit={completeSwap} className="rounded-3xl border border-[#dfe5ef] bg-white p-5 shadow-sm sm:p-7">
@@ -797,14 +797,14 @@ function Receipt() {
       <div className="receipt-paper relative overflow-hidden rounded-2xl border bg-white p-7 shadow-sm">
         <div className="receipt-watermark pointer-events-none absolute inset-0 grid place-items-center" aria-hidden><BrandMark className="h-72 w-72 opacity-[.045]" /></div>
         <div className="relative">
-          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH BANK</p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-gold-50 text-[#0a1728]"}`}>{String(item.status)}</span></div>
-          <p className="mt-6 text-center text-3xl font-bold text-bank-800">{formatMoney(Number(item.amount), String(item.currency))}</p>
+          <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH <span className="text-gold-600">BANK</span></p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-emerald-50 text-emerald-700"}`}>{String(item.status)}</span></div>
+          <p className={`mt-6 text-center text-3xl font-bold ${String(item.type) === "credit" ? "text-emerald-600" : "text-rose-600"}`}>{formatMoney(Number(item.amount), String(item.currency))}</p>
           <p className="mt-1 text-center text-xs text-neutral-500">{String(item.description)}</p>
         <Review
           rows={[
             ["Reference", String(item.reference)],
             ["Type", String(item.type)],
-            ["Sender", String(item.sender_first_name ? `${item.sender_first_name} ${item.sender_last_name}` : item.type === "debit" ? `${item.first_name} ${item.last_name}` : "SecurePath Bank Administration")],
+            ["Sender", String(item.sender_first_name ? `${item.sender_first_name} ${item.sender_last_name}` : item.type === "debit" ? `${item.first_name} ${item.last_name}` : "SecurePath Bank")],
             ["Sender account", String(item.sender_account || (item.type === "debit" ? item.account_number : "SecurePath Bank"))],
             ["Receiver", String(item.recipient_name || (item.type === "credit" ? `${item.first_name} ${item.last_name}` : "Not provided"))],
             ["Receiver account", String(item.recipient_account || (item.type === "credit" ? item.account_number : "Not provided"))],
@@ -1438,16 +1438,24 @@ function GrantApplications() {
       setError("Complete the organization background and registration information.");
       return;
     }
-    if (
-      step === 3 &&
-      (!form.projectTitle.trim() ||
-        !form.projectLocation.trim() ||
-        Number(form.amount) < 500 ||
-        Number(form.timelineMonths) < 1 ||
-        Number(form.beneficiaries) < 1)
-    ) {
-      setError("Complete the project details with a request of at least $500.");
-      return;
+    if (step === 3) {
+      if (!form.projectTitle.trim() || !form.projectLocation.trim()) {
+        setError("Enter the project title and project location.");
+        return;
+      }
+      const requestedAmount = Number(form.amount.replace(/[$,\s]/g, ""));
+      if (!Number.isFinite(requestedAmount) || requestedAmount < 500) {
+        setError("Enter a requested amount of at least $500 USD.");
+        return;
+      }
+      if (!Number.isFinite(Number(form.timelineMonths)) || Number(form.timelineMonths) < 1) {
+        setError("Enter a project timeline of at least one month.");
+        return;
+      }
+      if (!Number.isFinite(Number(form.beneficiaries)) || Number(form.beneficiaries) < 1) {
+        setError("Enter at least one estimated beneficiary.");
+        return;
+      }
     }
     setStep((current) => Math.min(4, current + 1));
   }
@@ -1558,7 +1566,7 @@ function GrantApplications() {
         )}
       </div>
 
-      {message && <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]">{message}</p>}
+      {message && <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">{message}</p>}
       {error && <ErrorMessage text={error} />}
 
       {applying && (
@@ -1839,7 +1847,7 @@ function CustomerSupport() {
       <Header eyebrow="Help centre" title="Customer Support" copy="Tell us what happened, set the urgency, and track every request from one place." />
       <SupportLiveChat />
       {error && <p className="mt-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {success && <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">{success}</p>}
+      {success && <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">{success}</p>}
 
       <div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(280px,.8fr)]">
         <form onSubmit={submit} className="space-y-5 rounded-3xl border border-[#dfe5ef] bg-white p-6 shadow-sm">
@@ -1980,7 +1988,7 @@ function Investments() {
 
       {error && <ErrorMessage text={error} />}
       {message && (
-        <p className="mt-5 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]">
+        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
           {message}
         </p>
       )}
@@ -2158,6 +2166,7 @@ function ProfileSettings() {
     marketingEmails: boolean;
   } | null>(null);
   const [saving, setSaving] = useState(false);
+  const [avatarReview, setAvatarReview] = useState<{ file: File; url: string } | null>(null);
   const [profileSaving, setProfileSaving] = useState(false);
   const [passwordSaving, setPasswordSaving] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -2178,26 +2187,44 @@ function ProfileSettings() {
       );
   }, []);
 
-  async function upload(file?: File) {
+  function reviewAvatar(file?: File) {
     if (!file) return;
+    setError("");
+    setMessage("");
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 3 * 1024 * 1024) {
+      setError("Choose a JPEG, PNG, or WebP image no larger than 3 MB.");
+      return;
+    }
+    if (avatarReview) URL.revokeObjectURL(avatarReview.url);
+    setAvatarReview({ file, url: URL.createObjectURL(file) });
+  }
+
+  function cancelAvatarReview() {
+    if (avatarReview) URL.revokeObjectURL(avatarReview.url);
+    setAvatarReview(null);
+  }
+
+  async function upload() {
+    if (!avatarReview) return;
     setSaving(true);
     setError("");
     setMessage("");
     const form = new FormData();
-    form.set("avatar", file);
-    const response = await fetch("/api/banking/profile/avatar", {
-      method: "POST",
-      body: form,
-    });
-    const data = await response.json();
-    if (response.ok) {
-      setProfile((current) =>
-        current ? { ...current, avatarUrl: data.avatarUrl } : current,
-      );
-      setMessage("Profile picture updated.");
-      router.refresh();
-    } else setError(data.error || "Unable to update your profile picture.");
-    setSaving(false);
+    form.set("avatar", avatarReview.file);
+    try {
+      const response = await fetch("/api/banking/profile/avatar", { method: "POST", body: form });
+      const data = await response.json();
+      if (response.ok) {
+        setProfile((current) => current ? { ...current, avatarUrl: data.avatarUrl } : current);
+        setMessage("Profile picture updated successfully.");
+        cancelAvatarReview();
+        router.refresh();
+      } else setError(data.error || "Unable to update your profile picture.");
+    } catch {
+      setError("Unable to upload your profile picture. Try again.");
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function remove() {
@@ -2268,6 +2295,19 @@ function ProfileSettings() {
         title="Account overview"
         copy="Manage your identity, contact preferences, profile picture, and account security."
       />
+      {avatarReview && (
+        <div className="fixed inset-0 z-[220] grid place-items-center bg-[#071321]/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="avatar-review-title">
+          <section className="w-full max-w-md rounded-3xl bg-white p-6 text-center shadow-[0_30px_90px_rgba(10,23,40,.3)]">
+            <h2 id="avatar-review-title" className="text-2xl font-bold">Review profile picture</h2>
+            <p className="mt-2 text-sm text-neutral-500">Confirm how your photo will appear before the final upload.</p>
+            <Image src={avatarReview.url} alt="Selected profile picture preview" width={240} height={240} unoptimized className="mx-auto mt-6 size-60 rounded-full object-cover ring-4 ring-bank-50" />
+            <div className="mt-6 flex gap-3">
+              <button type="button" onClick={cancelAvatarReview} disabled={saving} className="min-h-12 flex-1 rounded-xl border border-[#d8dfeb] text-sm font-semibold">Choose another</button>
+              <button type="button" onClick={upload} disabled={saving} className="btn flex-1 rounded-xl">{saving ? "Uploadingâ€¦" : "Use this photo"}</button>
+            </div>
+          </section>
+        </div>
+      )}
       <section className="mt-6 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-sm">
         <div className="flex flex-col items-center gap-5 border-b border-[#edf0ee] p-6 text-center sm:flex-row sm:text-left">
           {profile ? (
@@ -2291,12 +2331,12 @@ function ProfileSettings() {
             <div className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
               <label className="btn cursor-pointer">
                 <Upload size={16} />
-                {saving ? "Savingâ€¦" : "Upload photo"}
+                {saving ? "Savingâ€¦" : "Select photo"}
                 <input
                   type="file"
                   accept="image/jpeg,image/png,image/webp"
                   disabled={saving}
-                  onChange={(event) => upload(event.target.files?.[0])}
+                  onChange={(event) => reviewAvatar(event.target.files?.[0])}
                   className="sr-only"
                 />
               </label>
@@ -2326,7 +2366,7 @@ function ProfileSettings() {
           />
         </div>
         {message && (
-          <p className="mx-6 mb-6 rounded-lg border border-gold-300 bg-gold-50 p-3 text-sm text-[#0a1728]">
+          <p className="mx-6 mb-6 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">
             {message}
           </p>
         )}

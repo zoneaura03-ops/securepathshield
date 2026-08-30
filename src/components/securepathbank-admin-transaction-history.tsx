@@ -543,14 +543,14 @@ export default function AdminTransactionHistoryGenerator() {
           {success && (
             <div
               role="status"
-              className="mt-3 flex items-start gap-3 rounded-xl border border-gold-300 bg-gold-50 p-4 text-sm text-[#0a1728]"
+              className="mt-3 flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
             >
-              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gold-500 text-white">
+              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-emerald-600 text-white">
                 <Check size={14} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">History generated successfully</p>
-                <p className="mt-1 break-words text-xs leading-5 text-[#0a1728]">
+                <p className="mt-1 break-words text-xs leading-5 text-emerald-800">
                   {success}
                 </p>
               </div>

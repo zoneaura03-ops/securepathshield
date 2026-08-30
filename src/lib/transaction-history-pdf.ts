@@ -34,7 +34,7 @@ export async function buildTransactionHistoryPdf({
     .text("SECUREPATH BANK", 95, 350, { width: 430, align: "center" })
     .restore();
   doc
-    .fillColor("#0a1728")
+    .fillColor("#b78a32")
     .fontSize(12)
     .text("SECUREPATH BANK", { characterSpacing: 3 });
   doc
@@ -58,7 +58,7 @@ export async function buildTransactionHistoryPdf({
         { continued: true },
       );
     doc
-      .fillColor(entry.type === "debit" ? "#a12a2a" : "#0a1728")
+      .fillColor(entry.type === "debit" ? "#dc2626" : "#059669")
       .text(
         `  ${direction === "Debit" ? "-" : "+"}${entry.amount.toFixed(2)} ${currency}`,
         { align: "right" },

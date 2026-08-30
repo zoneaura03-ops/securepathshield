@@ -77,7 +77,7 @@ export default function Page() {
                 key={d.id}
                 className="flex items-center gap-3 rounded-xl border p-4 text-sm font-semibold hover:border-bank-300"
               >
-                <FileCheck2 className="text-gold-500" size={19} />
+                <FileCheck2 className="text-blue-600" size={19} />
                 <span className="min-w-0">
                   <span className="block capitalize">
                     {d.kind.replaceAll("_", " ")}

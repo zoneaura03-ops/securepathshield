@@ -17,7 +17,10 @@ const allowedFiles: Record<string, string> = {
 export async function GET() {
   const user = await currentUser();
   if (!user)
-    return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+    return NextResponse.json(
+      { error: "Authentication required." },
+      { status: 401 },
+    );
   const [applications] = await db.execute<DatabaseRow[]>(
     "SELECT * FROM grant_applications WHERE user_id=? ORDER BY created_at DESC",
     [user.id],
@@ -44,7 +47,9 @@ export async function GET() {
     applications: applications.map((item) => ({
       ...item,
       amount: item.amount == null ? null : Number(item.amount),
-      documents: documents.filter((document) => Number(document.grant_id) === Number(item.id)),
+      documents: documents.filter(
+        (document) => Number(document.grant_id) === Number(item.id),
+      ),
     })),
   });
 }
@@ -52,12 +57,16 @@ export async function GET() {
 export async function POST(request: Request) {
   const user = await currentUser();
   if (!user)
-    return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+    return NextResponse.json(
+      { error: "Authentication required." },
+      { status: 401 },
+    );
 
   const form = await request.formData();
   const action = text(form, "action") === "submit" ? "submit" : "draft";
   const applicationId = Number(text(form, "applicationId")) || null;
-  const applicantType = text(form, "applicantType") === "company" ? "company" : "individual";
+  const applicantType =
+    text(form, "applicantType") === "company" ? "company" : "individual";
   const amount = number(form, "amount");
   const timelineMonths = number(form, "timelineMonths");
   const beneficiaries = number(form, "beneficiaries");
@@ -100,25 +109,42 @@ export async function POST(request: Request) {
     if (
       required.some((value) => !value) ||
       !/^\S+@\S+\.\S+$/.test(values.contactEmail) ||
-      amount == null || amount < 500 ||
-      timelineMonths == null || timelineMonths < 1 || timelineMonths > 60 ||
-      beneficiaries == null || beneficiaries < 1 ||
-      (applicantType === "company" && (!values.registrationNumber || !values.registrationDate)) ||
-      !declaration || !eligibility
+      amount == null ||
+      amount < 500 ||
+      timelineMonths == null ||
+      timelineMonths < 1 ||
+      timelineMonths > 60 ||
+      beneficiaries == null ||
+      beneficiaries < 1 ||
+      (applicantType === "company" &&
+        (!values.registrationNumber || !values.registrationDate)) ||
+      !declaration ||
+      !eligibility
     )
       return NextResponse.json(
-        { error: "Complete every required section, eligibility check, and declaration before submitting." },
+        {
+          error:
+            "Complete every required section, eligibility check, and declaration before submitting.",
+        },
         { status: 400 },
       );
   }
 
-  const files = form.getAll("documents").filter((value): value is File => value instanceof File && value.size > 0);
+  const files = form
+    .getAll("documents")
+    .filter((value): value is File => value instanceof File && value.size > 0);
   if (files.length > MAX_DOCUMENTS)
-    return NextResponse.json({ error: `Upload no more than ${MAX_DOCUMENTS} documents.` }, { status: 400 });
+    return NextResponse.json(
+      { error: `Upload no more than ${MAX_DOCUMENTS} documents.` },
+      { status: 400 },
+    );
   for (const file of files) {
     if (!allowedFiles[file.type] || file.size > MAX_FILE_BYTES)
       return NextResponse.json(
-        { error: "Documents must be PDF, JPG, or PNG files no larger than 5 MB each." },
+        {
+          error:
+            "Documents must be PDF, JPG, or PNG files no larger than 5 MB each.",
+        },
         { status: 400 },
       );
   }
@@ -140,12 +166,30 @@ export async function POST(request: Request) {
       await connection.execute(
         "UPDATE grant_applications SET applicant_type=?,legal_name=?,project_title=?,category=?,country=?,contact_email=?,contact_phone=?,registration_number=?,registration_date=?,organization_background=?,project_location=?,amount=?,timeline_months=?,beneficiaries=?,purpose=?,use_of_funds=?,budget_breakdown=?,milestones=?,other_funding_sources=?,declaration_accepted_at=?,eligibility_confirmed_at=?,status=?,submitted_at=? WHERE id=?",
         [
-          applicantType, nullable(values.legalName), nullable(values.projectTitle), nullable(values.category), nullable(values.country),
-          nullable(values.contactEmail), nullable(values.contactPhone), nullable(values.registrationNumber), nullable(values.registrationDate),
-          nullable(values.organizationBackground), nullable(values.projectLocation), amount, timelineMonths, beneficiaries,
-          nullable(values.purpose), nullable(values.useOfFunds), nullable(values.budgetBreakdown), nullable(values.milestones),
-          nullable(values.otherFundingSources), declaration ? new Date() : null, eligibility ? new Date() : null,
-          action === "submit" ? "submitted" : "draft", action === "submit" ? new Date() : null, grantId,
+          applicantType,
+          nullable(values.legalName),
+          nullable(values.projectTitle),
+          nullable(values.category),
+          nullable(values.country),
+          nullable(values.contactEmail),
+          nullable(values.contactPhone),
+          nullable(values.registrationNumber),
+          nullable(values.registrationDate),
+          nullable(values.organizationBackground),
+          nullable(values.projectLocation),
+          amount,
+          timelineMonths,
+          beneficiaries,
+          nullable(values.purpose),
+          nullable(values.useOfFunds),
+          nullable(values.budgetBreakdown),
+          nullable(values.milestones),
+          nullable(values.otherFundingSources),
+          declaration ? new Date() : null,
+          eligibility ? new Date() : null,
+          action === "submit" ? "submitted" : "draft",
+          action === "submit" ? new Date() : null,
+          grantId,
         ],
       );
     } else {
@@ -153,12 +197,31 @@ export async function POST(request: Request) {
       const [result] = await connection.execute(
         "INSERT INTO grant_applications(reference,user_id,applicant_type,legal_name,project_title,category,country,contact_email,contact_phone,registration_number,registration_date,organization_background,project_location,amount,timeline_months,beneficiaries,purpose,use_of_funds,budget_breakdown,milestones,other_funding_sources,declaration_accepted_at,eligibility_confirmed_at,status,submitted_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [
-          grantReference, user.id, applicantType, nullable(values.legalName), nullable(values.projectTitle), nullable(values.category), nullable(values.country),
-          nullable(values.contactEmail), nullable(values.contactPhone), nullable(values.registrationNumber), nullable(values.registrationDate),
-          nullable(values.organizationBackground), nullable(values.projectLocation), amount, timelineMonths, beneficiaries,
-          nullable(values.purpose), nullable(values.useOfFunds), nullable(values.budgetBreakdown), nullable(values.milestones),
-          nullable(values.otherFundingSources), declaration ? new Date() : null, eligibility ? new Date() : null,
-          action === "submit" ? "submitted" : "draft", action === "submit" ? new Date() : null,
+          grantReference,
+          user.id,
+          applicantType,
+          nullable(values.legalName),
+          nullable(values.projectTitle),
+          nullable(values.category),
+          nullable(values.country),
+          nullable(values.contactEmail),
+          nullable(values.contactPhone),
+          nullable(values.registrationNumber),
+          nullable(values.registrationDate),
+          nullable(values.organizationBackground),
+          nullable(values.projectLocation),
+          amount,
+          timelineMonths,
+          beneficiaries,
+          nullable(values.purpose),
+          nullable(values.useOfFunds),
+          nullable(values.budgetBreakdown),
+          nullable(values.milestones),
+          nullable(values.otherFundingSources),
+          declaration ? new Date() : null,
+          eligibility ? new Date() : null,
+          action === "submit" ? "submitted" : "draft",
+          action === "submit" ? new Date() : null,
         ],
       );
       grantId = Number((result as { insertId: number }).insertId);
@@ -169,19 +232,36 @@ export async function POST(request: Request) {
       [grantId],
     );
     if (Number(documentCount[0]?.count || 0) + files.length > MAX_DOCUMENTS)
-      throw new GrantError(`A grant application can have no more than ${MAX_DOCUMENTS} documents.`, 400);
+      throw new GrantError(
+        `A grant application can have no more than ${MAX_DOCUMENTS} documents.`,
+        400,
+      );
 
     if (files.length) {
-      const directory = path.join(process.cwd(), "storage", "grants", String(user.id));
+      const directory = path.join(
+        process.cwd(),
+        "storage",
+        "grants",
+        String(user.id),
+      );
       await mkdir(directory, { recursive: true });
       for (const file of files) {
         const storedName = `${randomUUID()}${allowedFiles[file.type]}`;
         const target = path.join(directory, storedName);
-        await writeFile(target, Buffer.from(await file.arrayBuffer()), { flag: "wx" });
+        await writeFile(target, Buffer.from(await file.arrayBuffer()), {
+          flag: "wx",
+        });
         savedPaths.push(target);
         await connection.execute(
           "INSERT INTO grant_documents(grant_id,user_id,original_name,stored_name,mime_type,size_bytes) VALUES(?,?,?,?,?,?)",
-          [grantId, user.id, file.name.slice(0, 255), storedName, file.type, file.size],
+          [
+            grantId,
+            user.id,
+            file.name.slice(0, 255),
+            storedName,
+            file.type,
+            file.size,
+          ],
         );
       }
     }
@@ -189,20 +269,36 @@ export async function POST(request: Request) {
     if (action === "submit")
       await connection.execute(
         "INSERT INTO notifications(user_id,type,title,body) VALUES(?,'grant','Grant application received',?)",
-        [user.id, `Your grant application ${grantReference} has been submitted for administrator review.`],
+        [
+          user.id,
+          `Your grant application ${grantReference} has been submitted for administrator review.`,
+        ],
       );
     await connection.commit();
     return NextResponse.json(
-      { ok: true, id: grantId, reference: grantReference, status: action === "submit" ? "submitted" : "draft" },
+      {
+        ok: true,
+        id: grantId,
+        reference: grantReference,
+        status: action === "submit" ? "submitted" : "draft",
+      },
       { status: applicationId ? 200 : 201 },
     );
   } catch (error) {
     await connection.rollback();
-    await Promise.all(savedPaths.map((target) => unlink(target).catch(() => undefined)));
+    await Promise.all(
+      savedPaths.map((target) => unlink(target).catch(() => undefined)),
+    );
     if (error instanceof GrantError)
-      return NextResponse.json({ error: error.message }, { status: error.status });
+      return NextResponse.json(
+        { error: error.message },
+        { status: error.status },
+      );
     console.error(error);
-    return NextResponse.json({ error: "Unable to save the grant application." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Unable to save the grant application." },
+      { status: 500 },
+    );
   } finally {
     connection.release();
   }
@@ -212,7 +308,7 @@ function text(form: FormData, key: string) {
   return String(form.get(key) || "").trim();
 }
 function number(form: FormData, key: string) {
-  const value = Number(form.get(key));
+  const value = Number(String(form.get(key) || "").replace(/[$,\s]/g, ""));
   return Number.isFinite(value) && value >= 0 ? value : null;
 }
 function nullable(value: string) {

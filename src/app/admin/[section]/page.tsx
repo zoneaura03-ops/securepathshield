@@ -520,7 +520,7 @@ function DepositWalletSettings() {
         screenshot replaces the generated QR display.
       </p>
       {message && (
-        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">
+        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
           {message}
         </p>
       )}
@@ -785,7 +785,7 @@ function CryptoBalanceManager() {
         </p>
       )}
       {success && (
-        <p className="mt-5 rounded-xl bg-gold-50 p-4 text-sm text-[#0a1728]">
+        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
           {success}
         </p>
       )}

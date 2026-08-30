@@ -1,11 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-  CreditCard,
-  LayoutDashboard,
-  Send,
-  WalletCards,
-} from "lucide-react";
+import { CreditCard, LayoutDashboard, Send, WalletCards } from "lucide-react";
 import { PINPad } from "../../components/pin-pad";
 import Logo from "../../components/logo";
 import { LogoLoader } from "../../components/logo-loader";
@@ -31,8 +26,7 @@ export default function Page() {
         (data.role === "admin" ? "/admin" : "/dashboard");
       sessionStorage.removeItem("securepathbank_login_destination");
       const destination =
-        storedDestination.startsWith("/") &&
-        !storedDestination.startsWith("//")
+        storedDestination.startsWith("/") && !storedDestination.startsWith("//")
           ? storedDestination
           : data.role === "admin"
             ? "/admin"
@@ -113,17 +107,14 @@ function DashboardBackdrop() {
         <div className="h-8 w-64 rounded-lg bg-slate-300" />
         <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#d6b45f] via-[#b78a32] to-[#0a1728] shadow-xl" />
         <div className="mt-8 grid grid-cols-4 gap-5">
-          {[
-            "bg-gold-100",
-            "bg-gold-100",
-            "bg-fuchsia-100",
-            "bg-lime-100",
-          ].map((tone) => (
-            <div
-              key={tone}
-              className={`h-36 rounded-2xl border border-white/70 ${tone}`}
-            />
-          ))}
+          {["bg-gold-100", "bg-gold-100", "bg-fuchsia-100", "bg-lime-100"].map(
+            (tone, index) => (
+              <div
+                key={`${tone}-${index}`}
+                className={`h-36 rounded-2xl border border-white/70 ${tone}`}
+              />
+            ),
+          )}
         </div>
         <div className="mt-8 grid grid-cols-3 gap-5">
           <div className="col-span-2 h-52 rounded-2xl bg-white shadow-sm" />
