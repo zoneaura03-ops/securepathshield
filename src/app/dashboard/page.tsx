@@ -64,7 +64,7 @@ const walletDepositOptions = [
     "Deposit via Cash App",
     "cashapp",
     "bg-[#00D64F] text-white",
-    "border-[#00D64F]",
+    "border-[#e1e6ef]",
   ],
 ] as const;
 
@@ -87,7 +87,7 @@ const cryptoNetworks = [
     "USDT (TRC-20)",
     "Send USDT",
     "text-[#26A17B]",
-    "border-[#26A17B]",
+    "border-[#e1e6ef]",
   ],
 ] as const;
 

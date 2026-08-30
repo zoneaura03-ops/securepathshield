@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
@@ -651,7 +652,7 @@ function Deposit() {
               ? "text-[#f7931a]"
               : value === "eth"
                 ? "text-[#627eea]"
-                : "text-[#d6b45f]";
+                : "text-[#26A17B]";
           return (
             <button
               key={value}
@@ -870,6 +871,7 @@ function PremiumCards() {
   const [cards, setCards] = useState<PremiumCard[] | null>(null);
   const [allCards, setAllCards] = useState<PremiumCard[] | null>(null);
   const [error, setError] = useState("");
+  const [verificationRequired, setVerificationRequired] = useState(false);
   const [accountHolder, setAccountHolder] = useState("");
   const [operation, setOperation] = useState<{
     cardId: number;
@@ -902,19 +904,28 @@ function PremiumCards() {
     setSaving(true);
     setApplyingBrand(brand);
     setError("");
-    const response = await fetch("/api/banking/cards", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "apply", brand }),
-    });
-    const data = await response.json();
-    if (response.ok) {
-      setSelectedBrand(null);
-      await load();
+    setVerificationRequired(false);
+    try {
+      const response = await fetch("/api/banking/cards", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "apply", brand }),
+      });
+      const text = await response.text();
+      const data = text ? JSON.parse(text) : {};
+      if (response.ok) {
+        setSelectedBrand(null);
+        await load();
+      } else {
+        setError(data.error || "Unable to submit the card application.");
+        setVerificationRequired(Boolean(data.verificationRequired));
+      }
+    } catch {
+      setError("Unable to submit the card application. Check your connection and try again.");
+    } finally {
+      setApplyingBrand(null);
+      setSaving(false);
     }
-    else setError(data.error);
-    setApplyingBrand(null);
-    setSaving(false);
   }
 
   async function changeBalance() {
@@ -995,7 +1006,7 @@ function PremiumCards() {
               <button
                 key={brand}
                 type="button"
-                onClick={() => { if (!unavailable) setSelectedBrand(brand); }}
+                onClick={() => { if (!unavailable) { setError(""); setVerificationRequired(false); setSelectedBrand(brand); } }}
                 disabled={saving || unavailable}
                 aria-label={owned ? `${title} owned` : pendingApplication ? `${title} under review` : defaultCopy}
                 className={`group relative overflow-hidden rounded-2xl border bg-white p-3 text-left transition ${owned ? "border-gold-300 bg-gold-50/30" : pendingApplication ? "border-amber-200 bg-amber-50/30" : "border-[#dfe5ef] hover:-translate-y-0.5 hover:border-bank-300 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)]"}`}
@@ -1154,6 +1165,16 @@ function PremiumCards() {
             <p className="mt-2 text-sm leading-6 text-neutral-500">
               Your application will be sent to a SecurePath Bank administrator for review. Card details and funding controls become available after approval.
             </p>
+            {error && (
+              <div role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                <p>{error}</p>
+                {verificationRequired && (
+                  <Link href="/dashboard/verification" className="mt-3 inline-flex font-bold text-[#0a1728] underline underline-offset-4">
+                    Complete identity verification
+                  </Link>
+                )}
+              </div>
+            )}
             <div className="mt-6 flex gap-3">
               <button
                 type="button"
