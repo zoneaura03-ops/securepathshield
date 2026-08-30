@@ -33,19 +33,35 @@ export function BrandMark({ className = "h-9 w-9" }: { className?: string }) {
 export default function Logo({
   compact = false,
   href = "/",
+  sidebar = false,
 }: {
   compact?: boolean;
   href?: string;
+  sidebar?: boolean;
 }) {
   return (
     <Link
       href={href}
       aria-label="Secure Path Bank home"
-      className="inline-flex shrink-0 items-center gap-3"
+      className={`inline-flex shrink-0 items-center ${sidebar ? "gap-2" : "gap-3"}`}
     >
-      <BrandMark className={compact ? "h-10 w-10" : "h-11 w-11 sm:h-12 sm:w-12"} />
+      <BrandMark
+        className={`${
+          compact
+            ? "h-10 w-10"
+            : sidebar
+              ? "h-10 w-10"
+              : "h-11 w-11 sm:h-12 sm:w-12"
+        } shrink-0`}
+      />
       {!compact && (
-        <span className="whitespace-nowrap text-[14px] font-semibold uppercase tracking-[.13em] text-[#0a1728] sm:text-[16px]">
+        <span
+          className={`whitespace-nowrap font-semibold uppercase text-[#0a1728] ${
+            sidebar
+              ? "text-[12px] tracking-[.1em]"
+              : "text-[14px] tracking-[.13em] sm:text-[16px]"
+          }`}
+        >
           Secure Path <span className="text-[#b78a32]">Bank</span>
         </span>
       )}

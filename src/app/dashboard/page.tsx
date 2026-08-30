@@ -42,9 +42,30 @@ const transferOptions = [
 ] as const;
 
 const walletDepositOptions = [
-  [SiPaypal, "PayPal", "Deposit via PayPal", "paypal", "bg-white text-[#003087]"],
-  [SkrillMark, "Skrill", "Deposit via Skrill", "skrill", "bg-[#862165] text-white"],
-  [SiCashapp, "Cash App", "Deposit via Cash App", "cashapp", "bg-[#d6b45f] text-white"],
+  [
+    SiPaypal,
+    "PayPal",
+    "Deposit via PayPal",
+    "paypal",
+    "bg-white text-[#003087]",
+    "border-[#e1e6ef]",
+  ],
+  [
+    SkrillMark,
+    "Skrill",
+    "Deposit via Skrill",
+    "skrill",
+    "bg-[#862165] text-white",
+    "border-[#e1e6ef]",
+  ],
+  [
+    SiCashapp,
+    "Cash App",
+    "Deposit via Cash App",
+    "cashapp",
+    "bg-[#00D64F] text-white",
+    "border-[#00D64F]",
+  ],
 ] as const;
 
 function SkrillMark({ size = 22 }: { size?: number }) {
@@ -59,9 +80,15 @@ function SkrillMark({ size = 22 }: { size?: number }) {
 }
 
 const cryptoNetworks = [
-  [SiBitcoin, "BTC Network", "Send BTC", "text-[#f7931a]"],
-  [SiEthereum, "ETH Network", "Send ETH", "text-[#627eea]"],
-  [SiTether, "USDT (TRC-20)", "Send USDT", "text-[#d6b45f]"],
+  [SiBitcoin, "BTC Network", "Send BTC", "text-[#f7931a]", "border-[#e1e6ef]"],
+  [SiEthereum, "ETH Network", "Send ETH", "text-[#627eea]", "border-[#e1e6ef]"],
+  [
+    SiTether,
+    "USDT (TRC-20)",
+    "Send USDT",
+    "text-[#26A17B]",
+    "border-[#26A17B]",
+  ],
 ] as const;
 
 export default async function Page() {
@@ -110,32 +137,41 @@ export default async function Page() {
       </section>
 
       <section>
-        <SectionHeading title="Deposit with wallets" href="/dashboard/deposit" />
+        <SectionHeading
+          title="Deposit with wallets"
+          href="/dashboard/deposit"
+        />
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {walletDepositOptions.map(([Icon, title, copy, provider, tone]) => (
-            <Link
-              key={provider}
-              href={`/dashboard/wallet-payment?provider=${provider}`}
-              className="group rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_8px_24px_rgba(10,23,40,.05)] transition hover:-translate-y-0.5 hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5"
-            >
-              <span className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}>
-                <Icon size={22} />
-              </span>
-              <h2 className="mt-4 text-sm font-bold sm:text-base">{title}</h2>
-              <p className="mt-1 text-[11px] leading-5 text-neutral-500 sm:text-xs">{copy}</p>
-            </Link>
-          ))}
+          {walletDepositOptions.map(
+            ([Icon, title, copy, provider, tone, border]) => (
+              <Link
+                key={provider}
+                href={`/dashboard/wallet-payment?provider=${provider}`}
+                className={`group rounded-2xl border bg-white p-4 shadow-[0_8px_24px_rgba(10,23,40,.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5 ${border}`}
+              >
+                <span
+                  className={`grid size-12 place-items-center rounded-xl border border-[#dfe5ef] shadow-sm ${tone}`}
+                >
+                  <Icon size={22} />
+                </span>
+                <h2 className="mt-4 text-sm font-bold sm:text-base">{title}</h2>
+                <p className="mt-1 text-[11px] leading-5 text-neutral-500 sm:text-xs">
+                  {copy}
+                </p>
+              </Link>
+            ),
+          )}
         </div>
       </section>
 
       <section>
         <SectionHeading title="Crypto networks" href="/dashboard/crypto" />
         <div className="mt-4 grid grid-cols-3 gap-3">
-          {cryptoNetworks.map(([Icon, title, action, tone]) => (
+          {cryptoNetworks.map(([Icon, title, action, tone, border]) => (
             <Link
               key={title}
               href="/dashboard/deposit"
-              className="min-w-0 rounded-2xl border border-[#e1e6ef] bg-white p-3 shadow-[0_8px_24px_rgba(10,23,40,.045)] sm:p-4"
+              className={`min-w-0 rounded-2xl border bg-white p-3 shadow-[0_8px_24px_rgba(10,23,40,.045)] sm:p-4 ${border}`}
             >
               <span className={`text-xl ${tone}`}>
                 <Icon />
@@ -240,8 +276,13 @@ function DashboardCard({
 }) {
   const active = card.status === "active";
   const pending = card.status === "pending";
-  const statusLabel =
-    active ? "Active" : pending ? "Pending" : card.status === "declined" ? "Declined" : "Frozen";
+  const statusLabel = active
+    ? "Active"
+    : pending
+      ? "Pending"
+      : card.status === "declined"
+        ? "Declined"
+        : "Frozen";
   const statusTone = active
     ? "bg-gold-50 text-[#0a1728]"
     : pending
@@ -270,7 +311,9 @@ function DashboardCard({
           <span className="truncate text-sm font-bold text-[#111827] sm:text-base">
             {card.name}
           </span>
-          <span className={`shrink-0 rounded-full px-2.5 py-1 text-[9px] font-bold ${statusTone}`}>
+          <span
+            className={`shrink-0 rounded-full px-2.5 py-1 text-[9px] font-bold ${statusTone}`}
+          >
             {statusLabel}
           </span>
         </span>
@@ -283,11 +326,16 @@ function DashboardCard({
         <span className="block text-[10px] text-neutral-400">
           {active ? "Balance" : "Status"}
         </span>
-        <span className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-[#0a1728]"}`}>
+        <span
+          className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-[#0a1728]"}`}
+        >
           {active ? money(card.balance, card.currency) : statusLabel}
         </span>
       </span>
-      <ChevronRight size={20} className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500" />
+      <ChevronRight
+        size={20}
+        className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500"
+      />
     </Link>
   );
 }

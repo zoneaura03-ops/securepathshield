@@ -99,11 +99,14 @@ export function DashboardShell({
     [unreadCount, setUnreadCount] = useState(notificationState.unreadCount),
     [kycVerified, setKycVerified] = useState(user.kycVerified);
   const [notificationFilter, setNotificationFilter] = useState("all");
-  const [selectedNotificationId, setSelectedNotificationId] = useState<number | null>(null);
-  const avatarSrc =
-    user.avatarUrl || "/images/profile-neutral.svg";
+  const [selectedNotificationId, setSelectedNotificationId] = useState<
+    number | null
+  >(null);
+  const avatarSrc = user.avatarUrl || "/images/profile-neutral.svg";
   const refreshNotifications = useCallback(async () => {
-    const response = await fetch("/api/banking/notifications", { cache: "no-store" });
+    const response = await fetch("/api/banking/notifications", {
+      cache: "no-store",
+    });
     if (!response.ok) return;
     const data = await response.json();
     setNotifications(data.notifications);
@@ -141,7 +144,16 @@ export function DashboardShell({
     await setNotificationRead(id, true);
   }
   function notificationGroup(type: string) {
-    if (["transfer", "transaction", "deposit", "crypto", "investment", "card"].includes(type))
+    if (
+      [
+        "transfer",
+        "transaction",
+        "deposit",
+        "crypto",
+        "investment",
+        "card",
+      ].includes(type)
+    )
       return "transactions";
     if (type === "kyc") return "verification";
     return "other";
@@ -162,7 +174,8 @@ export function DashboardShell({
     const data = await response.json();
     setNotifications(data.notifications);
     setUnreadCount(data.unreadCount);
-  }  const navigation = (mobile = false) => (
+  }
+  const navigation = (mobile = false) => (
     <>
       {sections.map((section) => (
         <div
@@ -207,7 +220,7 @@ export function DashboardShell({
     <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[270px_1fr]">
       <aside className="hidden min-h-screen border-r border-[#e2e7f0] bg-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="border-b border-[#edf0ee] px-6 py-5">
-          <Logo href="/dashboard" />
+          <Logo href="/dashboard" sidebar />
         </div>
         <div className="flex-1 overflow-y-auto px-4 py-6">{navigation()}</div>
         <div className="border-t border-[#edf0ee] p-4">
@@ -265,7 +278,10 @@ export function DashboardShell({
                 >
                   <Bell size={18} />
                   {unreadCount > 0 && (
-                    <span title={`${unreadCount} unread notifications`} className={`absolute right-0.5 top-0.5 grid h-[18px] place-items-center rounded-full bg-red-600 px-1 text-[9px] font-bold leading-none text-white ring-2 ring-white ${unreadCount > 9 ? "min-w-[22px]" : "min-w-[18px]"}`}>
+                    <span
+                      title={`${unreadCount} unread notifications`}
+                      className={`absolute right-0.5 top-0.5 grid h-[18px] place-items-center rounded-full bg-red-600 px-1 text-[9px] font-bold leading-none text-white ring-2 ring-white ${unreadCount > 9 ? "min-w-[22px]" : "min-w-[18px]"}`}
+                    >
                       {unreadCount > 9 ? "9+" : unreadCount}
                     </span>
                   )}
@@ -274,25 +290,76 @@ export function DashboardShell({
                   <div className="absolute right-0 top-[calc(100%+.65rem)] z-50 w-[min(25rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white shadow-[0_20px_55px_rgba(10,23,40,.18)]">
                     <div className="border-b border-[#edf0ee] p-4">
                       <div className="flex items-center justify-between">
-                        <div><p className="font-semibold">Notifications</p><p className="mt-0.5 text-[11px] text-neutral-500">{unreadCount ? `${unreadCount} unread` : "You're all caught up"}</p></div>
-                        {unreadCount > 0 && <button type="button" onClick={markNotificationsRead} className="text-xs font-semibold text-bank-700">Mark all read</button>}
+                        <div>
+                          <p className="font-semibold">Notifications</p>
+                          <p className="mt-0.5 text-[11px] text-neutral-500">
+                            {unreadCount
+                              ? `${unreadCount} unread`
+                              : "You're all caught up"}
+                          </p>
+                        </div>
+                        {unreadCount > 0 && (
+                          <button
+                            type="button"
+                            onClick={markNotificationsRead}
+                            className="text-xs font-semibold text-bank-700"
+                          >
+                            Mark all read
+                          </button>
+                        )}
                       </div>
                       {!selectedNotification && (
-                        <div className="mt-3 flex gap-1 overflow-x-auto pb-1" aria-label="Filter notifications">
-                          {[["all", "All"], ["unread", "Unread"], ["transactions", "Transactions"], ["verification", "Verifications"], ["other", "Other"]].map(([value, label]) => (
-                            <button key={value} type="button" onClick={() => setNotificationFilter(value)} className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold transition ${notificationFilter === value ? "bg-bank-700 text-white" : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"}`}>{label}</button>
+                        <div
+                          className="mt-3 flex gap-1 overflow-x-auto pb-1"
+                          aria-label="Filter notifications"
+                        >
+                          {[
+                            ["all", "All"],
+                            ["unread", "Unread"],
+                            ["transactions", "Transactions"],
+                            ["verification", "Verifications"],
+                            ["other", "Other"],
+                          ].map(([value, label]) => (
+                            <button
+                              key={value}
+                              type="button"
+                              onClick={() => setNotificationFilter(value)}
+                              className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold transition ${notificationFilter === value ? "bg-bank-700 text-white" : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"}`}
+                            >
+                              {label}
+                            </button>
                           ))}
                         </div>
                       )}
                     </div>
                     {selectedNotification ? (
                       <article className="p-5">
-                        <button type="button" onClick={() => setSelectedNotificationId(null)} className="text-xs font-semibold text-bank-700">← Back to notifications</button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedNotificationId(null)}
+                          className="text-xs font-semibold text-bank-700"
+                        >
+                          ← Back to notifications
+                        </button>
                         <div className="mt-5 flex items-start justify-between gap-4">
-                          <div><span className="rounded-full bg-bank-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-bank-700">{notificationGroup(selectedNotification.type)}</span><h2 className="mt-3 text-lg font-semibold text-neutral-900">{selectedNotification.title}</h2></div>
-                          <span className="shrink-0 text-[11px] text-neutral-400">{new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(selectedNotification.createdAt))}</span>
+                          <div>
+                            <span className="rounded-full bg-bank-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-bank-700">
+                              {notificationGroup(selectedNotification.type)}
+                            </span>
+                            <h2 className="mt-3 text-lg font-semibold text-neutral-900">
+                              {selectedNotification.title}
+                            </h2>
+                          </div>
+                          <span className="shrink-0 text-[11px] text-neutral-400">
+                            {new Intl.DateTimeFormat("en-GB", {
+                              dateStyle: "medium",
+                              timeStyle: "short",
+                            }).format(new Date(selectedNotification.createdAt))}
+                          </span>
                         </div>
-                        <p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-neutral-600">{selectedNotification.body}</p>
+                        <p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-neutral-600">
+                          {selectedNotification.body}
+                        </p>
                         <div className="mt-6 flex flex-wrap gap-2">
                           {selectedNotification.actionUrl && (
                             <Link
@@ -303,20 +370,73 @@ export function DashboardShell({
                               View transaction receipt
                             </Link>
                           )}
-                          <button type="button" onClick={() => setNotificationRead(selectedNotification.id, !Boolean(selectedNotification.readAt))} className="rounded-lg border border-[#dce4df] px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50">Mark as {selectedNotification.readAt ? "unread" : "read"}</button>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setNotificationRead(
+                                selectedNotification.id,
+                                !Boolean(selectedNotification.readAt),
+                              )
+                            }
+                            className="rounded-lg border border-[#dce4df] px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50"
+                          >
+                            Mark as{" "}
+                            {selectedNotification.readAt ? "unread" : "read"}
+                          </button>
                         </div>
                       </article>
                     ) : (
                       <div className="max-h-96 overflow-y-auto p-2">
-                        {filteredNotifications.length ? filteredNotifications.map((item) => (
-                          <button key={item.id} type="button" onClick={() => openNotification(item.id)} className={`block w-full rounded-xl p-3 text-left transition hover:bg-neutral-50 ${item.readAt ? "" : "bg-bank-50"}`}>
-                            <div className="flex items-start gap-3">{!item.readAt && <span aria-label="Unread" className="mt-1.5 size-2 shrink-0 rounded-full bg-red-500" />}<div className="min-w-0 flex-1"><div className="flex justify-between gap-2"><p className="truncate text-sm font-semibold">{item.title}</p><span className="shrink-0 text-[10px] text-neutral-400">{item.date}</span></div><p className="mt-1 line-clamp-2 text-xs leading-5 text-neutral-500">{item.body}</p><p className="mt-1.5 text-[10px] font-semibold capitalize text-bank-700">{notificationGroup(item.type)}</p></div></div>
-                          </button>
-                        )) : <div className="px-5 py-10 text-center"><Bell className="mx-auto text-gold-500" size={24} /><p className="mt-3 text-sm font-semibold">No matching notifications</p><p className="mt-1 text-xs text-neutral-500">Try another filter or check back later.</p></div>}
+                        {filteredNotifications.length ? (
+                          filteredNotifications.map((item) => (
+                            <button
+                              key={item.id}
+                              type="button"
+                              onClick={() => openNotification(item.id)}
+                              className={`block w-full rounded-xl p-3 text-left transition hover:bg-neutral-50 ${item.readAt ? "" : "bg-bank-50"}`}
+                            >
+                              <div className="flex items-start gap-3">
+                                {!item.readAt && (
+                                  <span
+                                    aria-label="Unread"
+                                    className="mt-1.5 size-2 shrink-0 rounded-full bg-red-500"
+                                  />
+                                )}
+                                <div className="min-w-0 flex-1">
+                                  <div className="flex justify-between gap-2">
+                                    <p className="truncate text-sm font-semibold">
+                                      {item.title}
+                                    </p>
+                                    <span className="shrink-0 text-[10px] text-neutral-400">
+                                      {item.date}
+                                    </span>
+                                  </div>
+                                  <p className="mt-1 line-clamp-2 text-xs leading-5 text-neutral-500">
+                                    {item.body}
+                                  </p>
+                                  <p className="mt-1.5 text-[10px] font-semibold capitalize text-bank-700">
+                                    {notificationGroup(item.type)}
+                                  </p>
+                                </div>
+                              </div>
+                            </button>
+                          ))
+                        ) : (
+                          <div className="px-5 py-10 text-center">
+                            <Bell className="mx-auto text-gold-500" size={24} />
+                            <p className="mt-3 text-sm font-semibold">
+                              No matching notifications
+                            </p>
+                            <p className="mt-1 text-xs text-neutral-500">
+                              Try another filter or check back later.
+                            </p>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
-                )}              </div>
+                )}{" "}
+              </div>
               <div className="relative">
                 <button
                   type="button"
@@ -483,8 +603,19 @@ export function DashboardShell({
           className="mx-auto w-full max-w-[1180px] p-4 sm:p-6 lg:p-8"
         >
           {!user.kycVerified && (
-            <Link href="/dashboard/verification" className="mb-5 flex items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
-              <span><b className="block text-sm">Verify your identity to make transactions</b><span className="mt-1 block text-xs leading-5 text-amber-800">Complete identity verification before transfers, deposits, card funding, investments, or crypto swaps are enabled.</span></span>
+            <Link
+              href="/dashboard/verification"
+              className="mb-5 flex items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900"
+            >
+              <span>
+                <b className="block text-sm">
+                  Verify your identity to make transactions
+                </b>
+                <span className="mt-1 block text-xs leading-5 text-amber-800">
+                  Complete identity verification before transfers, deposits,
+                  card funding, investments, or crypto swaps are enabled.
+                </span>
+              </span>
               <ChevronRight className="shrink-0" size={18} />
             </Link>
           )}
