@@ -22,6 +22,8 @@ export default function Page() {
         sessionStorage.getItem("securepathbank_verification_email") ||
         "",
     );
+    const linkCode = searchParams.get("code") || "";
+    if (/^\d{6}$/.test(linkCode)) setCode(linkCode);
   }, [searchParams]);
 
   useEffect(() => {
@@ -78,7 +80,7 @@ export default function Page() {
         <ShieldCheck className="mx-auto h-16 w-16 rounded-full bg-bank-50 p-4 text-gold-500" />
         <h1 className="mt-6 text-3xl">Verify Your Email</h1>
         <p className="mt-2 text-sm text-gray-500">
-          We sent a 6-digit code to{" "}
+          Verify using the secure email link or enter the 6-digit code sent to{" "}
           <strong className="text-gray-700">
             {email || "your email address"}
           </strong>
@@ -123,7 +125,7 @@ export default function Page() {
           disabled={code.length !== 6 || loading || !email}
           className="btn mt-8 w-full"
         >
-          {loading ? "Verifying…" : "Verify Code"}
+          {loading ? "Verifying…" : "Verify Email"}
         </button>
       </div>
       {loading && (

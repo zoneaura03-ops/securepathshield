@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import path from "node:path";
 
 function mailConfig() {
   const host = process.env.SMTP_HOST;
@@ -22,13 +23,31 @@ function mailConfig() {
 }
 
 export async function sendVerificationEmail(email: string, code: string) {
+  const verificationUrl = new URL(
+    "/verify",
+    process.env.APP_URL || "http://localhost:3000",
+  );
+  verificationUrl.searchParams.set("email", email);
+  verificationUrl.searchParams.set("code", code);
   const transporter = nodemailer.createTransport(mailConfig());
   await transporter.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     to: email,
-    subject: "Your SecurePath Bank verification code",
-    text: `Your SecurePath Bank verification code is ${code}. It expires in 10 minutes. If you did not request this code, ignore this email.`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;padding:32px;color:#0a1728"><div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#0a1728">SECUREPATH BANK</div><h1 style="font-size:28px;margin:28px 0 10px">Verify your email</h1><p style="color:#66736b;line-height:1.7">Use this verification code to finish creating your SecurePath Bank account:</p><div style="margin:26px 0;padding:20px;text-align:center;background:#f1f4f9;border-radius:8px;font-size:32px;font-weight:700;letter-spacing:10px;color:#0a1728">${code}</div><p style="color:#66736b;font-size:13px;line-height:1.7">This code expires in 10 minutes. Never share it with anyone.</p></div>`,
+    subject: "Verify your SecurePath Bank email",
+    text: `Verify your SecurePath Bank email: ${verificationUrl.toString()}\n\nOr enter this code manually on the verification page: ${code}\n\nThe link and code expire in 10 minutes. If you did not request this, ignore this email.`,
+    html: `<div style="margin:0;padding:32px 16px;background:#f4f6f9;font-family:Arial,sans-serif;color:#0a1728"><div style="max-width:560px;margin:auto;overflow:hidden;border:1px solid #e1e6ee;border-radius:14px;background:#ffffff"><div style="padding:28px 32px 22px;text-align:center;border-bottom:1px solid #edf0f4"><img src="cid:securepath-bank-logo" alt="SecurePath Bank" width="250" style="display:block;max-width:100%;height:auto;margin:0 auto"></div><div style="padding:34px 32px"><h1 style="font-size:28px;line-height:1.2;margin:0 0 14px;color:#0a1728">Verify your email address</h1><p style="margin:0;color:#5d6878;line-height:1.7">Complete your SecurePath Bank registration using either option below.</p><div style="margin:28px 0;text-align:center"><a href="${verificationUrl.toString()}" style="display:inline-block;padding:15px 26px;border-radius:7px;background:#d8b45b;color:#0a1728;text-decoration:none;font-weight:700">Verify Email Address</a></div><div style="margin:28px 0 12px;border-top:1px solid #edf0f4;text-align:center"><span style="position:relative;top:-10px;padding:0 12px;background:#ffffff;color:#8a93a1;font-size:12px;font-weight:700;letter-spacing:1px">OR ENTER THE CODE</span></div><div style="padding:20px;text-align:center;background:#f4f6f9;border-radius:8px;font-size:32px;font-weight:700;letter-spacing:10px;color:#0a1728">${code}</div><p style="margin:22px 0 0;color:#6d7684;font-size:13px;line-height:1.7">The verification link and code expire in 10 minutes. Never share your code with anyone. If you did not create this account, you can safely ignore this email.</p></div><div style="padding:18px 32px;background:#0a1728;color:#d8b45b;text-align:center;font-size:11px;letter-spacing:2px">SECUREPATH BANK</div></div></div>`,
+    attachments: [
+      {
+        filename: "securepath-bank-logo.png",
+        path: path.join(
+          process.cwd(),
+          "public",
+          "images",
+          "securepathbank-logo-v2.png",
+        ),
+        cid: "securepath-bank-logo",
+      },
+    ],
   });
 }
 
