@@ -38,7 +38,7 @@ export default function CorporateBankingPage() {
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-32">
         <div className="mx-auto max-w-[1100px]">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e4b74e]">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-gold-400">
             Corporate Banking
           </p>
           <h1 className="mt-5 max-w-3xl text-5xl font-normal leading-tight sm:text-6xl">

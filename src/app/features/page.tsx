@@ -36,7 +36,7 @@ export default function FeaturesPage() {
       <section className="relative overflow-hidden bg-bank-900 px-5 py-24 text-center text-white sm:px-8 sm:py-32">
         <div className="absolute -right-24 -top-32 size-[430px] rounded-full bg-bank-600/20 blur-3xl" />
         <div className="relative mx-auto max-w-[1100px]">
-          <p className="text-xs font-bold uppercase tracking-[.22em] text-[#e4b74e]">
+          <p className="text-xs font-bold uppercase tracking-[.22em] text-gold-400">
             Our services
           </p>
           <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-normal leading-[1.08] sm:text-6xl">
@@ -95,7 +95,7 @@ export default function FeaturesPage() {
                   <p className="mt-7 text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
                     {benefit}
                   </p>
-                  <h3 className="mt-2 text-2xl text-[#10233f]">{title}</h3>
+                  <h3 className="mt-2 text-2xl text-[#0a1728]">{title}</h3>
                   <p className="mt-4 text-sm leading-7 text-neutral-500">
                     {copy}
                   </p>
@@ -122,7 +122,7 @@ export default function FeaturesPage() {
         <div className="mx-auto max-w-[1100px]">
           <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e4b74e]">
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-gold-400">
                 Made for modern banking
               </p>
               <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">
@@ -139,7 +139,7 @@ export default function FeaturesPage() {
               const Icon = benefitIcons[index];
               return (
                 <article key={title} className="bg-bank-900 p-7">
-                  <Icon className="text-[#e4b74e]" size={24} />
+                  <Icon className="text-gold-400" size={24} />
                   <h3 className="mt-5 text-xl">{title}</h3>
                   <p className="mt-3 text-sm leading-7 text-white/55">{copy}</p>
                 </article>

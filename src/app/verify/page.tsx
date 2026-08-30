@@ -127,7 +127,7 @@ export default function Page() {
         </button>
       </div>
       {loading && (
-        <div className="fixed inset-0 z-[200] bg-[#10233f]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[200] bg-[#0a1728]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}

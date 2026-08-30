@@ -262,7 +262,7 @@ function Login({ notice }: { notice?: string }) {
         </p>
       </Frame>
       {loading && (
-        <div className="fixed inset-0 z-[100] bg-[#10233f]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[100] bg-[#0a1728]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}
@@ -611,7 +611,7 @@ function Registration() {
         </p>
       </Frame>
       {transitioning && (
-        <div className="fixed inset-0 z-[100] bg-[#10233f]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[100] bg-[#0a1728]/20 backdrop-blur-[1px]">
           <LogoLoader transparent />
         </div>
       )}

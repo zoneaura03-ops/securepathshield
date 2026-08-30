@@ -9,7 +9,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-24 text-center text-white sm:px-8 sm:py-32">
-        <p className="text-xs font-bold uppercase tracking-[.2em] text-[#e4b74e]">
+        <p className="text-xs font-bold uppercase tracking-[.2em] text-gold-400">
           About SecurePath Bank
         </p>
         <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-normal leading-tight sm:text-6xl">

@@ -103,7 +103,7 @@ export function AdminShell({
 
   return (
     <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[284px_minmax(0,1fr)]">
-      <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#071120] text-white lg:sticky lg:top-0 lg:flex">
+      <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#06111f] text-white lg:sticky lg:top-0 lg:flex">
         <div className="border-b border-white/10 px-7 py-6">
           <div className="inline-flex rounded-xl bg-white px-3 py-2">
             <Logo href="/admin" />

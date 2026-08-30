@@ -70,7 +70,7 @@ export default function Home() {
           className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
         />
         <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(16,35,63,.88)_44%,rgba(37,99,235,.28))]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#071120]/78 via-transparent to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#06111f]/78 via-transparent to-transparent" />
         <div className="mx-auto flex min-h-[700px] max-w-[1180px] items-center px-5 py-16 sm:px-8 lg:min-h-[calc(100svh-78px)]">
           <div className="max-w-[650px] text-center lg:text-left">
             <p className="inline-flex rounded-full border border-blue-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-blue-200">
@@ -224,7 +224,7 @@ export default function Home() {
       <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-28">
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#e4b74e]">
+            <p className="text-[11px] font-bold uppercase tracking-[.2em] text-gold-400">
               How it works
             </p>
             <h2 className="mt-4 text-[40px] font-normal leading-[1.12] sm:text-[48px]">
@@ -256,11 +256,11 @@ export default function Home() {
             </AuthTransitionLink>
           </div>
           <div className="rounded-[30px] border border-white/10 bg-white/[.08] p-3 shadow-[0_28px_80px_rgba(4,13,28,.28)]">
-            <div className="rounded-[24px] bg-white p-6 text-[#10233f] shadow-[0_18px_55px_rgba(7,17,32,.16)]">
+            <div className="rounded-[24px] bg-white p-6 text-[#0a1728] shadow-[0_18px_55px_rgba(7,17,32,.16)]">
               <div className="flex items-center justify-between border-b border-slate-200 pb-5">
                 <div>
                   <p className="text-xs text-neutral-400">Available balance</p>
-                  <p className="mt-1 font-serif text-3xl font-semibold tracking-tight text-[#10233f]">
+                  <p className="mt-1 font-serif text-3xl font-semibold tracking-tight text-[#0a1728]">
                     {"\u00a39,844.65"}
                   </p>
                 </div>
@@ -271,7 +271,7 @@ export default function Home() {
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {["Transfer", "Deposit", "Cards"].map((x) => (
                   <div
-                    className="rounded-xl border border-blue-100 bg-blue-50/70 p-4 text-center text-xs font-semibold text-[#10233f]"
+                    className="rounded-xl border border-blue-100 bg-blue-50/70 p-4 text-center text-xs font-semibold text-[#0a1728]"
                     key={x}
                   >
                     {x}

@@ -49,7 +49,7 @@ export function AuthTransitionLink({
       </Link>
       {loading && (
         <div
-          className="fixed inset-0 z-[200] bg-[#10233f]/20 backdrop-blur-[1px]"
+          className="fixed inset-0 z-[200] bg-[#0a1728]/20 backdrop-blur-[1px]"
           aria-hidden="false"
         >
           <LogoLoader transparent />

@@ -169,7 +169,7 @@ export default function AdminTransactionHistoryGenerator() {
 
   return (
     <div className="mx-auto max-w-[1400px]">
-      <section className="relative overflow-hidden rounded-[28px] bg-[#10233f] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
+      <section className="relative overflow-hidden rounded-[28px] bg-[#0a1728] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
         <div className="absolute -right-20 -top-20 size-64 rounded-full bg-blue-400/15 blur-3xl" />
         <div className="relative">
           <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-blue-300">

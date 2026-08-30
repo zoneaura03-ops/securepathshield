@@ -33,7 +33,7 @@ export default function AdminCampaigns() {
   }
   return (
     <div className="mx-auto max-w-3xl">
-      <section className="rounded-[28px] bg-[#10233f] p-8 text-white">
+      <section className="rounded-[28px] bg-[#0a1728] p-8 text-white">
         <BellRing className="text-blue-300" />
         <h1 className="mt-4 text-3xl">Campaign notifications</h1>
         <p className="mt-2 text-sm text-white/60">

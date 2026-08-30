@@ -30,7 +30,7 @@ export function PublicFooter() {
   return (
     <footer
       id="contact"
-      className="bg-[#071120] px-5 pb-8 pt-16 text-white sm:px-8 lg:pt-20"
+      className="bg-[#06111f] px-5 pb-8 pt-16 text-white sm:px-8 lg:pt-20"
     >
       <div className="mx-auto grid max-w-[1100px] gap-12 border-b border-white/10 pb-14 sm:grid-cols-2 lg:grid-cols-[1.35fr_.8fr_.9fr_1.25fr]">
         <div>

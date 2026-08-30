@@ -10,7 +10,7 @@ export function AuthLayout({
   register?: boolean;
 }) {
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden bg-[#10233f]">
+    <main className="relative isolate min-h-screen overflow-x-hidden bg-[#0a1728]">
       <Image
         src="/images/securepathbank-auth-towers-v2.png"
         alt="Modern financial district skyscrapers"
@@ -21,7 +21,7 @@ export function AuthLayout({
       />
 
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(7,17,32,.92),rgba(16,35,63,.78))]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#071120]/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#06111f]/70 to-transparent" />
 
       <div className="relative mx-auto min-h-screen w-full max-w-[1380px] px-4 sm:px-8 lg:px-12">
         {register && (

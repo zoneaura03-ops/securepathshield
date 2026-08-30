@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --brand: #10233f;
+  --brand: #0a1728;
   --brand-dark: #0e172b;
   --brand-soft: #f1f4f9;
-  --gold: #2563eb;
-  --ink: #10233f;
+  --gold: #d6b45f;
+  --gold-deep: #b78a32;
+  --gold-soft: #fffaf0;
+  --ink: #0a1728;
   --muted: #667085;
   --surface: #f7f9fc;
   --line: #e2e7f0;
@@ -92,7 +94,7 @@ button[aria-label="Refresh transfers"] svg { display: none; }
 button[aria-label="Refresh dashboard"]::before,
 button[aria-label="Refresh transfers"]::before {
   content: "\\21bb";
-  color: #10233f;
+  color: #0a1728;
   font-size: 25px;
   font-weight: 700;
   line-height: 1;

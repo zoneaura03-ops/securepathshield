@@ -48,12 +48,12 @@ export default function Page() {
 
   return (
     <div className="mx-auto max-w-[1500px]">
-      <section className="relative overflow-hidden rounded-[28px] bg-[#10233f] px-6 py-7 text-white shadow-[0_24px_70px_rgba(16,35,63,.18)] sm:px-8 sm:py-9">
+      <section className="relative overflow-hidden rounded-[28px] bg-[#0a1728] px-6 py-7 text-white shadow-[0_24px_70px_rgba(16,35,63,.18)] sm:px-8 sm:py-9">
         <div className="absolute -right-16 -top-24 size-72 rounded-full bg-blue-400/15 blur-3xl" />
-        <div className="absolute bottom-0 right-[26%] size-36 rounded-full bg-[#d9aa3c]/10 blur-2xl" />
+        <div className="absolute bottom-0 right-[26%] size-36 rounded-full bg-gold-400/15 blur-2xl" />
         <div className="relative flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
           <div><div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-blue-300"><Sparkles size={14} /> SecurePath Bank control center</div><h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Good day, Administrator.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-white/55">Monitor customer activity, resolve operational queues, and make accountable decisions from one secure workspace.</p></div>
-          <div className="flex items-center gap-3"><div className="rounded-2xl border border-white/10 bg-white/[.07] px-5 py-3 backdrop-blur"><p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-white/40"><Activity size={12} className="text-blue-300"/>Open actions</p><p className="mt-1 text-2xl font-semibold">{stats ? pendingActions : "—"}</p></div><button type="button" onClick={load} disabled={refreshing} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg disabled:opacity-60" aria-label="Refresh dashboard"><RefreshCw size={20} strokeWidth={2.5} color="#10233f" className={refreshing ? "animate-spin" : ""} /></button></div>
+          <div className="flex items-center gap-3"><div className="rounded-2xl border border-white/10 bg-white/[.07] px-5 py-3 backdrop-blur"><p className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-white/40"><Activity size={12} className="text-blue-300"/>Open actions</p><p className="mt-1 text-2xl font-semibold">{stats ? pendingActions : "—"}</p></div><button type="button" onClick={load} disabled={refreshing} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg disabled:opacity-60" aria-label="Refresh dashboard"><RefreshCw size={20} strokeWidth={2.5} color="#0a1728" className={refreshing ? "animate-spin" : ""} /></button></div>
         </div>
       </section>
 
@@ -78,7 +78,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="rounded-3xl bg-gradient-to-b from-[#10233f] to-[#10233f] p-6 text-white shadow-[0_18px_50px_rgba(16,35,63,.16)] sm:p-7">
+        <div className="rounded-3xl bg-gradient-to-b from-[#0a1728] to-[#0a1728] p-6 text-white shadow-[0_18px_50px_rgba(16,35,63,.16)] sm:p-7">
           <span className="grid size-12 place-items-center rounded-2xl bg-blue-400/15 text-blue-300"><ShieldCheck size={23} /></span><p className="mt-6 text-[10px] font-bold uppercase tracking-[.18em] text-blue-300">Governance status</p><h2 className="mt-2 text-2xl">Protected and accountable</h2><p className="mt-3 text-sm leading-6 text-white/55">Every approval, decline, balance adjustment, and account change is attributed to the signed-in administrator.</p>
           <div className="mt-6 space-y-3 border-t border-white/10 pt-5">{["Administrator session active", "Audit logging enabled", "Approval controls operational"].map((item) => <div key={item} className="flex items-center gap-2 text-xs text-white/70"><CheckCircle2 size={15} className="text-blue-300" />{item}</div>)}</div>
           <Link href="/admin/audit" className="mt-7 inline-flex items-center gap-2 text-xs font-semibold text-blue-300">Review audit history <ArrowUpRight size={14} /></Link>

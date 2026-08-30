@@ -28,14 +28,14 @@ export function VirtualCardArt({
       ? `${String(expiryMonth).padStart(2, "0")}/${String(expiryYear).slice(-2)}`
       : "--/--";
   const background = visa
-    ? "linear-gradient(135deg,#1d4ed8 0%,#10233f 48%,#071120 100%)"
+    ? "linear-gradient(135deg,#1d4ed8 0%,#0a1728 48%,#06111f 100%)"
     : credit
       ? "linear-gradient(135deg,#161a18 0%,#080b0a 58%,#18130a 100%)"
-      : "linear-gradient(135deg,#26354f 0%,#10233f 48%,#071120 100%)";
+      : "linear-gradient(135deg,#26354f 0%,#0a1728 48%,#06111f 100%)";
 
   return (
     <div
-      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#c9a650]/80" : "ring-1 ring-inset ring-white/10"}`}
+      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#d6b45f]/80" : "ring-1 ring-inset ring-white/10"}`}
       style={{ background }}
       aria-label={`SecurePath Bank ${network} ending ${digits}`}
     >
@@ -47,14 +47,14 @@ export function VirtualCardArt({
             : "repeating-linear-gradient(100deg,transparent 0 5px,rgba(255,255,255,.045) 6px 7px)",
         }}
       />
-      <div className={`absolute -right-[18%] -top-[38%] size-[72%] rounded-full ${credit ? "bg-[#caa650]/[.07]" : "bg-white/[.045]"}`} />
+      <div className={`absolute -right-[18%] -top-[38%] size-[72%] rounded-full ${credit ? "bg-[#d6b45f]/[.07]" : "bg-white/[.045]"}`} />
 
       <div className={`relative flex h-full flex-col ${compact ? "p-[9%]" : "p-[8%]"}`}>
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-[5%]">
-            <BrandMark className={`${compact ? "size-4" : "size-[clamp(1.2rem,4vw,2rem)]"} shrink-0 !fill-[#e0bd63] !text-[#f0cf76]`} />
+            <BrandMark className={`${compact ? "size-4" : "size-[clamp(1.2rem,4vw,2rem)]"} shrink-0 [--mark-path:#f1d47b] !text-[#f1d47b]`} />
             <div>
-              <p className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f0cf76]`}>
+              <p className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f1d47b]`}>
                 SECUREPATH BANK
               </p>
 
@@ -64,7 +64,7 @@ export function VirtualCardArt({
         </div>
 
         <div className={`flex items-center ${compact ? "mt-[13%] gap-2" : "mt-[10%] gap-[7%]"}`}>
-          <span className={`relative block rounded-[18%] bg-gradient-to-br from-[#f3d878] via-[#cda640] to-[#9d7720] shadow-inner ${compact ? "h-4 w-5" : "h-[clamp(1.6rem,7vw,2.6rem)] w-[clamp(2rem,9vw,3.4rem)]"}`}>
+          <span className={`relative block rounded-[18%] bg-gradient-to-br from-[#f6df93] via-[#d4ac48] to-[#9b701d] shadow-inner ${compact ? "h-4 w-5" : "h-[clamp(1.6rem,7vw,2.6rem)] w-[clamp(2rem,9vw,3.4rem)]"}`}>
             <span className="absolute inset-[25%] rounded-sm border border-black/20" />
           </span>
           <Wifi className={`rotate-90 text-white/65 ${compact ? "size-3" : "size-[clamp(1rem,4vw,1.7rem)]"}`} />
@@ -101,7 +101,7 @@ function NetworkMark({ brand, compact }: { brand: CardBrand; compact: boolean })
     return <SiVisa className={compact ? "text-lg" : "text-[clamp(1.7rem,7vw,3.2rem)]"} />;
   if (brand === "amex")
     return (
-      <span className={`${compact ? "text-[5px]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-bold tracking-[.12em] text-[#d4b35e]`}>
+      <span className={`${compact ? "text-[5px]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-bold tracking-[.12em] text-[#e4c66d]`}>
         CREDIT CARD
       </span>
     );
@@ -128,13 +128,13 @@ export function VirtualCardBack({
   const digits = lastFour || (brand === "visa" ? "4826" : credit ? "8808" : "6241");
   const background =
     brand === "visa"
-      ? "linear-gradient(135deg,#1d4ed8,#071120)"
+      ? "linear-gradient(135deg,#1d4ed8,#06111f)"
       : credit
         ? "linear-gradient(135deg,#161a18,#080b0a 60%,#18130a)"
-        : "linear-gradient(135deg,#26354f,#071120)";
+        : "linear-gradient(135deg,#26354f,#06111f)";
   return (
     <div
-      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#c9a650]/80" : "ring-1 ring-inset ring-white/10"}`}
+      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#d6b45f]/80" : "ring-1 ring-inset ring-white/10"}`}
       style={{ background }}
     >
       <div className="absolute inset-x-0 top-[17%] h-[22%] bg-[#101211]" />
@@ -148,8 +148,8 @@ export function VirtualCardBack({
       </div>
       <div className="absolute inset-x-[8%] bottom-[10%] flex items-end justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-[#f0cf76]">
-            <BrandMark className="size-[clamp(1rem,3.5vw,1.7rem)] !fill-[#e0bd63] !text-[#f0cf76]" />
+          <div className="flex items-center gap-2 text-[#f1d47b]">
+            <BrandMark className="size-[clamp(1rem,3.5vw,1.7rem)] [--mark-path:#f1d47b] !text-[#f1d47b]" />
             <span className="text-[clamp(.48rem,1.7vw,.74rem)] font-bold tracking-[.2em]">SECUREPATH BANK</span>
           </div>
           <p className="mt-1 text-[clamp(.3rem,1vw,.43rem)] text-white/45">

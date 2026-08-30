@@ -4,7 +4,7 @@ import { currentUser } from "../../../../lib/auth";
 import { bank } from "../../../../lib/config";
 import { db, type DatabaseRow } from "../../../../lib/db";
 
-const PRIMARY = "#10233f";
+const PRIMARY = "#0a1728";
 const DARK = "#111827";
 const MUTED = "#667085";
 const LINE = "#dfe5ef";

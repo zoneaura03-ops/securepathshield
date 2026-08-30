@@ -84,7 +84,7 @@ export function WalletDepositForm({ provider }: { provider: Provider }) {
         <ArrowLeft size={16} /> Back to dashboard
       </Link>
       <section className="mt-5 overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-sm">
-        <div className="bg-[#10233f] p-7 text-white sm:p-9">
+        <div className="bg-[#0a1728] p-7 text-white sm:p-9">
           <div className="flex items-center gap-4">
             <span className="grid size-14 place-items-center rounded-2xl bg-white text-bank-800">
               <ProviderIcon provider={provider} />

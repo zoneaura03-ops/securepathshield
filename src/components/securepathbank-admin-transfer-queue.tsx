@@ -49,11 +49,11 @@ export default function AdminTransferQueue() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <section className="relative overflow-hidden rounded-[28px] bg-[#10233f] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
+      <section className="relative overflow-hidden rounded-[28px] bg-[#0a1728] p-7 text-white shadow-[0_22px_65px_rgba(16,35,63,.17)] sm:p-9">
         <div className="absolute -right-20 -top-24 size-72 rounded-full bg-blue-400/15 blur-3xl" />
         <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div><p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-blue-300"><Check size={14}/>Payment operations</p><h1 className="mt-4 text-3xl font-semibold sm:text-4xl">Transfer approvals</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-white/55">Monitor customer verification, securely share required codes, and make the final transfer decision.</p></div>
-          <button type="button" onClick={load} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg" aria-label="Refresh transfers"><RefreshCw size={20} strokeWidth={2.5} color="#10233f" /></button>
+          <button type="button" onClick={load} className="grid size-12 place-items-center rounded-2xl border border-white bg-white shadow-lg" aria-label="Refresh transfers"><RefreshCw size={20} strokeWidth={2.5} color="#0a1728" /></button>
         </div>
       </section>
 
@@ -74,7 +74,7 @@ export default function AdminTransferQueue() {
             <article key={id} className="overflow-hidden rounded-3xl border border-[#dfe5ef] bg-white shadow-[0_12px_35px_rgba(16,35,63,.06)]">
               <div className="grid gap-5 border-b border-[#e2e7f0] p-5 sm:p-6 lg:grid-cols-[1.3fr_.8fr_auto] lg:items-center">
                 <div><div className="flex flex-wrap items-center gap-2"><span className="rounded-full bg-bank-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-bank-700">{String(row.transfer_type || "transfer")}</span><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${verified ? "bg-blue-50 text-blue-700" : "bg-amber-50 text-amber-700"}`}>{stageLabels[String(row.verification_stage)] || String(row.verification_stage || "Pending")}</span></div><h2 className="mt-3 text-xl font-bold">{String(row.recipient_name || "Recipient")}</h2><p className="mt-1 text-xs text-neutral-500">{String(row.email)} · {String(row.reference)}</p></div>
-                <div><p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Transfer amount</p><p className="mt-2 text-2xl font-bold text-[#10233f]">{amount} {String(row.currency || "")}</p><p className="mt-1 text-xs text-neutral-500">{String(row.bank_name || "SecurePath Bank")} · {String(row.created_at || "")}</p></div>
+                <div><p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Transfer amount</p><p className="mt-2 text-2xl font-bold text-[#0a1728]">{amount} {String(row.currency || "")}</p><p className="mt-1 text-xs text-neutral-500">{String(row.bank_name || "SecurePath Bank")} · {String(row.created_at || "")}</p></div>
                 <ArrowRight className="hidden text-neutral-300 lg:block" />
               </div>
 
@@ -103,7 +103,7 @@ export default function AdminTransferQueue() {
 }
 
 function CodeCard({ label, value, active }: { label: string; value: string | number | null; active: boolean }) {
-  return <div className={`rounded-2xl border p-4 ${active ? "border-amber-200 bg-amber-50" : "border-[#e2e7f0] bg-[#f8f9fc]"}`}><div className="flex items-center justify-between"><p className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">{label}</p>{active && <span className="size-2 rounded-full bg-amber-500" />}</div><p className="mt-3 font-mono text-lg font-bold tracking-[.12em] text-[#10233f]">{String(value || "Not issued")}</p></div>;
+  return <div className={`rounded-2xl border p-4 ${active ? "border-amber-200 bg-amber-50" : "border-[#e2e7f0] bg-[#f8f9fc]"}`}><div className="flex items-center justify-between"><p className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">{label}</p>{active && <span className="size-2 rounded-full bg-amber-500" />}</div><p className="mt-3 font-mono text-lg font-bold tracking-[.12em] text-[#0a1728]">{String(value || "Not issued")}</p></div>;
 }
 
 // Hostinger source snapshot sync.
