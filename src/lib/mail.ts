@@ -43,7 +43,7 @@ export async function sendVerificationEmail(email: string, code: string) {
           process.cwd(),
           "public",
           "images",
-          "securepathbank-logo-v2.png",
+          "securepathbank-email-logo.png",
         ),
         cid: "securepath-bank-logo",
       },
