@@ -2,7 +2,7 @@ import mysql from "mysql2/promise";
 import { readFile, readdir } from "node:fs/promises";
 import process from "node:process";
 
-const required = ["DB_HOST", "DB_USER", "DB_PASSWORD", "DB_DATABASE"];
+const required = ["DB_HOST", "DB_USER", "DB_DATABASE"];
 for (const name of required) {
   if (
     process.env[name] === undefined ||

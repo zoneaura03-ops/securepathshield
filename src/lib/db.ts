@@ -21,6 +21,18 @@ function createPool() {
   });
 }
 
-export const db = globalDatabase.securepathbankPool ?? createPool();
-if (process.env.NODE_ENV !== "production") globalDatabase.securepathbankPool = db;
+function pool() {
+  if (!globalDatabase.securepathbankPool)
+    globalDatabase.securepathbankPool = createPool();
+  return globalDatabase.securepathbankPool;
+}
+
+export const db = new Proxy({} as Pool, {
+  get(_target, property) {
+    const activePool = pool();
+    const value = Reflect.get(activePool, property);
+    return typeof value === "function" ? value.bind(activePool) : value;
+  },
+});
+
 export type DatabaseRow = RowDataPacket;

@@ -133,6 +133,30 @@ export function AuthCard({
   return register ? <Registration /> : <Login notice={notice} />;
 }
 
+type AuthResponse = {
+  error?: string;
+  ok?: boolean;
+  role?: "user" | "admin";
+};
+
+async function readAuthResponse(response: Response): Promise<AuthResponse> {
+  const body = await response.text();
+  if (!body) {
+    return {
+      error: response.ok
+        ? "The server returned an empty response. Please try again."
+        : `The server could not complete this request (${response.status}).`,
+    };
+  }
+  try {
+    return JSON.parse(body) as AuthResponse;
+  } catch {
+    return {
+      error: `The server returned an invalid response (${response.status}).`,
+    };
+  }
+}
+
 function Login({ notice }: { notice?: string }) {
   const router = useRouter(),
     [loading, setLoading] = useState(false),
@@ -152,7 +176,7 @@ function Login({ notice }: { notice?: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, remember, website }),
       });
-      const data = await response.json();
+      const data = await readAuthResponse(response);
       if (!response.ok) throw new Error(data.error || "Unable to sign in.");
       const requestedDestination = sessionStorage.getItem(
         "securepathbank_login_destination",
@@ -339,7 +363,7 @@ function Registration() {
           pin,
         }),
       });
-      const data = await response.json();
+      const data = await readAuthResponse(response);
       if (!response.ok) {
         throw new Error(data.error || "Unable to send the verification code.");
       }
