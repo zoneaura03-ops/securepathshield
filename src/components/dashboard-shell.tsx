@@ -183,7 +183,7 @@ export function DashboardShell({
           className={mobile ? "mt-8 first:mt-0" : "mt-6 first:mt-0"}
         >
           <p
-            className={`${mobile ? "px-2 text-xs" : "px-3 text-[10px]"} font-bold uppercase tracking-[.18em] ${mobile ? "text-neutral-400" : "text-white/30"}`}
+            className={`${mobile ? "px-2 text-xs" : "px-3 text-[10px]"} font-bold uppercase tracking-[.18em] text-neutral-400`}
           >
             {section.label}
           </p>
@@ -195,21 +195,12 @@ export function DashboardShell({
                   key={href}
                   href={href}
                   onClick={() => setDrawer(false)}
-                  className={`group flex items-center ${mobile ? "gap-4 rounded-xl px-2 py-3.5 text-[15px]" : "gap-3 rounded-lg px-3 py-2.5 text-[13px]"} font-medium transition ${active ? (mobile ? "bg-neutral-50 text-bank-800" : "bg-gradient-to-r from-gold-500/25 to-gold-400/10 text-white shadow-[inset_3px_0_0_#d6b45f]") : mobile ? "text-neutral-700 hover:bg-bank-50 hover:text-bank-800" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
+                  className={`flex items-center ${mobile ? "gap-4 rounded-xl px-2 py-3.5 text-[15px]" : "gap-3 rounded-lg px-3 py-2.5 text-[13px]"} font-medium transition ${active ? (mobile ? "bg-neutral-50 text-bank-800" : "bg-bank-700 text-white shadow-[0_8px_20px_rgba(214,180,95,.2)]") : "text-neutral-700 hover:bg-bank-50 hover:text-bank-800"}`}
                 >
                   <span
                     className={`${mobile ? "grid size-11 place-items-center rounded-xl bg-gold-50" : ""}`}
                   >
-                    <Icon
-                      size={mobile ? 20 : 17}
-                      className={
-                        mobile
-                          ? "text-gold-500"
-                          : active
-                            ? "text-gold-300"
-                            : "text-gold-300/55 group-hover:text-gold-300"
-                      }
-                    />
+                    <Icon size={mobile ? 20 : 17} className="text-gold-500" />
                   </span>
                   <span>{name}</span>
                 </Link>
@@ -219,39 +210,35 @@ export function DashboardShell({
         </div>
       ))}
       <div
-        className={`${mobile ? "mt-1 px-2 [&_button]:min-h-12 [&_button]:w-full [&_button]:justify-start [&_button]:text-[15px]" : "mt-2 px-1 [&_button]:w-full [&_button]:justify-start"} ${mobile ? "text-rose-600" : "text-rose-300"}`}
+        className={`${mobile ? "mt-1 px-2 [&_button]:min-h-12 [&_button]:w-full [&_button]:justify-start [&_button]:text-[15px]" : "mt-2 px-1 [&_button]:w-full [&_button]:justify-start"} text-rose-600`}
       >
         <LogoutButton />
       </div>
     </>
   );
   return (
-    <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[284px_minmax(0,1fr)]">
-      <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#06111f] text-white lg:sticky lg:top-0 lg:flex">
-        <div className="border-b border-white/10 px-7 py-6">
-          <div className="flex w-full justify-center rounded-xl bg-white px-3 py-2">
-            <Logo href="/dashboard" sidebar />
-          </div>
-          <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-gold-300/55">
-            <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#d6b45f]" />
-            Personal banking
-          </div>
+    <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[270px_1fr]">
+      <aside className="hidden min-h-screen border-r border-[#e2e7f0] bg-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
+        <div className="border-b border-[#edf0ee] px-6 py-5">
+          <Logo href="/dashboard" sidebar />
         </div>
-        <div className="flex-1 overflow-y-auto px-4 py-5">{navigation()}</div>
-        <div className="border-t border-white/10 p-4">
-          <div className="flex items-center gap-3 rounded-xl bg-white/[.06] p-3">
+        <div className="flex-1 overflow-y-auto px-4 py-6">{navigation()}</div>
+        <div className="border-t border-[#edf0ee] p-4">
+          <div className="flex items-center gap-3 rounded-xl bg-bank-50 p-3">
             <Image
               src={avatarSrc}
               alt=""
               width={40}
               height={40}
-              className="size-9 rounded-full object-cover ring-2 ring-white/10"
+              className="size-9 rounded-full object-cover ring-2 ring-white"
             />
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold">
                 {user.firstName} {user.lastName}
               </p>
-              <p className="truncate text-[11px] text-white/40">{user.email}</p>
+              <p className="truncate text-[11px] text-neutral-500">
+                {user.email}
+              </p>
             </div>
           </div>
         </div>
@@ -481,7 +468,7 @@ export function DashboardShell({
                       <span
                         title="Identity verified"
                         aria-label="Identity verified"
-                        className="absolute -bottom-0.5 -right-0.5 grid size-[18px] place-items-center rounded-full bg-gold-500 text-white ring-2 ring-white"
+                        className="absolute -bottom-0.5 -right-0.5 grid size-[18px] place-items-center rounded-full bg-emerald-500 text-white ring-2 ring-white"
                       >
                         <Check size={11} strokeWidth={3.5} aria-hidden="true" />
                       </span>

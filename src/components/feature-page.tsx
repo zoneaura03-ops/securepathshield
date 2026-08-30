@@ -795,7 +795,6 @@ function Receipt() {
   return (
     <div className="receipt-page mx-auto max-w-xl">
       <div className="receipt-paper relative overflow-hidden rounded-2xl border bg-white p-7 shadow-sm">
-        <div className="receipt-watermark pointer-events-none absolute inset-0 grid place-items-center" aria-hidden><BrandMark className="h-72 w-72 opacity-[.045]" /></div>
         <div className="relative">
           <div className="flex items-center justify-between border-b pb-5"><div className="flex items-center gap-3"><BrandMark className="h-9 w-9" /><div><p className="text-xs font-bold tracking-[.22em] text-bank-700">SECUREPATH <span className="text-gold-600">BANK</span></p><p className="mt-1 text-[10px] uppercase tracking-widest text-neutral-400">Transaction receipt</p></div></div><span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase ${String(item.status).toLowerCase().startsWith("declin")||String(item.status).toLowerCase()==="failed"?"bg-red-50 text-red-700":"bg-emerald-50 text-emerald-700"}`}>{String(item.status)}</span></div>
           <p className={`mt-6 text-center text-3xl font-bold ${String(item.type) === "credit" ? "text-emerald-600" : "text-rose-600"}`}>{formatMoney(Number(item.amount), String(item.currency))}</p>

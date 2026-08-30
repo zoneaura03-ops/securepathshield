@@ -105,8 +105,8 @@ export function AdminShell({
     <div className="min-h-screen bg-[#f7f9fc] lg:grid lg:grid-cols-[284px_minmax(0,1fr)]">
       <aside className="hidden h-screen flex-col overflow-hidden border-r border-white/10 bg-[#06111f] text-white lg:sticky lg:top-0 lg:flex">
         <div className="border-b border-white/10 px-7 py-6">
-          <div className="flex w-full justify-center rounded-xl bg-white px-3 py-2">
-            <Logo href="/admin" sidebar />
+          <div className="inline-flex rounded-xl bg-white px-3 py-2">
+            <Logo href="/admin" />
           </div>
           <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-gold-300/55">
             <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#d6b45f]" />{" "}

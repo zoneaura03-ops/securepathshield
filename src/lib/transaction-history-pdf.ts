@@ -26,14 +26,6 @@ export async function buildTransactionHistoryPdf({
     doc.on("error", reject);
   });
   doc
-    .save()
-    .opacity(0.045)
-    .fontSize(64)
-    .fillColor("#0a1728")
-    .rotate(-32, { origin: [306, 396] })
-    .text("SECUREPATH BANK", 95, 350, { width: 430, align: "center" })
-    .restore();
-  doc
     .fillColor("#b78a32")
     .fontSize(12)
     .text("SECUREPATH BANK", { characterSpacing: 3 });
