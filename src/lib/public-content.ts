@@ -87,8 +87,8 @@ export const publicContent = {
     email: "support@securepathgroups.com",
   },
   proof: [
-    ["1M+", "Customers worldwide"],
-    ["LUME NETWORK", "Global payments partner"],
+    ["4.5M+", "Customers worldwide"],
+    ["Secure Path Group", "Global payments partner"],
     ["VERDE CAPITAL", "Institutional partner"],
     ["256-BIT", "Encrypted banking"],
     ["24/7", "Fraud monitoring"],
