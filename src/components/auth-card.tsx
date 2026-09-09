@@ -530,13 +530,13 @@ function Registration() {
               <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
-                  <span className={passwordStrong ? "text-[#0a1728]" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
+                  <span className={passwordStrong ? "text-emerald-700" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
                     {passwordStrong ? "Strong" : passwordScore >= 3 ? "Medium" : "Weak"}
                   </span>
                 </div>
                 <div className="mt-3 grid grid-cols-5 gap-1" aria-hidden="true">
                   {checks.map((_, index) => (
-                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-gold-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
+                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-emerald-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
                   ))}
                 </div>
                 <ul className="mt-3 grid gap-1 text-[11px] text-neutral-500 sm:grid-cols-2">
