@@ -65,7 +65,8 @@ export default function Home() {
           src="/images/securepathbank-corporate-hero-v2.webp"
           alt="SecurePath Bank banking professional"
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
           className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
         />
@@ -136,7 +137,7 @@ export default function Home() {
 
       <section
         id="features"
-        className="bg-[#f7f9fc] px-5 py-24 sm:px-8 sm:py-28"
+        className="bg-[#f7f9fc] px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:900px] sm:px-8 sm:py-28"
       >
         <div className="mx-auto max-w-[1100px]">
           <Heading
@@ -189,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-24 sm:px-8 sm:py-28">
+      <section className="px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:700px] sm:px-8 sm:py-28">
         <div className="mx-auto max-w-[1100px]">
           <Heading
             center
@@ -221,7 +222,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-28">
+      <section className="bg-bank-900 px-5 py-24 text-white [content-visibility:auto] [contain-intrinsic-size:900px] sm:px-8 sm:py-28">
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[.2em] text-gold-400">
@@ -298,7 +299,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-24 sm:px-8 sm:py-28">
+      <section className="px-5 py-24 [content-visibility:auto] [contain-intrinsic-size:700px] sm:px-8 sm:py-28">
         <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative min-h-[420px] overflow-hidden rounded-lg">
             <Image
@@ -342,7 +343,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7f9fc] px-5 py-20 text-center sm:px-8">
+      <section className="bg-[#f7f9fc] px-5 py-20 text-center [content-visibility:auto] [contain-intrinsic-size:400px] sm:px-8">
         <Heading
           center
           eyebrow="Start today"
