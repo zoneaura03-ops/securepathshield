@@ -32,6 +32,12 @@ export default function Page() {
             ? "/admin"
             : "/dashboard";
 
+      const activityKey =
+        data.role === "admin"
+          ? "securepathbank_admin_activity"
+          : "securepathbank_user_activity";
+      localStorage.setItem(activityKey, String(Date.now()));
+
       // Authentication changes the cookies used by middleware and server
       // components. A document navigation avoids reusing a route prefetched
       // before the session cookie existed and guarantees a clean hand-off.

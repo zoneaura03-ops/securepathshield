@@ -6,6 +6,8 @@ export function LogoutButton({ admin = false }: { admin?: boolean }) {
   const router = useRouter();
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
+    localStorage.removeItem("securepathbank_admin_activity");
+    localStorage.removeItem("securepathbank_user_activity");
     router.push(admin ? "/admin-login" : "/login");
     router.refresh();
   }

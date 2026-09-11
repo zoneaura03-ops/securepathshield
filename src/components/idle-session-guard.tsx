@@ -8,6 +8,7 @@ const ADMIN_TIMEOUT_MS = 15 * 60 * 1000;
 const ACTIVITY_EVENTS = [
   "pointerdown",
   "keydown",
+  "mousemove",
   "touchstart",
   "scroll",
 ] as const;
@@ -57,6 +58,10 @@ export function IdleSessionGuard() {
       localStorage.setItem(storageKey, String(lastWrite));
     };
 
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === storageKey && event.newValue) expired();
+    };
+
     if (!localStorage.getItem(storageKey)) recordActivity();
     else if (expired()) return;
 
@@ -68,6 +73,7 @@ export function IdleSessionGuard() {
       window.addEventListener(event, recordActivity, { passive: true }),
     );
     document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("storage", onStorage);
     const timer = window.setInterval(expired, 15_000);
 
     return () => {
@@ -75,6 +81,7 @@ export function IdleSessionGuard() {
         window.removeEventListener(event, recordActivity),
       );
       document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("storage", onStorage);
       window.clearInterval(timer);
     };
   }, [pathname]);

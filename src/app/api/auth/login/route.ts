@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { db, type DatabaseRow } from "../../../../lib/db";
 import { clientIp, rateLimit } from "../../../../lib/rate-limit";
-import { currentUser } from "../../../../lib/auth";
 
 export async function POST(request: Request) {
   try {
@@ -15,20 +14,11 @@ export async function POST(request: Request) {
         { status: 429, headers: { "retry-after": String(limit.retryAfter) } },
       );
     const { email, password, remember, admin, website } = await request.json();
-    if (website) return NextResponse.json({ error: "Automated submission rejected." }, { status: 400 });
-    if (admin) {
-      const existingUser = await currentUser();
-      if (existingUser)
-        return NextResponse.json(
-          {
-            error:
-              existingUser.role === "admin"
-                ? "An administrator is already signed in on this browser."
-                : "Sign out of your customer account before using administrator access.",
-          },
-          { status: 409 },
-        );
-    }
+    if (website)
+      return NextResponse.json(
+        { error: "Automated submission rejected." },
+        { status: 400 },
+      );
     if (typeof email !== "string" || typeof password !== "string")
       return NextResponse.json(
         { error: "Enter your email and password." },
@@ -78,7 +68,10 @@ export async function POST(request: Request) {
       );
     if (!admin && user.role !== "user")
       return NextResponse.json(
-        { error: "Administrator accounts must use the administrator sign-in page." },
+        {
+          error:
+            "Administrator accounts must use the administrator sign-in page.",
+        },
         { status: 403 },
       );
     if (!user.pin_hash)

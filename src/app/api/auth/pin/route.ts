@@ -2,7 +2,7 @@ import { compare } from "bcryptjs";
 import { createHash } from "node:crypto";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { createSession } from "../../../../lib/auth";
+import { createSession, destroySession } from "../../../../lib/auth";
 import { db, type DatabaseRow } from "../../../../lib/db";
 import { clientIp, rateLimit } from "../../../../lib/rate-limit";
 export async function POST(request: Request) {
@@ -36,7 +36,11 @@ export async function POST(request: Request) {
       { status: 403 },
     );
   await db.execute("DELETE FROM login_challenges WHERE id=?", [challenge.id]);
-  cookieStore.set("securepathbank_login_challenge", "", { path: "/", maxAge: 0 });
+  cookieStore.set("securepathbank_login_challenge", "", {
+    path: "/",
+    maxAge: 0,
+  });
+  await destroySession();
   await createSession(challenge.user_id, Boolean(challenge.remember_me));
   return NextResponse.json({ ok: true, role: challenge.role });
 }
